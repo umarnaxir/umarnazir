@@ -1,0 +1,40 @@
+/* [project]/app/components/Hero/HeroVisual/HeroVisual.module.css [app-client] (css) */
+.HeroVisual-module__wYQQsW__heroVisual {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.HeroVisual-module__wYQQsW__cursorIndicator {
+  border: 2px solid var(--color-text-primary);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  position: absolute;
+}
+
+.HeroVisual-module__wYQQsW__cursorDot {
+  background-color: var(--color-text-primary);
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  animation: 2s ease-in-out infinite HeroVisual-module__wYQQsW__pulse;
+}
+
+@keyframes HeroVisual-module__wYQQsW__pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .5;
+    transform: scale(.8);
+  }
+}
+
+/*# sourceMappingURL=app_components_Hero_HeroVisual_HeroVisual_module_css_bad6b30c._.single.css.map*/

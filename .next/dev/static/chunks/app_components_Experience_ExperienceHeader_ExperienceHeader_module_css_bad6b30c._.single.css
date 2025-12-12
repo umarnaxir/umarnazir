@@ -1,0 +1,24 @@
+/* [project]/app/components/Experience/ExperienceHeader/ExperienceHeader.module.css [app-client] (css) */
+.ExperienceHeader-module__gagtPa__sectionHeader {
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-4xl);
+  display: flex;
+}
+
+.ExperienceHeader-module__gagtPa__sectionNumber {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-family-mono);
+}
+
+@media (max-width: 768px) {
+  .ExperienceHeader-module__gagtPa__sectionHeader {
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=app_components_Experience_ExperienceHeader_ExperienceHeader_module_css_bad6b30c._.single.css.map*/

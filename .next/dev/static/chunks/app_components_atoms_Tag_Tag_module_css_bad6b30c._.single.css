@@ -1,0 +1,23 @@
+/* [project]/app/components/atoms/Tag/Tag.module.css [app-client] (css) */
+.Tag-module__-1qnsG__tag {
+  font-family: var(--font-family-body);
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+  align-items: center;
+  display: inline-flex;
+}
+
+.Tag-module__-1qnsG__tag:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+}
+
+/*# sourceMappingURL=app_components_atoms_Tag_Tag_module_css_bad6b30c._.single.css.map*/

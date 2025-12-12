@@ -1,0 +1,55 @@
+/* [project]/app/components/atoms/Input/Input.module.css [app-client] (css) */
+.Input-module__jP4lDW__inputWrapper {
+  gap: var(--spacing-xs);
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+}
+
+.Input-module__jP4lDW__label {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--color-text-secondary);
+}
+
+.Input-module__jP4lDW__input, .Input-module__jP4lDW__textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-base);
+  font-family: inherit;
+}
+
+.Input-module__jP4lDW__input:focus, .Input-module__jP4lDW__textarea:focus {
+  border-color: var(--color-input-focus);
+  background-color: var(--color-bg-tertiary);
+  outline: none;
+}
+
+.Input-module__jP4lDW__input::placeholder, .Input-module__jP4lDW__textarea::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.Input-module__jP4lDW__textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.Input-module__jP4lDW__error {
+  border-color: #ef4444;
+}
+
+.Input-module__jP4lDW__errorMessage {
+  font-size: var(--font-size-xs);
+  color: #ef4444;
+}
+
+/*# sourceMappingURL=app_components_atoms_Input_Input_module_css_bad6b30c._.single.css.map*/

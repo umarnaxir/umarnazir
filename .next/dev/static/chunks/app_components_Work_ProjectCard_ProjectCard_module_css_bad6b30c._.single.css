@@ -1,0 +1,130 @@
+/* [project]/app/components/Work/ProjectCard/ProjectCard.module.css [app-client] (css) */
+.ProjectCard-module__MVib1a__projectCard {
+  gap: var(--spacing-4xl);
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 100%;
+  display: grid;
+}
+
+.ProjectCard-module__MVib1a__projectCardReverse {
+  direction: rtl;
+}
+
+.ProjectCard-module__MVib1a__projectCardReverse > * {
+  direction: ltr;
+}
+
+.ProjectCard-module__MVib1a__projectInfo {
+  gap: var(--spacing-md);
+  flex-direction: column;
+  max-width: 100%;
+  display: flex;
+}
+
+.ProjectCard-module__MVib1a__projectNumber {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-family-mono);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1;
+}
+
+.ProjectCard-module__MVib1a__projectMeta {
+  font-family: var(--font-family-body);
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+}
+
+.ProjectCard-module__MVib1a__projectYear {
+  font-family: var(--font-family-mono);
+}
+
+.ProjectCard-module__MVib1a__projectCategory {
+  font-family: var(--font-family-body);
+  color: var(--color-text-secondary);
+}
+
+.ProjectCard-module__MVib1a__projectTitle {
+  font-family: var(--font-family-heading);
+  color: var(--color-accent);
+}
+
+.ProjectCard-module__MVib1a__projectDescription {
+  font-family: var(--font-family-body);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.ProjectCard-module__MVib1a__projectTags {
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.ProjectCard-module__MVib1a__projectLink {
+  font-family: var(--font-family-body);
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-top: var(--spacing-md);
+  transition: gap var(--transition-base);
+  display: inline-flex;
+}
+
+.ProjectCard-module__MVib1a__projectLink:hover {
+  gap: var(--spacing-sm);
+}
+
+.ProjectCard-module__MVib1a__projectVisual {
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  flex-shrink: 0;
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ProjectCard-module__MVib1a__projectVisualAlt {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.ProjectCard-module__MVib1a__projectVisualAlt2 {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+@media (max-width: 1024px) {
+  .ProjectCard-module__MVib1a__projectCard {
+    gap: var(--spacing-2xl);
+    grid-template-columns: 1fr;
+  }
+
+  .ProjectCard-module__MVib1a__projectCardReverse {
+    direction: ltr;
+  }
+
+  .ProjectCard-module__MVib1a__projectVisual {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ProjectCard-module__MVib1a__projectVisual {
+    height: 300px;
+  }
+}
+
+/*# sourceMappingURL=app_components_Work_ProjectCard_ProjectCard_module_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,16 @@
+/* [project]/app/components/About/AboutContent/AboutContent.module.css [app-client] (css) */
+.AboutContent-module__Qn5uTW__aboutDescription {
+  font-family: var(--font-family-body);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.AboutContent-module__Qn5uTW__aboutDescription p {
+  margin-bottom: var(--spacing-md);
+}
+
+.AboutContent-module__Qn5uTW__aboutDescription p:last-child {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=app_components_About_AboutContent_AboutContent_module_css_bad6b30c._.single.css.map*/

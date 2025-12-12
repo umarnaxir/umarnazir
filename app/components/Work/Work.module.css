@@ -1,0 +1,10 @@
+.work {
+  position: relative;
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+}
+

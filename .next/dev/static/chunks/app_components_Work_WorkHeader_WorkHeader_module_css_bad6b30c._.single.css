@@ -1,0 +1,24 @@
+/* [project]/app/components/Work/WorkHeader/WorkHeader.module.css [app-client] (css) */
+.WorkHeader-module__0deTBq__workHeader {
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-4xl);
+  display: flex;
+}
+
+.WorkHeader-module__0deTBq__sectionNumber {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-family-mono);
+}
+
+@media (max-width: 768px) {
+  .WorkHeader-module__0deTBq__workHeader {
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=app_components_Work_WorkHeader_WorkHeader_module_css_bad6b30c._.single.css.map*/

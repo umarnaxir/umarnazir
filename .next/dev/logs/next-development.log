@@ -1,4 +1,609 @@
-[00:00:03.006] Server  LOG      ✓ Ready in 2.8s
-[00:00:18.650] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:18.736] Browser WARN    Image with src "http://localhost:3001/vercel.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:02:36.051] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:00.621] Server  LOG      ✓ Ready in 441ms
+[00:00:06.486] Server  WARN     ⚠ Cross origin request detected from 192.168.129.173 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+[00:00:06.510] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:19.153] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         __gchrome_remoteframetoken="13067346c5e3f7bc263810ca206b2a81"
+                        >
+                          ...
+                            <div className={"Containe..."}>
+                              <div className="Contact-mo...">
+                                <div>
+                                <div className="Contact-mo...">
+                                  <form
+                                    className="Contact-module__Zv_Gsq__contactForm"
+                                    onSubmit={function handleSubmit}
+-                                   __gchrome_uniqueid="1"
+                                  >
+                                    <Input label="NAME" name="name" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="name"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="2"
+                                        >
+                                    <Input label="EMAIL" name="email" type="email" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="email"
+                                          type="email"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="3"
+                                        >
+                                    <Textarea label="MESSAGE" name="message" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <textarea
+                                          className={"Input-module__jP4lDW__textarea  "}
+                                          name="message"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="4"
+                                        >
+                                    ...
+                                  ...
+                  ...
+
+[00:00:50.805] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <Home>
+                <main>
+                  <NavBar>
+                  <section>
+                  <section>
+                  <section>
+                  <section>
+                  <Contact sectionNumber="04" description={"Open to ..."}>
+                    <Section id="contact" className="Contact-mo...">
+                      <section id="contact" className="Section-mo...">
+                        <Container>
+                          <div className={"Containe..."}>
+                            <div className="Contact-mo...">
+                              <div>
+                              <div className="Contact-mo...">
+                                <form
+                                  className="Contact-module__Zv_Gsq__contactForm"
+                                  onSubmit={function handleSubmit}
+-                                 __gchrome_uniqueid="1"
+                                >
+                                  <Input label="NAME" name="name" value="" onChange={function handleChange} ...>
+                                    <div className="Input-modu..." style={{width:"100%"}}>
+                                      <label>
+                                      <input
+                                        className={"Input-module__jP4lDW__input  "}
+                                        name="name"
+                                        value=""
+                                        onChange={function handleChange}
+                                        required={true}
+                                        placeholder=""
+-                                       __gchrome_uniqueid="2"
+                                      >
+                                  <Input label="EMAIL" name="email" type="email" value="" ...>
+                                    <div className="Input-modu..." style={{width:"100%"}}>
+                                      <label>
+                                      <input
+                                        className={"Input-module__jP4lDW__input  "}
+                                        name="email"
+                                        type="email"
+                                        value=""
+                                        onChange={function handleChange}
+                                        required={true}
+                                        placeholder=""
+-                                       __gchrome_uniqueid="3"
+                                      >
+                                  <Textarea label="MESSAGE" name="message" value="" onChange={function handleChange} ...>
+                                    <div className="Input-modu..." style={{width:"100%"}}>
+                                      <label>
+                                      <textarea
+                                        className={"Input-module__jP4lDW__textarea  "}
+                                        name="message"
+                                        value=""
+                                        onChange={function handleChange}
+                                        required={true}
+                                        placeholder=""
+-                                       __gchrome_uniqueid="4"
+                                      >
+                                  ...
+                                ...
+                  ...
+            ...
+          ...
+
+[00:03:33.607] Server  LOG      ✓ Compiled in 24ms
+[00:03:39.401] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         __gchrome_remoteframetoken="5d539e8dd1508e093e61dc4794461181"
+                        >
+                          ...
+                            <div className={"Containe..."}>
+                              <div className="Contact-mo...">
+                                <div>
+                                <div className="Contact-mo...">
+                                  <form
+                                    className="Contact-module__Zv_Gsq__contactForm"
+                                    onSubmit={function handleSubmit}
+-                                   __gchrome_uniqueid="1"
+                                  >
+                                    <Input label="NAME" name="name" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="name"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="2"
+                                        >
+                                    <Input label="EMAIL" name="email" type="email" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="email"
+                                          type="email"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="3"
+                                        >
+                                    <Textarea label="MESSAGE" name="message" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <textarea
+                                          className={"Input-module__jP4lDW__textarea  "}
+                                          name="message"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="4"
+                                        >
+                                    ...
+                                  ...
+                  ...
+
+[00:03:43.386] Server  LOG      ✓ Compiled in 7ms
+[00:03:44.662] Server  LOG      ✓ Compiled in 46ms
+[00:03:56.480] Server  LOG      ✓ Compiled in 4ms
+[00:04:12.165] Server  LOG      ✓ Compiled in 10ms
+[00:04:15.086] Server  LOG      ✓ Compiled in 3ms
+[00:04:30.613] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+            <SegmentViewNode type="page" pagePath="page.tsx">
+              <SegmentTrieNode>
+              <Home>
+                <main>
+                  <NavBar>
+                  <section>
+                  <section>
+                  <section>
+                  <section>
+                  <Contact sectionNumber="04" description={"Open to ..."}>
+                    <Section id="contact" className="Contact-mo...">
+                      <section id="contact" className="Section-mo...">
+                        <Container>
+                          <div className={"Containe..."}>
+                            <div className="Contact-mo...">
+                              <div>
+                              <div className="Contact-mo...">
+                                <form
+                                  className="Contact-module__Zv_Gsq__contactForm"
+                                  onSubmit={function handleSubmit}
+-                                 __gchrome_uniqueid="1"
+                                >
+                                  <Input label="NAME" name="name" value="" onChange={function handleChange} ...>
+                                    <div className="Input-modu..." style={{width:"100%"}}>
+                                      <label>
+                                      <input
+                                        className={"Input-module__jP4lDW__input  "}
+                                        name="name"
+                                        value=""
+                                        onChange={function handleChange}
+                                        required={true}
+                                        placeholder=""
+-                                       __gchrome_uniqueid="2"
+                                      >
+                                  <Input label="EMAIL" name="email" type="email" value="" ...>
+                                    <div className="Input-modu..." style={{width:"100%"}}>
+                                      <label>
+                                      <input
+                                        className={"Input-module__jP4lDW__input  "}
+                                        name="email"
+                                        type="email"
+                                        value=""
+                                        onChange={function handleChange}
+                                        required={true}
+                                        placeholder=""
+-                                       __gchrome_uniqueid="3"
+                                      >
+                                  <Textarea label="MESSAGE" name="message" value="" onChange={function handleChange} ...>
+                                    <div className="Input-modu..." style={{width:"100%"}}>
+                                      <label>
+                                      <textarea
+                                        className={"Input-module__jP4lDW__textarea  "}
+                                        name="message"
+                                        value=""
+                                        onChange={function handleChange}
+                                        required={true}
+                                        placeholder=""
+-                                       __gchrome_uniqueid="4"
+                                      >
+                                  ...
+                                ...
+                  ...
+            ...
+          ...
+
+[00:06:44.176] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         __gchrome_remoteframetoken="28e1cc50ee6a76e9f9b766db7b31aeac"
+                        >
+                          ...
+                            <div className={"Containe..."}>
+                              <div className="Contact-mo...">
+                                <div>
+                                <div className="Contact-mo...">
+                                  <form
+                                    className="Contact-module__Zv_Gsq__contactForm"
+                                    onSubmit={function handleSubmit}
+-                                   __gchrome_uniqueid="1"
+                                  >
+                                    <Input label="NAME" name="name" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="name"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="2"
+                                        >
+                                    <Input label="EMAIL" name="email" type="email" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="email"
+                                          type="email"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="3"
+                                        >
+                                    <Textarea label="MESSAGE" name="message" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <textarea
+                                          className={"Input-module__jP4lDW__textarea  "}
+                                          name="message"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="4"
+                                        >
+                                    ...
+                                  ...
+                  ...
+
+[00:06:46.651] Server  LOG      ✓ Compiled in 9ms
+[00:06:49.264] Server  LOG      ✓ Compiled in 8ms
+[00:06:50.433] Server  LOG      ✓ Compiled in 5ms
+[00:06:52.889] Server  LOG      ✓ Compiled in 6ms
+[00:07:05.313] Server  LOG      ✓ Compiled in 4ms
+[00:08:49.770] Server  LOG      ✓ Compiled in 7ms
+[00:08:51.428] Server  LOG      ✓ Compiled in 7ms
+[00:08:53.346] Server  LOG      ✓ Compiled in 5ms
+[00:08:54.926] Server  LOG      ✓ Compiled in 5ms
+[00:08:57.337] Server  LOG      ✓ Compiled in 4ms
+[00:08:59.433] Server  LOG      ✓ Compiled in 4ms
+[00:09:11.305] Server  LOG      ✓ Compiled in 5ms
+[00:14:15.645] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         __gchrome_remoteframetoken="f21285fdd01c41d15795412c44d3c06d"
+                        >
+                          ...
+                            <div className={"Containe..."}>
+                              <div className="Contact-mo...">
+                                <div>
+                                <div className="Contact-mo...">
+                                  <form
+                                    className="Contact-module__Zv_Gsq__contactForm"
+                                    onSubmit={function handleSubmit}
+-                                   __gchrome_uniqueid="1"
+                                  >
+                                    <Input label="NAME" name="name" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="name"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="2"
+                                        >
+                                    <Input label="EMAIL" name="email" type="email" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="email"
+                                          type="email"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="3"
+                                        >
+                                    <Textarea label="MESSAGE" name="message" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <textarea
+                                          className={"Input-module__jP4lDW__textarea  "}
+                                          name="message"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="4"
+                                        >
+                                    ...
+                                  ...
+                  ...
+
+[00:24:25.627] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:47.916] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         __gchrome_remoteframetoken="7e5932bf9a9abbc55b6dc47fdb640003"
+                        >
+                          ...
+                            <div className={"Containe..."}>
+                              <div className="Contact-mo...">
+                                <div>
+                                <div className="Contact-mo...">
+                                  <form
+                                    className="Contact-module__Zv_Gsq__contactForm"
+                                    onSubmit={function handleSubmit}
+-                                   __gchrome_uniqueid="1"
+                                  >
+                                    <Input label="NAME" name="name" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="name"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="2"
+                                        >
+                                    <Input label="EMAIL" name="email" type="email" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="email"
+                                          type="email"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="3"
+                                        >
+                                    <Textarea label="MESSAGE" name="message" value="" onChange={function handleChange} ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <textarea
+                                          className={"Input-module__jP4lDW__textarea  "}
+                                          name="message"
+                                          value=""
+                                          onChange={function handleChange}
+                                          required={true}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="4"
+                                        >
+                                    ...
+                                  ...
+                  ...
+
+[00:52:46.403] Server  ERROR    ⨯ Error: The default export is not a React Component in "/page"
+[00:52:46.564] Server  ERROR    ⨯ Error: The default export is not a React Component in "/page"
+[00:52:46.716] Server  ERROR    ⨯ Error: The default export is not a React Component in "/page"
+[00:52:46.866] Server  ERROR    ⨯ Error: The default export is not a React Component in "/page"
+[00:52:46.867] Server  LOG      ✓ Compiled in 78ms
+[00:52:47.278] Browser ERROR   uncaughtError: Error: The default export is not a React Component in "/page"
+[00:53:21.704] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

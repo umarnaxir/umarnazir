@@ -1,0 +1,100 @@
+/* [project]/app/components/Contact/ContactHeader/ContactHeader.module.css [app-client] (css) */
+.ContactHeader-module__5YIhEq__contactHeader {
+  gap: var(--spacing-4xl);
+  grid-template-columns: 1fr auto;
+  align-items: flex-start;
+  display: grid;
+  position: relative;
+}
+
+.ContactHeader-module__5YIhEq__contactHeaderContent {
+  gap: var(--spacing-lg);
+  flex-direction: column;
+  max-width: 600px;
+  display: flex;
+}
+
+.ContactHeader-module__5YIhEq__contactTitle {
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+}
+
+.ContactHeader-module__5YIhEq__sectionNumber {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-family-mono);
+}
+
+.ContactHeader-module__5YIhEq__contactDescription {
+  font-family: var(--font-family-body);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.ContactHeader-module__5YIhEq__contactVisual {
+  width: 20px;
+  height: 20px;
+  margin-top: var(--spacing-md);
+  flex-shrink: 0;
+  align-self: flex-start;
+  position: relative;
+}
+
+.ContactHeader-module__5YIhEq__cursorIndicator {
+  border: 2px solid var(--color-text-primary);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  position: relative;
+}
+
+.ContactHeader-module__5YIhEq__cursorDot {
+  background-color: var(--color-text-primary);
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  animation: 2s ease-in-out infinite ContactHeader-module__5YIhEq__pulse;
+}
+
+@keyframes ContactHeader-module__5YIhEq__pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .5;
+    transform: scale(.8);
+  }
+}
+
+@media (max-width: 1024px) {
+  .ContactHeader-module__5YIhEq__contactHeader {
+    gap: var(--spacing-2xl);
+    grid-template-columns: 1fr;
+  }
+
+  .ContactHeader-module__5YIhEq__contactVisual {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ContactHeader-module__5YIhEq__contactTitle {
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    flex-direction: column;
+  }
+
+  .ContactHeader-module__5YIhEq__contactHeaderContent {
+    max-width: 100%;
+  }
+}
+
+/*# sourceMappingURL=app_components_Contact_ContactHeader_ContactHeader_module_css_bad6b30c._.single.css.map*/

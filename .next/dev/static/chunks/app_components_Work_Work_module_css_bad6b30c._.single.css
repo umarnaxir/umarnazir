@@ -1,0 +1,12 @@
+/* [project]/app/components/Work/Work.module.css [app-client] (css) */
+.Work-module__cc3rUq__work {
+  position: relative;
+}
+
+.Work-module__cc3rUq__projectsList {
+  gap: var(--spacing-4xl);
+  flex-direction: column;
+  display: flex;
+}
+
+/*# sourceMappingURL=app_components_Work_Work_module_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,29 @@
+/* [project]/app/components/Footer/Footer.module.css [app-client] (css) */
+.Footer-module__JGhRua__footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.Footer-module__JGhRua__footerContent {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.Footer-module__JGhRua__footerCopyright, .Footer-module__JGhRua__footerTagline {
+  font-family: var(--font-family-body);
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+}
+
+@media (max-width: 768px) {
+  .Footer-module__JGhRua__footerContent {
+    gap: var(--spacing-md);
+    text-align: center;
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=app_components_Footer_Footer_module_css_bad6b30c._.single.css.map*/

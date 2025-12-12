@@ -1,0 +1,29 @@
+/* [project]/app/components/atoms/Section/Section.module.css [app-client] (css) */
+.Section-module__wLSK3G__section {
+  padding: var(--spacing-4xl) 0;
+  position: relative;
+}
+
+.Section-module__wLSK3G__sectionSmall {
+  padding: var(--spacing-2xl) 0;
+}
+
+.Section-module__wLSK3G__sectionLarge {
+  padding: var(--spacing-4xl) 0;
+}
+
+@media (max-width: 768px) {
+  .Section-module__wLSK3G__section {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .Section-module__wLSK3G__sectionSmall {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .Section-module__wLSK3G__sectionLarge {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+/*# sourceMappingURL=app_components_atoms_Section_Section_module_css_bad6b30c._.single.css.map*/

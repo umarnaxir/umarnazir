@@ -1,0 +1,32 @@
+/* [project]/app/components/Experience/Experience.module.css [app-client] (css) */
+.Experience-module__B5A2Yq__experience {
+  position: relative;
+}
+
+.Experience-module__B5A2Yq__timeline {
+  padding-left: var(--spacing-3xl);
+  position: relative;
+}
+
+.Experience-module__B5A2Yq__timelineLine {
+  background-color: var(--color-accent);
+  width: 2px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.Experience-module__B5A2Yq__timelineItems {
+  gap: var(--spacing-4xl);
+  flex-direction: column;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .Experience-module__B5A2Yq__timeline {
+    padding-left: var(--spacing-2xl);
+  }
+}
+
+/*# sourceMappingURL=app_components_Experience_Experience_module_css_bad6b30c._.single.css.map*/

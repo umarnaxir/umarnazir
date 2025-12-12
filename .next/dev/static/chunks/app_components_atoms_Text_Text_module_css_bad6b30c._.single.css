@@ -1,0 +1,124 @@
+/* [project]/app/components/atoms/Text/Text.module.css [app-client] (css) */
+.Text-module__JA_K4a__text {
+  margin: 0;
+}
+
+.Text-module__JA_K4a__h1 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+
+.Text-module__JA_K4a__h2 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -.01em;
+  line-height: 1.2;
+}
+
+.Text-module__JA_K4a__h3 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.3;
+}
+
+.Text-module__JA_K4a__h4 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+}
+
+.Text-module__JA_K4a__h5 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+}
+
+.Text-module__JA_K4a__h6 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+.Text-module__JA_K4a__body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.Text-module__JA_K4a__bodyLarge {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+}
+
+.Text-module__JA_K4a__bodySmall {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.Text-module__JA_K4a__caption {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+}
+
+.Text-module__JA_K4a__primary {
+  color: var(--color-text-primary);
+}
+
+.Text-module__JA_K4a__secondary {
+  color: var(--color-text-secondary);
+}
+
+.Text-module__JA_K4a__tertiary {
+  color: var(--color-text-tertiary);
+}
+
+.Text-module__JA_K4a__accent {
+  color: var(--color-accent);
+}
+
+.Text-module__JA_K4a__normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.Text-module__JA_K4a__medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.Text-module__JA_K4a__semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.Text-module__JA_K4a__bold {
+  font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 768px) {
+  .Text-module__JA_K4a__h1 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .Text-module__JA_K4a__h2 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .Text-module__JA_K4a__h3 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .Text-module__JA_K4a__h4 {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/*# sourceMappingURL=app_components_atoms_Text_Text_module_css_bad6b30c._.single.css.map*/

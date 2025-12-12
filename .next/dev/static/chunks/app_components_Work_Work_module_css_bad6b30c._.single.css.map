@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/components/Work/Work.module.css"],"sourcesContent":[".work {\n  position: relative;\n}\n\n.projectsList {\n  display: flex;\n  flex-direction: column;\n  gap: var(--spacing-4xl);\n}\n\n"],"names":[],"mappings":"AAAA;;;;AAIA"}}]
+}
