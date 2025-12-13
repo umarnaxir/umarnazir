@@ -16,8 +16,13 @@
 @media (max-width: 768px) {
   .WorkHeader-module__0deTBq__workHeader {
     align-items: flex-start;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
     flex-direction: column;
+  }
+
+  .WorkHeader-module__0deTBq__sectionNumber {
+    font-size: var(--font-size-lg);
   }
 }
 

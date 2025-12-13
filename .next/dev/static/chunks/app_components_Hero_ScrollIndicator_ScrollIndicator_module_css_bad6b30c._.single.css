@@ -14,6 +14,17 @@
   transform: translateX(-50%);
 }
 
+@media (max-width: 768px) {
+  .ScrollIndicator-module__PxJz3W__scrollIndicator {
+    bottom: var(--spacing-md);
+    font-size: .65rem;
+  }
+
+  .ScrollIndicator-module__PxJz3W__scrollLine {
+    height: 30px;
+  }
+}
+
 .ScrollIndicator-module__PxJz3W__scrollLine {
   background-color: var(--color-text-secondary);
   width: 1px;

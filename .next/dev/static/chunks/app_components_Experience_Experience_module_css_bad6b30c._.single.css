@@ -32,7 +32,11 @@
 
 @media (max-width: 768px) {
   .Experience-module__B5A2Yq__timeline {
-    padding-left: var(--spacing-2xl);
+    padding-left: var(--spacing-lg);
+  }
+
+  .Experience-module__B5A2Yq__timelineItems {
+    gap: var(--spacing-xl);
   }
 }
 

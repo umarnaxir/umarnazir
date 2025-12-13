@@ -13,6 +13,17 @@
   letter-spacing: 0.1em;
 }
 
+@media (max-width: 768px) {
+  .scrollIndicator {
+    bottom: var(--spacing-md);
+    font-size: 0.65rem;
+  }
+
+  .scrollLine {
+    height: 30px;
+  }
+}
+
 .scrollLine {
   width: 1px;
   height: 40px;

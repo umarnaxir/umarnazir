@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/components/atoms/Section/Section.module.css"],"sourcesContent":[".section {\n  padding: var(--spacing-4xl) 0;\n  position: relative;\n}\n\n.sectionSmall {\n  padding: var(--spacing-2xl) 0;\n}\n\n.sectionLarge {\n  padding: var(--spacing-4xl) 0;\n}\n\n@media (max-width: 768px) {\n  .section {\n    padding: var(--spacing-3xl) 0;\n  }\n\n  .sectionSmall {\n    padding: var(--spacing-xl) 0;\n  }\n\n  .sectionLarge {\n    padding: var(--spacing-3xl) 0;\n  }\n}\n\n"],"names":[],"mappings":"AAAA;;;;;AAKA;;;;AAIA;;;;AAIA;EACE;;;;EAIA;;;;EAIA"}}]
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/components/atoms/Section/Section.module.css"],"sourcesContent":[".section {\n  padding: var(--spacing-4xl) 0;\n  position: relative;\n}\n\n.sectionSmall {\n  padding: var(--spacing-2xl) 0;\n}\n\n.sectionLarge {\n  padding: var(--spacing-4xl) 0;\n}\n\n@media (max-width: 768px) {\n  .section {\n    padding: var(--spacing-2xl) 0;\n  }\n\n  .sectionSmall {\n    padding: var(--spacing-lg) 0;\n  }\n\n  .sectionLarge {\n    padding: var(--spacing-2xl) 0;\n  }\n}\n\n"],"names":[],"mappings":"AAAA;;;;;AAKA;;;;AAIA;;;;AAIA;EACE;;;;EAIA;;;;EAIA"}}]
 }

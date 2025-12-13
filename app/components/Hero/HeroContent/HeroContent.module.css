@@ -58,8 +58,19 @@
 }
 
 @media (max-width: 768px) {
+  .heroText {
+    gap: var(--spacing-md);
+  }
+
   .headline {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
+    line-height: 1.3;
+  }
+
+  .description {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
   }
 }
 

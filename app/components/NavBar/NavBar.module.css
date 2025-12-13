@@ -472,8 +472,17 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: var(--spacing-md) 0;
+  }
+
   .navbarContent {
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-xl);
+  }
+
+  .logo {
+    font-size: var(--font-size-base);
+    height: 32px;
   }
 
   .navRight {

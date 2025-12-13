@@ -16,7 +16,12 @@
   .workHeader {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .sectionNumber {
+    font-size: var(--font-size-lg);
   }
 }
 

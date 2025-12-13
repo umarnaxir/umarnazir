@@ -20,12 +20,13 @@
 
 @media (max-width: 768px) {
   .Hero-module__PycF7W__hero {
-    min-height: 90vh;
-    padding-top: 100px;
+    min-height: 85vh;
+    padding-top: 60px;
+    padding-bottom: var(--spacing-2xl);
   }
 
   .Hero-module__PycF7W__heroContent {
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-xl);
   }
 }
 

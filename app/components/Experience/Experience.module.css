@@ -31,7 +31,11 @@
 
 @media (max-width: 768px) {
   .timeline {
-    padding-left: var(--spacing-2xl);
+    padding-left: var(--spacing-lg);
+  }
+
+  .timelineItems {
+    gap: var(--spacing-xl);
   }
 }
 

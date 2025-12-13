@@ -45,8 +45,8 @@
 
 @media (max-width: 768px) {
   .Work-module__cc3rUq__viewAllButtonContainer {
-    margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
   }
 
   .Work-module__cc3rUq__viewAllButton {

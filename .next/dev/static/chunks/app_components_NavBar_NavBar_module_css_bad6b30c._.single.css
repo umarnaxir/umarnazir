@@ -481,8 +481,17 @@
 }
 
 @media (max-width: 768px) {
+  .NavBar-module__ywSGya__navbar {
+    padding: var(--spacing-md) 0;
+  }
+
   .NavBar-module__ywSGya__navbarContent {
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-xl);
+  }
+
+  .NavBar-module__ywSGya__logo {
+    font-size: var(--font-size-base);
+    height: 32px;
   }
 
   .NavBar-module__ywSGya__navRight {

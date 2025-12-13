@@ -44,8 +44,8 @@
 
 @media (max-width: 768px) {
   .viewAllButtonContainer {
-    margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
   }
 
   .viewAllButton {
