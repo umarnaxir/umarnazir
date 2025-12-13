@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Section, Container } from '../atoms';
 import { AboutHeader } from './AboutHeader/AboutHeader';
@@ -14,6 +16,24 @@ export const About: React.FC<AboutProps> = ({
   sectionNumber = '03',
   content,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const aosProps = isMobile ? {} : {
+    'data-aos': "fade-left",
+    'data-aos-delay': 300
+  };
+
   return (
     <>
       <Section id="about" className={styles.about}>
@@ -23,7 +43,7 @@ export const About: React.FC<AboutProps> = ({
               <AboutHeader sectionNumber={sectionNumber} />
               <AboutContent content={content} />
             </div>
-            <div className={styles.aboutVisual} data-aos="fade-left" data-aos-delay="300">
+            <div className={styles.aboutVisual} {...aosProps}>
               <div className={styles.aboutImage}>
                 <Image
                   src="/images/me.png"

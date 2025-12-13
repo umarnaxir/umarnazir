@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Text, Tag } from '../../atoms';
 import { ExternalLink } from 'lucide-react';
@@ -12,14 +14,31 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isLast = false }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const aosProps = isMobile ? {} : {
+    'data-aos': index % 2 === 0 ? "fade-right" : "fade-left",
+    'data-aos-delay': index * 100
+  };
+
   return (
     <>
       <div
         className={`${styles.projectCard} ${
           index % 2 === 1 ? styles.projectCardReverse : ''
         }`}
-        data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-        data-aos-delay={index * 100}
+        {...aosProps}
       >
         <div className={styles.projectInfo}>
           <Text variant="h4" className={styles.projectNumber}>

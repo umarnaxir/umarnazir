@@ -1,10 +1,95 @@
-[00:00:00.804] Server  LOG      ✓ Ready in 619ms
-[00:00:02.020] Server  WARN     ⚠ Cross origin request detected from 10.202.206.173 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:00.856] Server  LOG      ✓ Ready in 650ms
+[00:00:07.348] Server  WARN     ⚠ Cross origin request detected from 10.202.206.173 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:04.552] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:04.878] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:04.878] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:04.951] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:07.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:07.601] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:17.448] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="space_grotesk_e6988195-module__RNs2Mq__variable inter_c15e96cb-module__0bjUvq__va..."
+-                         __gchrome_remoteframetoken="3eef1999e1577ad03faedc8261de7bbf"
+                        >
+                          ...
+                            <div className="Contact-mo...">
+                              <div>
+                              <div className="Contact-mo...">
+                                <ContactForm>
+                                  <form
+                                    className="ContactForm-module__zmhP2G__contactForm"
+                                    onSubmit={function useEventCallback.useCallback}
+                                    data-aos="fade-up"
+                                    data-aos-delay="300"
+-                                   __gchrome_uniqueid="1"
+                                  >
+                                    <Input label="NAME" name="name" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="name"
+                                          value=""
+                                          onChange={function useEventCallback.useCallback}
+                                          onBlur={function useEventCallback.useCallback}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="2"
+                                        >
+                                    <Input label="EMAIL" name="email" type="email" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="email"
+                                          type="email"
+                                          value=""
+                                          onChange={function useEventCallback.useCallback}
+                                          onBlur={function useEventCallback.useCallback}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="3"
+                                        >
+                                    <Textarea label="MESSAGE" name="message" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <textarea
+                                          className={"Input-module__jP4lDW__textarea  "}
+                                          name="message"
+                                          value=""
+                                          onChange={function useEventCallback.useCallback}
+                                          onBlur={function useEventCallback.useCallback}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="4"
+                                        >
+                                    ...
+                  ...
+
+[00:01:22.120] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -94,25 +179,944 @@ It can also happen if the client has a browser extension installed which messes 
                 ...
               ...
 
-[00:00:38.966] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:39.144] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:39.144] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:09.181] Server  LOG      ✓ Compiled in 17ms
-[00:02:11.978] Server  LOG      ✓ Compiled in 5ms
-[00:02:19.710] Server  LOG      ✓ Compiled in 4ms
-[00:03:50.656] Server  LOG      ✓ Compiled in 10ms
-[00:04:02.926] Server  LOG      ✓ Compiled in 8ms
-[00:04:09.953] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:10.163] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:04:10.163] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:04:13.694] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:13.866] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:04:13.866] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:04:26.218] Server  LOG      ✓ Compiled in 8ms
-[00:05:13.276] Server  LOG      ✓ Compiled in 9ms
-[00:05:27.090] Server  LOG      ✓ Compiled in 11ms
-[00:05:32.255] Server  LOG      ✓ Compiled in 5ms
-[00:05:52.180] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:20.750] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:08:20.979] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:08:20.979] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:43.107] Server  LOG      ✓ Compiled in 11ms
+[00:02:04.314] Server  LOG      ✓ Compiled in 9ms
+[00:02:23.858] Server  LOG      ✓ Compiled in 17ms
+[00:06:21.750] Server  LOG      ✓ Compiled in 18ms
+[00:06:25.365] Server  LOG      ✓ Compiled in 48ms
+[00:06:34.868] Server  LOG      ✓ Compiled in 8ms
+[00:06:40.981] Server  LOG      ✓ Compiled in 8ms
+[00:06:57.726] Server  LOG      ✓ Compiled in 10ms
+[00:07:00.259] Server  LOG      ✓ Compiled in 7ms
+[00:07:14.447] Server  LOG      ✓ Compiled in 8ms
+[00:07:16.951] Server  LOG      ✓ Compiled in 10ms
+[00:07:23.896] Server  LOG      ✓ Compiled in 8ms
+[00:07:25.682] Server  LOG      ✓ Compiled in 7ms
+[00:07:41.887] Server  LOG      ✓ Compiled in 8ms
+[00:08:34.060] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:10:33.065] Server  LOG      ✓ Compiled in 48ms
+[00:12:09.909] Server  LOG      ✓ Compiled in 46ms
+[00:12:22.647] Server  LOG      ✓ Compiled in 9ms
+[00:12:24.387] Server  LOG      ✓ Compiled in 7ms
+[00:13:11.323] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:13:25.819] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:13:38.379] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:13:50.315] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:14:28.126] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:28.346] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:14:28.346] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:16:54.215] Server  LOG      ✓ Compiled in 18ms
+[00:16:55.402] Server  LOG      ✓ Compiled in 7ms
+[00:16:56.826] Server  LOG      ✓ Compiled in 12ms
+[00:17:04.910] Server  LOG      ✓ Compiled in 11ms
+[00:17:06.406] Server  LOG      ✓ Compiled in 7ms
+[00:17:41.039] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:41.257] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:17:41.257] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:19:45.803] Server  LOG      ✓ Compiled in 12ms
+[00:19:46.982] Server  LOG      ✓ Compiled in 7ms
+[00:19:48.388] Server  LOG      ✓ Compiled in 9ms
+[00:21:04.964] Server  LOG      ✓ Compiled in 7ms
+[00:22:18.221] Server  LOG      ✓ Compiled in 29ms
+[00:22:22.374] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:22:32.962] Server  LOG      ✓ Compiled in 60ms
+[00:22:42.311] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:22:49.446] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:23:20.508] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <Home>
+                    <main>
+                      <NavBar>
+                      <section>
+                      <Work>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <section>
+                      <hr>
+                      <Contact>
+                        <Section>
+                          <section id="contact" className="Section-mo...">
+                            <Container>
+                              <div className={"Containe..."}>
+                                <div className="Contact-mo...">
+                                  <div>
+                                  <div className="Contact-mo...">
+                                    <ContactForm>
+                                      <form
+                                        className="ContactForm-module__zmhP2G__contactForm"
+                                        onSubmit={function useEventCallback.useCallback}
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+-                                       __gchrome_uniqueid="1"
+                                      >
+                                        <Input label="NAME" name="name" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="name"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="2"
+                                            >
+                                        <Input label="EMAIL" name="email" type="email" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <input
+                                              className={"Input-module__jP4lDW__input  "}
+                                              name="email"
+                                              type="email"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="3"
+                                            >
+                                        <Textarea label="MESSAGE" name="message" value="" ...>
+                                          <div className="Input-modu..." style={{width:"100%"}}>
+                                            <label>
+                                            <textarea
+                                              className={"Input-module__jP4lDW__textarea  "}
+                                              name="message"
+                                              value=""
+                                              onChange={function useEventCallback.useCallback}
+                                              onBlur={function useEventCallback.useCallback}
+                                              placeholder=""
+-                                             __gchrome_uniqueid="4"
+                                            >
+                                        ...
+                      ...
+                ...
+              ...
+
+[00:24:52.321] Server  LOG      ✓ Compiled in 0ms
+[00:25:39.802] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:40.025] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:25:40.025] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:27:23.755] Server  LOG      ✓ Compiled in 21ms
+[00:28:47.530] Server  LOG      ✓ Compiled in 15ms
+[00:31:10.108] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="space_grotesk_e6988195-module__RNs2Mq__variable inter_c15e96cb-module__0bjUvq__va..."
+-                         __gchrome_remoteframetoken="bf251d20b28bc90fe57e54a34ba9f79a"
+                        >
+                          ...
+                            <div className="Contact-mo...">
+                              <div>
+                              <div className="Contact-mo...">
+                                <ContactForm>
+                                  <form
+                                    className="ContactForm-module__zmhP2G__contactForm"
+                                    onSubmit={function useEventCallback.useCallback}
+                                    data-aos="fade-up"
+                                    data-aos-delay="300"
+-                                   __gchrome_uniqueid="1"
+                                  >
+                                    <Input label="NAME" name="name" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="name"
+                                          value=""
+                                          onChange={function useEventCallback.useCallback}
+                                          onBlur={function useEventCallback.useCallback}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="2"
+                                        >
+                                    <Input label="EMAIL" name="email" type="email" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <input
+                                          className={"Input-module__jP4lDW__input  "}
+                                          name="email"
+                                          type="email"
+                                          value=""
+                                          onChange={function useEventCallback.useCallback}
+                                          onBlur={function useEventCallback.useCallback}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="3"
+                                        >
+                                    <Textarea label="MESSAGE" name="message" value="" ...>
+                                      <div className="Input-modu..." style={{width:"100%"}}>
+                                        <label>
+                                        <textarea
+                                          className={"Input-module__jP4lDW__textarea  "}
+                                          name="message"
+                                          value=""
+                                          onChange={function useEventCallback.useCallback}
+                                          onBlur={function useEventCallback.useCallback}
+                                          placeholder=""
+-                                         __gchrome_uniqueid="4"
+                                        >
+                                    ...
+                  ...
+
+[00:32:45.665] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:32:45.885] Browser ERROR   unhandledRejection: Error: Failed to load chunk /_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_c8c997ce._.js from module [turbopack]/browser/dev/hmr-client/hmr-client.ts [app-client] (ecmascript, async loader)
+[00:32:45.885] Browser WARN    Image with src "/images/ml-jobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:32:45.885] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
