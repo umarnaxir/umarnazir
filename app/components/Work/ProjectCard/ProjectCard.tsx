@@ -51,7 +51,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isLast
         </div>
         <div className={styles.projectVisual}>
           <Image
-            src="/images/mljobs.png"
+            src="/images/ml-jobs.png"
             alt={project.title}
             fill
             className={styles.projectVisualImg}

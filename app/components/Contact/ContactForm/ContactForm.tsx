@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Input, Textarea } from '../../atoms';
 import { Send } from 'lucide-react';
+import { toast } from 'sonner';
 import styles from './ContactForm.module.css';
 
 export const ContactForm: React.FC = () => {
@@ -26,16 +27,41 @@ export const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // TODO: Implement form submission logic
-    console.log('Form submitted:', formData);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+
+      // Success
+      toast.success('Message sent successfully!', {
+        description: 'We\'ll get back to you soon.',
+      });
+      
+      // Reset form
       setFormData({ name: '', email: '', message: '' });
-      alert('Message sent successfully!');
-    }, 1000);
+    } catch (error) {
+      // Error handling
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'Failed to send message. Please try again later.';
+      
+      toast.error('Failed to send message', {
+        description: errorMessage,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

@@ -3765,7 +3765,7 @@ const portfolioData = {
         },
         {
             id: '10',
-            number: '010',
+            number: '10',
             year: '2024',
             category: 'HEALTHCARE / MEDICAL',
             title: 'Altaf Hospital',
@@ -3781,7 +3781,7 @@ const portfolioData = {
         },
         {
             id: '11',
-            number: '011',
+            number: '11',
             year: '2024',
             category: 'DIGITAL MARKETING / AGENCY',
             title: 'Digitlia',

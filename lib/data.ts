@@ -159,7 +159,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: '10',
-      number: '010',
+      number: '10',
       year: '2024',
       category: 'HEALTHCARE / MEDICAL',
       title: 'Altaf Hospital',
@@ -170,7 +170,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: '11',
-      number: '011',
+      number: '11',
       year: '2024',
       category: 'DIGITAL MARKETING / AGENCY',
       title: 'Digitlia',
