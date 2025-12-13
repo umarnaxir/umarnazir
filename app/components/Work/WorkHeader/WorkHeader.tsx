@@ -8,7 +8,7 @@ interface WorkHeaderProps {
 
 export const WorkHeader: React.FC<WorkHeaderProps> = ({ sectionNumber }) => {
   return (
-    <div className={styles.workHeader}>
+    <div className={styles.workHeader} data-aos="fade-up">
       <Text variant="h2" className={styles.sectionNumber}>
         {sectionNumber}
       </Text>

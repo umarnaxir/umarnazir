@@ -8,7 +8,7 @@ interface AboutContentProps {
 
 export const AboutContent: React.FC<AboutContentProps> = ({ content }) => {
   return (
-    <div className={styles.aboutDescription}>
+    <div className={styles.aboutDescription} data-aos="fade-right" data-aos-delay="200">
       {typeof content === 'string' ? (
         content.split('\n\n').map((paragraph, index) => (
           <Text key={index} variant="bodyLarge" color="secondary">

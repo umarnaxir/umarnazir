@@ -11,7 +11,7 @@ export const ContactForm: React.FC = () => {
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } = formik;
 
   return (
-    <form className={styles.contactForm} onSubmit={handleSubmit}>
+    <form className={styles.contactForm} onSubmit={handleSubmit} data-aos="fade-up" data-aos-delay="300">
       <Input
         label="NAME"
         name="name"

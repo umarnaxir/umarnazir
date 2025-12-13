@@ -1851,7 +1851,7 @@
 
 .ContactHeader-module__5YIhEq__headline {
   font-family: var(--font-family-heading);
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3rem, 10vw, 4rem);
   font-weight: var(--font-weight-bold);
   letter-spacing: -.02em;
   color: var(--color-text-primary);

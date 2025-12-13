@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import AOS from 'aos';
 import { Section, Container } from '../atoms';
 import { WorkHeader } from './WorkHeader/WorkHeader';
 import { ProjectCard } from './ProjectCard/ProjectCard';
@@ -22,6 +23,11 @@ export const Work: React.FC<WorkProps> = ({
   
   const displayedProjects = showAll ? projects : projects.slice(0, INITIAL_PROJECTS_COUNT);
   const hasMoreProjects = projects.length > INITIAL_PROJECTS_COUNT;
+
+  useEffect(() => {
+    // Refresh AOS when projects are dynamically shown/hidden
+    AOS.refresh();
+  }, [showAll]);
 
   const handleViewAll = () => {
     setShowAll(true);

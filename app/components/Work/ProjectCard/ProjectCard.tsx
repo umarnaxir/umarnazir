@@ -18,6 +18,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isLast
         className={`${styles.projectCard} ${
           index % 2 === 1 ? styles.projectCardReverse : ''
         }`}
+        data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+        data-aos-delay={index * 100}
       >
         <div className={styles.projectInfo}>
           <Text variant="h4" className={styles.projectNumber}>

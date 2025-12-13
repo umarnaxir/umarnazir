@@ -10,7 +10,7 @@ export const Footer: React.FC<FooterProps> = ({ name }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-aos="fade-up">
       <Container>
         <div className={styles.footerContent}>
           <Text variant="caption" color="tertiary" className={styles.footerCopyright}>

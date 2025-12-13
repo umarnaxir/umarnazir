@@ -48,7 +48,7 @@ export const ReachOut: React.FC<ReachOutProps> = ({
     <section className={styles.reachOut}>
       <Container>
         <div className={styles.reachOutContent}>
-          <div className={styles.reachOutHeaderWrapper}>
+          <div className={styles.reachOutHeaderWrapper} data-aos="fade-up">
             <div className={styles.reachOutLine} />
             <Text variant="caption" color="secondary" className={styles.reachOutHeader}>
               OR REACH OUT DIRECTLY
@@ -58,7 +58,12 @@ export const ReachOut: React.FC<ReachOutProps> = ({
 
           <div className={styles.contactCards}>
             {contactCards.map((card, index) => (
-              <div key={index} className={styles.contactCard}>
+              <div 
+                key={index} 
+                className={styles.contactCard}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
                 <Text variant="caption" color="secondary" className={styles.cardLabel}>
                   {card.label}
                 </Text>

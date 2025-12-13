@@ -70,7 +70,10 @@ export const NavBar: React.FC<NavBarProps> = ({
   };
 
   return (
-    <nav className={`${styles.navbar} ${mobileMenuOpen ? styles.mobileMenuActive : ''}`}>
+    <nav 
+      className={`${styles.navbar} ${mobileMenuOpen ? styles.mobileMenuActive : ''}`}
+      data-aos="fade-down"
+    >
       <div className={styles.navbarContent}>
         <a href="#" className={styles.logo}>
           {name}

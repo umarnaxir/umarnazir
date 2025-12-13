@@ -22,8 +22,8 @@ export const Experience: React.FC<ExperienceProps> = ({
           <div className={styles.timeline}>
             <div className={styles.timelineLine} />
             <div className={styles.timelineItems}>
-              {experiences.map((exp) => (
-                <ExperienceCard key={exp.id} experience={exp} />
+              {experiences.map((exp, index) => (
+                <ExperienceCard key={exp.id} experience={exp} index={index} />
               ))}
             </div>
           </div>

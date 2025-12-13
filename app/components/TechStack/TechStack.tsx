@@ -427,12 +427,17 @@ export const TechStack: React.FC = () => {
       <Section id="techstack" className={styles.techStack}>
         <Container className={styles.techStackContainer}>
           <div className={styles.techStackWrapper}>
-            <Text variant="h2" className={styles.techStackTitle}>
+            <Text variant="h2" className={styles.techStackTitle} data-aos="fade-up">
               TECHNOLOGIES I WORK WITH
             </Text>
             <div className={styles.techStackGrid}>
               {techStack.map((tech, index) => (
-                <div key={index} className={styles.techItem}>
+                <div 
+                  key={index} 
+                  className={styles.techItem}
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 50}
+                >
                   <div className={styles.techIcon}>
                     {tech.icon}
                   </div>

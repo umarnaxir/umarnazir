@@ -8,7 +8,7 @@ interface ExperienceHeaderProps {
 
 export const ExperienceHeader: React.FC<ExperienceHeaderProps> = ({ sectionNumber }) => {
   return (
-    <div className={styles.sectionHeader}>
+    <div className={styles.sectionHeader} data-aos="fade-up">
       <Text variant="h2" className={styles.sectionNumber}>
         {sectionNumber}
       </Text>

@@ -23,7 +23,7 @@ export const About: React.FC<AboutProps> = ({
               <AboutHeader sectionNumber={sectionNumber} />
               <AboutContent content={content} />
             </div>
-            <div className={styles.aboutVisual}>
+            <div className={styles.aboutVisual} data-aos="fade-left" data-aos-delay="300">
               <div className={styles.aboutImage}>
                 <Image
                   src="/images/me.png"

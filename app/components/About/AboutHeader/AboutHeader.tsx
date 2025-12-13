@@ -8,7 +8,7 @@ interface AboutHeaderProps {
 
 export const AboutHeader: React.FC<AboutHeaderProps> = ({ sectionNumber }) => {
   return (
-    <div className={styles.aboutHeader}>
+    <div className={styles.aboutHeader} data-aos="fade-up">
       <Text variant="h2" className={styles.sectionNumber}>
         {sectionNumber}
       </Text>

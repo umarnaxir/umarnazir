@@ -16,15 +16,24 @@ export const HeroContent: React.FC<HeroContentProps> = ({
 
   return (
     <div className={styles.heroText}>
-      <p className={styles.subtitle}>{title}</p>
+      <p className={styles.subtitle} data-aos="fade-up" data-aos-delay="0">
+        {title}
+      </p>
       <div className={styles.title}>
         {headlineLines.map((line, index) => (
-          <h2 key={index} className={styles.headline}>
+          <h2 
+            key={index} 
+            className={styles.headline}
+            data-aos="fade-up"
+            data-aos-delay={`${100 + index * 100}`}
+          >
             {line.trim()}
           </h2>
         ))}
       </div>
-      <p className={styles.description}>{description}</p>
+      <p className={styles.description} data-aos="fade-up" data-aos-delay="400">
+        {description}
+      </p>
     </div>
   );
 };

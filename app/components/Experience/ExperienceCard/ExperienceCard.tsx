@@ -6,11 +6,12 @@ import styles from './ExperienceCard.module.css';
 
 interface ExperienceCardProps {
   experience: ExperienceItem;
+  index: number;
 }
 
-export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
+export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, index }) => {
   return (
-    <div className={styles.timelineItem}>
+    <div className={styles.timelineItem} data-aos="fade-up" data-aos-delay={index * 150}>
       <div className={styles.timelineDotWrapper}>
         <div className={styles.timelineDotOuter} />
         <div className={styles.timelineDot} />

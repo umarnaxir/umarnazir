@@ -52,7 +52,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$serv
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$resend$2f$dist$2f$index$2e$mjs__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/resend/dist/index.mjs [app-route] (ecmascript)");
 ;
 ;
-const TEAM_EMAIL = "umar@saibbyweb.com";
+const TEAM_EMAIL = "erumarnazir@gmail.com";
 const FROM_EMAIL = "No Reply <no-reply@ninemash.com>";
 function getContactFormHtmlForTeam(data) {
     return `

@@ -84,6 +84,8 @@ const HeroContent = ({ title, headline, description })=>{
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Hero$2f$HeroContent$2f$HeroContent$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].subtitle,
+                "data-aos": "fade-up",
+                "data-aos-delay": "0",
                 children: title
             }, void 0, false, {
                 fileName: "[project]/app/components/Hero/HeroContent/HeroContent.tsx",
@@ -94,23 +96,27 @@ const HeroContent = ({ title, headline, description })=>{
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Hero$2f$HeroContent$2f$HeroContent$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].title,
                 children: headlineLines.map((line, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Hero$2f$HeroContent$2f$HeroContent$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].headline,
+                        "data-aos": "fade-up",
+                        "data-aos-delay": `${100 + index * 100}`,
                         children: line.trim()
                     }, index, false, {
                         fileName: "[project]/app/components/Hero/HeroContent/HeroContent.tsx",
-                        lineNumber: 22,
+                        lineNumber: 24,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/app/components/Hero/HeroContent/HeroContent.tsx",
-                lineNumber: 20,
+                lineNumber: 22,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Hero$2f$HeroContent$2f$HeroContent$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].description,
+                "data-aos": "fade-up",
+                "data-aos-delay": "400",
                 children: description
             }, void 0, false, {
                 fileName: "[project]/app/components/Hero/HeroContent/HeroContent.tsx",
-                lineNumber: 27,
+                lineNumber: 34,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
@@ -142,6 +148,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Hero$2f
 const ScrollIndicator = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Hero$2f$ScrollIndicator$2f$ScrollIndicator$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].scrollIndicator,
+        "data-aos": "fade-up",
+        "data-aos-delay": "600",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                 children: "SCROLL TO EXPLORE"
@@ -675,6 +683,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experie
 const ExperienceHeader = ({ sectionNumber })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$ExperienceHeader$2f$ExperienceHeader$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].sectionHeader,
+        "data-aos": "fade-up",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
                 variant: "h2",
@@ -739,9 +748,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experie
 ;
 ;
 ;
-const ExperienceCard = ({ experience })=>{
+const ExperienceCard = ({ experience, index })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$ExperienceCard$2f$ExperienceCard$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].timelineItem,
+        "data-aos": "fade-up",
+        "data-aos-delay": index * 150,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$ExperienceCard$2f$ExperienceCard$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].timelineDotWrapper,
@@ -750,20 +761,20 @@ const ExperienceCard = ({ experience })=>{
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$ExperienceCard$2f$ExperienceCard$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].timelineDotOuter
                     }, void 0, false, {
                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                        lineNumber: 15,
+                        lineNumber: 16,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$ExperienceCard$2f$ExperienceCard$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].timelineDot
                     }, void 0, false, {
                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                        lineNumber: 16,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                lineNumber: 14,
+                lineNumber: 15,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -781,7 +792,7 @@ const ExperienceCard = ({ experience })=>{
                                         children: experience.company
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                        lineNumber: 21,
+                                        lineNumber: 22,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
@@ -790,7 +801,7 @@ const ExperienceCard = ({ experience })=>{
                                         children: experience.role
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                        lineNumber: 24,
+                                        lineNumber: 25,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
@@ -804,13 +815,13 @@ const ExperienceCard = ({ experience })=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                        lineNumber: 27,
+                                        lineNumber: 28,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                lineNumber: 20,
+                                lineNumber: 21,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
@@ -820,13 +831,13 @@ const ExperienceCard = ({ experience })=>{
                                 children: experience.date
                             }, void 0, false, {
                                 fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                lineNumber: 31,
+                                lineNumber: 32,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                        lineNumber: 19,
+                        lineNumber: 20,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
@@ -836,7 +847,7 @@ const ExperienceCard = ({ experience })=>{
                         children: experience.description
                     }, void 0, false, {
                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                        lineNumber: 35,
+                        lineNumber: 36,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -849,25 +860,25 @@ const ExperienceCard = ({ experience })=>{
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$ExperienceCard$2f$ExperienceCard$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].experienceListArrow
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                        lineNumber: 41,
+                                        lineNumber: 42,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: responsibility
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                        lineNumber: 42,
+                                        lineNumber: 43,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, index, true, {
                                 fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                lineNumber: 40,
+                                lineNumber: 41,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                        lineNumber: 38,
+                        lineNumber: 39,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -876,24 +887,24 @@ const ExperienceCard = ({ experience })=>{
                                 children: tag
                             }, tag, false, {
                                 fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                                lineNumber: 48,
+                                lineNumber: 49,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                        lineNumber: 46,
+                        lineNumber: 47,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-                lineNumber: 18,
+                lineNumber: 19,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/Experience/ExperienceCard/ExperienceCard.tsx",
-        lineNumber: 13,
+        lineNumber: 14,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -954,8 +965,9 @@ const Experience = ({ sectionNumber = '02', experiences })=>{
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$Experience$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].timelineItems,
-                                    children: experiences.map((exp)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$ExperienceCard$2f$ExperienceCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ExperienceCard"], {
-                                            experience: exp
+                                    children: experiences.map((exp, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Experience$2f$ExperienceCard$2f$ExperienceCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ExperienceCard"], {
+                                            experience: exp,
+                                            index: index
                                         }, exp.id, false, {
                                             fileName: "[project]/app/components/Experience/Experience.tsx",
                                             lineNumber: 26,
@@ -1025,6 +1037,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$About$2
 const AboutHeader = ({ sectionNumber })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$About$2f$AboutHeader$2f$AboutHeader$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].aboutHeader,
+        "data-aos": "fade-up",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
                 variant: "h2",
@@ -1074,6 +1087,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$About$2
 const AboutContent = ({ content })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$About$2f$AboutContent$2f$AboutContent$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].aboutDescription,
+        "data-aos": "fade-right",
+        "data-aos-delay": "200",
         children: typeof content === 'string' ? content.split('\n\n').map((paragraph, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
                 variant: "bodyLarge",
                 color: "secondary",
@@ -1158,6 +1173,8 @@ const About = ({ sectionNumber = '03', content })=>{
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$About$2f$About$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].aboutVisual,
+                                "data-aos": "fade-left",
+                                "data-aos-delay": "300",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$About$2f$About$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].aboutImage,
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -3090,6 +3107,7 @@ const TechStack = ()=>{
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
                                 variant: "h2",
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TechStack$2f$TechStack$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].techStackTitle,
+                                "data-aos": "fade-up",
                                 children: "TECHNOLOGIES I WORK WITH"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/TechStack/TechStack.tsx",
@@ -3100,13 +3118,15 @@ const TechStack = ()=>{
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TechStack$2f$TechStack$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].techStackGrid,
                                 children: techStack.map((tech, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TechStack$2f$TechStack$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].techItem,
+                                        "data-aos": "zoom-in",
+                                        "data-aos-delay": index * 50,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TechStack$2f$TechStack$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].techIcon,
                                                 children: tech.icon
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/TechStack/TechStack.tsx",
-                                                lineNumber: 436,
+                                                lineNumber: 441,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
@@ -3115,7 +3135,7 @@ const TechStack = ()=>{
                                                 children: tech.name
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/TechStack/TechStack.tsx",
-                                                lineNumber: 439,
+                                                lineNumber: 444,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
@@ -3149,7 +3169,7 @@ const TechStack = ()=>{
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$TechStack$2f$TechStack$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].techStackDivider
             }, void 0, false, {
                 fileName: "[project]/app/components/TechStack/TechStack.tsx",
-                lineNumber: 448,
+                lineNumber: 453,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
@@ -3191,6 +3211,7 @@ const ContactHeader = ({ sectionNumber, headline, description })=>{
     const headlineLines = headline.split('\n').filter((line)=>line.trim() !== '');
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Contact$2f$ContactHeader$2f$ContactHeader$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].contactHeader,
+        "data-aos": "fade-up",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Contact$2f$ContactHeader$2f$ContactHeader$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].contactHeaderContent,
             children: [
@@ -3199,6 +3220,8 @@ const ContactHeader = ({ sectionNumber, headline, description })=>{
                     children: headlineLines.map((line, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
                             variant: "h1",
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Contact$2f$ContactHeader$2f$ContactHeader$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].headline,
+                            "data-aos": "fade-up",
+                            "data-aos-delay": index * 100,
                             children: line.trim()
                         }, index, false, {
                             fileName: "[project]/app/components/Contact/ContactHeader/ContactHeader.tsx",
@@ -3214,10 +3237,12 @@ const ContactHeader = ({ sectionNumber, headline, description })=>{
                     variant: "bodyLarge",
                     color: "secondary",
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Contact$2f$ContactHeader$2f$ContactHeader$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].contactDescription,
+                    "data-aos": "fade-up",
+                    "data-aos-delay": "200",
                     children: description
                 }, void 0, false, {
                     fileName: "[project]/app/components/Contact/ContactHeader/ContactHeader.tsx",
-                    lineNumber: 28,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
@@ -3411,6 +3436,7 @@ const ReachOut = ({ email = 'erumarnazir@gmail.com', phone = '+917051732616', gi
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$ReachOut$2f$ReachOut$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].reachOutHeaderWrapper,
+                        "data-aos": "fade-up",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$ReachOut$2f$ReachOut$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].reachOutLine
@@ -3446,6 +3472,8 @@ const ReachOut = ({ email = 'erumarnazir@gmail.com', phone = '+917051732616', gi
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$ReachOut$2f$ReachOut$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].contactCards,
                         children: contactCards.map((card, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$ReachOut$2f$ReachOut$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].contactCard,
+                                "data-aos": "fade-up",
+                                "data-aos-delay": index * 100,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
                                         variant: "caption",
@@ -3454,7 +3482,7 @@ const ReachOut = ({ email = 'erumarnazir@gmail.com', phone = '+917051732616', gi
                                         children: card.label
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ReachOut/ReachOut.tsx",
-                                        lineNumber: 62,
+                                        lineNumber: 67,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     card.href ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -3468,12 +3496,12 @@ const ReachOut = ({ email = 'erumarnazir@gmail.com', phone = '+917051732616', gi
                                             children: card.value
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ReachOut/ReachOut.tsx",
-                                            lineNumber: 72,
+                                            lineNumber: 77,
                                             columnNumber: 21
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ReachOut/ReachOut.tsx",
-                                        lineNumber: 66,
+                                        lineNumber: 71,
                                         columnNumber: 19
                                     }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Text"], {
                                         variant: "body",
@@ -3481,7 +3509,7 @@ const ReachOut = ({ email = 'erumarnazir@gmail.com', phone = '+917051732616', gi
                                         children: card.value
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ReachOut/ReachOut.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 82,
                                         columnNumber: 19
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
@@ -3548,6 +3576,7 @@ const Footer = ({ name })=>{
     const currentYear = new Date().getFullYear();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Footer$2f$Footer$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].footer,
+        "data-aos": "fade-up",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Container$2f$Container$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Container"], {
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Footer$2f$Footer$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].footerContent,

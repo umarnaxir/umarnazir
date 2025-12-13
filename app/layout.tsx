@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { Toaster } from "sonner";
+import { AOSInit } from "./components/AOSInit";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
+        <AOSInit />
         {children}
         <Toaster position="top-right" richColors />
       </body>
