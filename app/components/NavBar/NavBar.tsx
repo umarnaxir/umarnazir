@@ -22,12 +22,12 @@ export const NavBar: React.FC<NavBarProps> = ({
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ],
-  resumeUrl = '#',
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
   useEffect(() => {
-    if (mobileMenuOpen) {
+    if (mobileMenuOpen || resumeModalOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -35,7 +35,7 @@ export const NavBar: React.FC<NavBarProps> = ({
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, resumeModalOpen]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -45,6 +45,30 @@ export const NavBar: React.FC<NavBarProps> = ({
     setMobileMenuOpen(false);
   };
 
+  const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setResumeModalOpen(true);
+  };
+
+  const handleViewResume = () => {
+    window.open('/resume/cv.pdf', '_blank');
+    setResumeModalOpen(false);
+  };
+
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume/cv.pdf';
+    link.download = 'Umar_Nazir_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setResumeModalOpen(false);
+  };
+
+  const closeResumeModal = () => {
+    setResumeModalOpen(false);
+  };
+
   return (
     <nav className={`${styles.navbar} ${mobileMenuOpen ? styles.mobileMenuActive : ''}`}>
       <div className={styles.navbarContent}>
@@ -52,19 +76,21 @@ export const NavBar: React.FC<NavBarProps> = ({
           {name}
         </a>
 
-        <ul className={styles.navLinks}>
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} className={styles.navLink}>
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.navRight}>
+          <ul className={styles.navLinks}>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} className={styles.navLink}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <a href={resumeUrl} className={styles.resumeButton}>
-          Resume
-        </a>
+          <a href="#" onClick={handleResumeClick} className={styles.resumeButton}>
+            Resume
+          </a>
+        </div>
 
         <button
           className={`${styles.mobileMenuButton} ${mobileMenuOpen ? styles.mobileMenuButtonOpen : ''}`}
@@ -86,9 +112,19 @@ export const NavBar: React.FC<NavBarProps> = ({
         }}
       >
         <div className={styles.mobileMenuContent}>
-          <a href="#" className={styles.mobileMenuLogo} onClick={closeMobileMenu}>
-            {name}
-          </a>
+          <div className={styles.mobileMenuHeader}>
+            <a href="#" className={styles.mobileMenuLogo} onClick={closeMobileMenu}>
+              {name}
+            </a>
+            <button
+              className={styles.mobileMenuCloseButton}
+              onClick={closeMobileMenu}
+              aria-label="Close menu"
+            >
+              ×
+            </button>
+          </div>
+          <hr className={styles.mobileMenuDivider} />
           <ul className={styles.mobileNavLinks}>
             {navItems.map((item) => (
               <li key={item.href}>
@@ -103,9 +139,13 @@ export const NavBar: React.FC<NavBarProps> = ({
             ))}
             <li>
               <a
-                href={resumeUrl}
+                href="#"
                 className={styles.resumeLink}
-                onClick={closeMobileMenu}
+                onClick={(e) => {
+                  e.preventDefault();
+                  closeMobileMenu();
+                  handleResumeClick(e);
+                }}
               >
                 Resume
               </a>
@@ -113,6 +153,43 @@ export const NavBar: React.FC<NavBarProps> = ({
           </ul>
         </div>
       </div>
+
+      {/* Resume Modal */}
+      {resumeModalOpen && (
+        <div 
+          className={styles.resumeModalOverlay}
+          onClick={closeResumeModal}
+        >
+          <div 
+            className={styles.resumeModal}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className={styles.resumeModalTitle}>Resume Options</h3>
+            <p className={styles.resumeModalText}>Choose an option:</p>
+            <div className={styles.resumeModalButtons}>
+              <button 
+                className={styles.resumeModalButton}
+                onClick={handleViewResume}
+              >
+                View Resume
+              </button>
+              <button 
+                className={styles.resumeModalButton}
+                onClick={handleDownloadResume}
+              >
+                Download Resume
+              </button>
+            </div>
+            <button 
+              className={styles.resumeModalClose}
+              onClick={closeResumeModal}
+              aria-label="Close modal"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

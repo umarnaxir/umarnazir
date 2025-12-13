@@ -1,98 +1,63 @@
 /* [project]/app/components/Contact/ContactHeader/ContactHeader.module.css [app-client] (css) */
 .ContactHeader-module__5YIhEq__contactHeader {
-  gap: var(--spacing-4xl);
-  grid-template-columns: 1fr auto;
-  align-items: flex-start;
-  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
   position: relative;
 }
 
 .ContactHeader-module__5YIhEq__contactHeaderContent {
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
+  text-align: center;
   flex-direction: column;
-  max-width: 600px;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
   display: flex;
+  position: relative;
 }
 
 .ContactHeader-module__5YIhEq__contactTitle {
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-sm);
+  gap: 0;
+  line-height: 1.1;
   display: flex;
 }
 
-.ContactHeader-module__5YIhEq__sectionNumber {
-  font-size: var(--font-size-2xl);
+.ContactHeader-module__5YIhEq__headline {
+  font-family: var(--font-family-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-tertiary);
-  font-family: var(--font-family-mono);
+  letter-spacing: -.02em;
+  color: var(--color-text-primary);
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  line-height: 1.1;
+  display: block;
 }
 
 .ContactHeader-module__5YIhEq__contactDescription {
   font-family: var(--font-family-body);
   color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 600px;
   line-height: 1.8;
 }
 
-.ContactHeader-module__5YIhEq__contactVisual {
-  width: 20px;
-  height: 20px;
-  margin-top: var(--spacing-md);
-  flex-shrink: 0;
-  align-self: flex-start;
-  position: relative;
-}
-
-.ContactHeader-module__5YIhEq__cursorIndicator {
-  border: 2px solid var(--color-text-primary);
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  position: relative;
-}
-
-.ContactHeader-module__5YIhEq__cursorDot {
-  background-color: var(--color-text-primary);
-  border-radius: 50%;
-  width: 6px;
-  height: 6px;
-  animation: 2s ease-in-out infinite ContactHeader-module__5YIhEq__pulse;
-}
-
-@keyframes ContactHeader-module__5YIhEq__pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: .5;
-    transform: scale(.8);
-  }
-}
-
-@media (max-width: 1024px) {
-  .ContactHeader-module__5YIhEq__contactHeader {
-    gap: var(--spacing-2xl);
-    grid-template-columns: 1fr;
-  }
-
-  .ContactHeader-module__5YIhEq__contactVisual {
-    display: none;
-  }
-}
-
 @media (max-width: 768px) {
-  .ContactHeader-module__5YIhEq__contactTitle {
-    align-items: flex-start;
-    gap: var(--spacing-md);
-    flex-direction: column;
+  .ContactHeader-module__5YIhEq__contactHeaderContent {
+    max-width: 100%;
   }
 
-  .ContactHeader-module__5YIhEq__contactHeaderContent {
+  .ContactHeader-module__5YIhEq__headline {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .ContactHeader-module__5YIhEq__contactDescription {
     max-width: 100%;
   }
 }

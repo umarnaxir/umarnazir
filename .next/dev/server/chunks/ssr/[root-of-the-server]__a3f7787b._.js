@@ -517,12 +517,22 @@ __turbopack_context__.s([
     "Text",
     ()=>Text
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/app/components/atoms/Text/Text.module.css [app-ssr] (css module)");
 ;
 ;
 const Text = ({ variant = 'body', color = 'primary', weight, as, children, className = '' })=>{
-    const Component = as || (variant.startsWith('h') ? variant : 'p');
+    // Map variant to HTML tag name
+    const getTagName = ()=>{
+        if (as) {
+            return as;
+        }
+        if (variant === 'h1' || variant === 'h2' || variant === 'h3' || variant === 'h4' || variant === 'h5' || variant === 'h6') {
+            return variant;
+        }
+        return 'p';
+    };
+    const Component = getTagName();
     const classNames = [
         __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].text,
         __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"][variant],
@@ -530,14 +540,9 @@ const Text = ({ variant = 'body', color = 'primary', weight, as, children, class
         weight && __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$atoms$2f$Text$2f$Text$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"][weight],
         className
     ].filter(Boolean).join(' ');
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Component, {
-        className: classNames,
-        children: children
-    }, void 0, false, {
-        fileName: "[project]/app/components/atoms/Text/Text.tsx",
-        lineNumber: 48,
-        columnNumber: 10
-    }, ("TURBOPACK compile-time value", void 0));
+    return /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].createElement(Component, {
+        className: classNames
+    }, children);
 };
 }),
 "[project]/app/components/atoms/Container/Container.module.css [app-ssr] (css module)", ((__turbopack_context__) => {

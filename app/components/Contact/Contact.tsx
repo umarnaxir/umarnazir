@@ -26,11 +26,6 @@ export const Contact: React.FC<ContactProps> = ({
           />
           <div className={styles.contactFormSection}>
             <ContactForm />
-            <div className={styles.contactFormVisual}>
-              <div className={styles.cursorIndicator}>
-                <div className={styles.cursorDot} />
-              </div>
-            </div>
           </div>
         </div>
       </Container>

@@ -4,16 +4,49 @@
   position: relative;
 }
 
-.ExperienceCard-module__xG-vEq__timelineDot {
-  background-color: var(--color-accent);
-  border: 2px solid var(--color-bg-primary);
-  z-index: 2;
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
+.ExperienceCard-module__xG-vEq__timelineDotWrapper {
+  left: calc(-1 * var(--spacing-3xl)  - 7px);
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  display: flex;
   position: absolute;
   top: 12px;
-  left: -6px;
+}
+
+.ExperienceCard-module__xG-vEq__timelineDotOuter {
+  background-color: var(--color-accent);
+  opacity: 0;
+  z-index: 1;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  transition: all .3s cubic-bezier(.4, 0, .2, 1);
+  position: absolute;
+  transform: scale(0);
+}
+
+.ExperienceCard-module__xG-vEq__timelineItem:hover .ExperienceCard-module__xG-vEq__timelineDotOuter, .ExperienceCard-module__xG-vEq__timelineItem:active .ExperienceCard-module__xG-vEq__timelineDotOuter {
+  opacity: .2;
+  transform: scale(1);
+}
+
+.ExperienceCard-module__xG-vEq__timelineDot {
+  background-color: var(--color-accent);
+  border: 3px solid var(--color-bg-primary);
+  z-index: 2;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  transition: all .3s cubic-bezier(.4, 0, .2, 1);
+  position: relative;
+}
+
+.ExperienceCard-module__xG-vEq__timelineItem:hover .ExperienceCard-module__xG-vEq__timelineDot, .ExperienceCard-module__xG-vEq__timelineItem:active .ExperienceCard-module__xG-vEq__timelineDot {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px #3b82f61a;
 }
 
 .ExperienceCard-module__xG-vEq__experienceCard {
@@ -21,11 +54,19 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--spacing-xl);
-  transition: all var(--transition-base);
+  cursor: pointer;
+  transition: all .3s cubic-bezier(.4, 0, .2, 1);
+  transform: translateX(0);
 }
 
 .ExperienceCard-module__xG-vEq__experienceCard:hover {
   border-color: var(--color-accent);
+  transform: translateX(8px);
+  box-shadow: 0 4px 24px #3b82f626;
+}
+
+.ExperienceCard-module__xG-vEq__experienceCard:active {
+  transform: translateX(4px);
 }
 
 .ExperienceCard-module__xG-vEq__cardHeader {
@@ -45,12 +86,22 @@
 .ExperienceCard-module__xG-vEq__companyName {
   margin-bottom: var(--spacing-xs);
   line-height: 1.2;
+  transition: color .3s;
+}
+
+.ExperienceCard-module__xG-vEq__experienceCard:hover .ExperienceCard-module__xG-vEq__companyName {
+  color: var(--color-accent);
 }
 
 .ExperienceCard-module__xG-vEq__role {
   color: var(--color-accent);
   margin-bottom: var(--spacing-xs);
   line-height: 1.3;
+  transition: color .3s;
+}
+
+.ExperienceCard-module__xG-vEq__experienceCard:hover .ExperienceCard-module__xG-vEq__role {
+  color: var(--color-accent-hover);
 }
 
 .ExperienceCard-module__xG-vEq__locationType {
@@ -90,13 +141,24 @@
   gap: var(--spacing-sm);
   color: var(--color-text-secondary);
   line-height: 1.8;
+  transition: transform .2s, color .2s;
   display: flex;
+}
+
+.ExperienceCard-module__xG-vEq__experienceCard:hover .ExperienceCard-module__xG-vEq__experienceListItem {
+  transform: translateX(4px);
 }
 
 .ExperienceCard-module__xG-vEq__experienceListArrow {
   color: var(--color-accent);
   flex-shrink: 0;
   margin-top: 6px;
+  transition: transform .2s, color .2s;
+}
+
+.ExperienceCard-module__xG-vEq__experienceCard:hover .ExperienceCard-module__xG-vEq__experienceListArrow {
+  color: var(--color-accent-hover);
+  transform: translateX(2px);
 }
 
 .ExperienceCard-module__xG-vEq__experienceTags {
@@ -109,6 +171,14 @@
 @media (max-width: 768px) {
   .ExperienceCard-module__xG-vEq__timelineItem {
     padding-left: var(--spacing-md);
+  }
+
+  .ExperienceCard-module__xG-vEq__timelineDotWrapper {
+    left: calc(-1 * var(--spacing-2xl)  - 7px);
+  }
+
+  .ExperienceCard-module__xG-vEq__experienceCard:hover {
+    transform: translateX(4px);
   }
 
   .ExperienceCard-module__xG-vEq__cardHeader {

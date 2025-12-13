@@ -1,0 +1,132 @@
+.techStack {
+  position: relative;
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+  padding: var(--spacing-4xl) 0;
+  display: flex;
+  align-items: center;
+}
+
+.techStackContainer {
+  width: 100%;
+}
+
+.techStackWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4xl);
+  width: 100%;
+}
+
+.techStackTitle {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.techStackGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--spacing-xl);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.techItem:hover {
+  transform: translateY(-4px);
+}
+
+.techItem:hover .techIcon {
+  opacity: 0.8;
+}
+
+.techIcon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs);
+}
+
+.techIcon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.techName {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .techStackGrid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .techIcon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.techStackDivider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .techStack {
+    padding: var(--spacing-3xl) 0;
+    min-height: 100vh;
+  }
+
+  .techStackTitle {
+    font-size: var(--font-size-2xl);
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+  }
+
+  .techStackWrapper {
+    gap: var(--spacing-xl);
+  }
+
+  .techStackGrid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .techIcon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .techName {
+    font-size: 0.8rem;
+  }
+}
+

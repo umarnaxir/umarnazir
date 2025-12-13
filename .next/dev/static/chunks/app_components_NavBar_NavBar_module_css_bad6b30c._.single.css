@@ -54,9 +54,17 @@
   color: var(--color-accent);
 }
 
+.NavBar-module__ywSGya__navRight {
+  align-items: center;
+  gap: 0;
+  display: flex;
+}
+
 .NavBar-module__ywSGya__navLinks {
   align-items: center;
   gap: var(--spacing-xl);
+  margin: 0;
+  padding: 0;
   list-style: none;
   display: flex;
 }
@@ -92,6 +100,10 @@
   position: relative;
 }
 
+.NavBar-module__ywSGya__navbar.NavBar-module__ywSGya__mobileMenuActive .NavBar-module__ywSGya__mobileMenuButton {
+  display: none;
+}
+
 .NavBar-module__ywSGya__hamburgerLine {
   background-color: var(--color-text-primary);
   height: 2px;
@@ -101,16 +113,17 @@
 }
 
 .NavBar-module__ywSGya__hamburgerLine:first-child {
-  align-self: flex-start;
-  width: 14px;
+  align-self: flex-end;
+  width: 12px;
 }
 
 .NavBar-module__ywSGya__hamburgerLine:nth-child(2) {
-  width: 24px;
+  align-self: flex-end;
+  width: 18px;
 }
 
 .NavBar-module__ywSGya__hamburgerLine:nth-child(3) {
-  width: 32px;
+  width: 24px;
 }
 
 .NavBar-module__ywSGya__mobileMenuButtonOpen .NavBar-module__ywSGya__hamburgerLine:first-child {
@@ -132,7 +145,7 @@
   background-color: var(--color-bg-primary);
   z-index: 1000;
   height: 100vh;
-  padding: var(--spacing-2xl) var(--spacing-xl);
+  padding: var(--spacing-lg) var(--spacing-xl);
   animation: NavBar-module__ywSGya__slideDown var(--transition-slow) ease-out;
   display: none;
   position: fixed;
@@ -150,15 +163,69 @@
   display: flex;
 }
 
+.NavBar-module__ywSGya__mobileMenuHeader {
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
 .NavBar-module__ywSGya__mobileMenuLogo {
   font-family: var(--font-family-heading);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
-  margin-bottom: var(--spacing-3xl);
-  padding-top: var(--spacing-xl);
   opacity: 0;
+  text-decoration: none;
   animation: .4s ease-out .1s forwards NavBar-module__ywSGya__fadeInUp;
+}
+
+.NavBar-module__ywSGya__mobileMenuCloseButton {
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  width: 50px;
+  height: 50px;
+  transition: color var(--transition-fast);
+  opacity: 0;
+  background: none;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  line-height: 1;
+  animation: .6s ease-out .1s forwards NavBar-module__ywSGya__spinIn;
+  display: flex;
+}
+
+.NavBar-module__ywSGya__mobileMenuCloseButton:hover {
+  color: var(--color-accent);
+}
+
+@keyframes NavBar-module__ywSGya__spinIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-180deg)scale(.5);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotate(10deg)scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0)scale(1);
+  }
+}
+
+.NavBar-module__ywSGya__mobileMenuDivider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+  margin-bottom: var(--spacing-lg);
+  width: 100%;
 }
 
 @keyframes NavBar-module__ywSGya__slideDown {
@@ -178,10 +245,10 @@
 }
 
 .NavBar-module__ywSGya__mobileNavLinks {
-  gap: var(--spacing-xl);
   flex-direction: column;
   flex: 1;
   justify-content: flex-start;
+  gap: 0;
   list-style: none;
   display: flex;
 }
@@ -229,22 +296,25 @@
 
 .NavBar-module__ywSGya__mobileNavLinks .NavBar-module__ywSGya__navLink {
   font-size: var(--font-size-xl);
-  padding: var(--spacing-md) 0;
-  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) 0;
   transition: all var(--transition-base);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--color-text-primary);
+  text-decoration: none;
   display: block;
 }
 
 .NavBar-module__ywSGya__mobileNavLinks .NavBar-module__ywSGya__navLink:hover {
   color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
-  padding-left: var(--spacing-md);
+  padding-left: var(--spacing-sm);
 }
 
 .NavBar-module__ywSGya__mobileNavLinks .NavBar-module__ywSGya__resumeLink {
   font-size: var(--font-size-xl);
-  padding: var(--spacing-md) 0;
-  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-sm) 0;
   transition: all var(--transition-base);
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-medium);
@@ -257,8 +327,7 @@
 
 .NavBar-module__ywSGya__mobileNavLinks .NavBar-module__ywSGya__resumeLink:hover {
   color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
-  padding-left: var(--spacing-md);
+  padding-left: var(--spacing-sm);
 }
 
 .NavBar-module__ywSGya__resumeButton {
@@ -273,6 +342,7 @@
   border-radius: var(--radius-sm);
   transition: all var(--transition-base);
   cursor: pointer;
+  margin-left: var(--spacing-xl);
   background-color: #0000;
   justify-content: center;
   align-items: center;
@@ -285,17 +355,146 @@
   color: var(--color-bg-primary);
 }
 
+.NavBar-module__ywSGya__resumeModalOverlay {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  z-index: var(--z-modal);
+  padding: var(--spacing-xl);
+  background-color: #000c;
+  justify-content: center;
+  align-items: center;
+  animation: .2s ease-out NavBar-module__ywSGya__fadeIn;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+@keyframes NavBar-module__ywSGya__fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.NavBar-module__ywSGya__resumeModal {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-2xl);
+  padding-top: var(--spacing-3xl);
+  width: 100%;
+  max-width: 450px;
+  animation: .3s cubic-bezier(.4, 0, .2, 1) NavBar-module__ywSGya__slideUp;
+  position: relative;
+  box-shadow: 0 20px 60px #00000080;
+}
+
+@keyframes NavBar-module__ywSGya__slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px)scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)scale(1);
+  }
+}
+
+.NavBar-module__ywSGya__resumeModalTitle {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.2;
+}
+
+.NavBar-module__ywSGya__resumeModalText {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-xl) 0;
+  line-height: 1.6;
+}
+
+.NavBar-module__ywSGya__resumeModalButtons {
+  gap: var(--spacing-md);
+  flex-direction: column;
+  display: flex;
+}
+
+.NavBar-module__ywSGya__resumeModalButton {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: center;
+  background-color: #0000;
+  width: 100%;
+}
+
+.NavBar-module__ywSGya__resumeModalButton:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border-color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.NavBar-module__ywSGya__resumeModalClose {
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: var(--spacing-md);
+  border-radius: 0 var(--radius-md) 0 0;
+  width: 48px;
+  height: 48px;
+  transition: all var(--transition-base);
+  background: none;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.NavBar-module__ywSGya__resumeModalClose:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-tertiary);
+}
+
 @media (max-width: 768px) {
   .NavBar-module__ywSGya__navbarContent {
     padding: 0 var(--spacing-lg);
   }
 
-  .NavBar-module__ywSGya__navLinks, .NavBar-module__ywSGya__resumeButton {
+  .NavBar-module__ywSGya__navRight {
     display: none;
   }
 
   .NavBar-module__ywSGya__mobileMenuButton {
     display: flex;
+  }
+
+  .NavBar-module__ywSGya__resumeModal {
+    padding: var(--spacing-xl);
   }
 }
 

@@ -2,7 +2,8 @@
 .ContactForm-module__zmhP2G__contactForm {
   gap: var(--spacing-lg);
   flex-direction: column;
-  max-width: 600px;
+  width: 100%;
+  max-width: 800px;
   display: flex;
 }
 

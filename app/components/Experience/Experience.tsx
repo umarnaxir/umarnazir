@@ -15,19 +15,22 @@ export const Experience: React.FC<ExperienceProps> = ({
   experiences,
 }) => {
   return (
-    <Section id="experience" className={styles.experience}>
-      <Container>
-        <ExperienceHeader sectionNumber={sectionNumber} />
-        <div className={styles.timeline}>
-          <div className={styles.timelineLine} />
-          <div className={styles.timelineItems}>
-            {experiences.map((exp) => (
-              <ExperienceCard key={exp.id} experience={exp} />
-            ))}
+    <>
+      <Section id="experience" className={styles.experience}>
+        <Container>
+          <ExperienceHeader sectionNumber={sectionNumber} />
+          <div className={styles.timeline}>
+            <div className={styles.timelineLine} />
+            <div className={styles.timelineItems}>
+              {experiences.map((exp) => (
+                <ExperienceCard key={exp.id} experience={exp} />
+              ))}
+            </div>
           </div>
-        </div>
-      </Container>
-    </Section>
+        </Container>
+      </Section>
+      <hr className={styles.experienceDivider} />
+    </>
   );
 };
 

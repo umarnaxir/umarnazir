@@ -10,14 +10,16 @@ export interface ContactCard {
 
 export interface ReachOutProps {
   email?: string;
+  phone?: string;
   github?: string;
   linkedin?: string;
 }
 
 export const ReachOut: React.FC<ReachOutProps> = ({
   email = 'erumarnazir@gmail.com',
-  github = '@umarnazir',
-  linkedin = '/in/umarnazir',
+  phone = '+917051732616',
+  github = 'https://github.com/umarnaxir',
+  linkedin = 'https://www.linkedin.com/in/umar-nazir19/',
 }) => {
   const contactCards: ContactCard[] = [
     {
@@ -26,14 +28,19 @@ export const ReachOut: React.FC<ReachOutProps> = ({
       href: `mailto:${email}`,
     },
     {
+      label: 'PHONE',
+      value: phone,
+      href: `tel:${phone}`,
+    },
+    {
       label: 'GITHUB',
-      value: github,
-      href: `https://github.com/${github.replace('@', '')}`,
+      value: 'umarnaxir',
+      href: github,
     },
     {
       label: 'LINKEDIN',
-      value: linkedin,
-      href: `https://linkedin.com${linkedin}`,
+      value: 'Umar Nazir',
+      href: linkedin,
     },
   ];
 
@@ -41,9 +48,13 @@ export const ReachOut: React.FC<ReachOutProps> = ({
     <section className={styles.reachOut}>
       <Container>
         <div className={styles.reachOutContent}>
-          <Text variant="caption" color="secondary" className={styles.reachOutHeader}>
-            OR REACH OUT DIRECTLY
-          </Text>
+          <div className={styles.reachOutHeaderWrapper}>
+            <div className={styles.reachOutLine} />
+            <Text variant="caption" color="secondary" className={styles.reachOutHeader}>
+              OR REACH OUT DIRECTLY
+            </Text>
+            <div className={styles.reachOutLine} />
+          </div>
 
           <div className={styles.contactCards}>
             {contactCards.map((card, index) => (
@@ -71,11 +82,6 @@ export const ReachOut: React.FC<ReachOutProps> = ({
             ))}
           </div>
 
-          <div className={styles.visualIndicator}>
-            <div className={styles.cursorIndicator}>
-              <div className={styles.cursorDot} />
-            </div>
-          </div>
         </div>
       </Container>
     </section>

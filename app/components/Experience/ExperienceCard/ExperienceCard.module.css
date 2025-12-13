@@ -3,16 +3,51 @@
   padding-left: var(--spacing-xl);
 }
 
-.timelineDot {
+.timelineDotWrapper {
   position: absolute;
-  left: -6px;
+  left: calc(-1 * var(--spacing-3xl) - 7px);
   top: 12px;
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.timelineDotOuter {
+  position: absolute;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: var(--color-accent);
-  border: 2px solid var(--color-bg-primary);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.timelineItem:hover .timelineDotOuter,
+.timelineItem:active .timelineDotOuter {
+  opacity: 0.2;
+  transform: scale(1);
+}
+
+.timelineDot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  border: 3px solid var(--color-bg-primary);
   z-index: 2;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timelineItem:hover .timelineDot,
+.timelineItem:active .timelineDot {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
 }
 
 .experienceCard {
@@ -20,11 +55,19 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--spacing-xl);
-  transition: all var(--transition-base);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  transform: translateX(0);
 }
 
 .experienceCard:hover {
   border-color: var(--color-accent);
+  transform: translateX(8px);
+  box-shadow: 0 4px 24px rgba(59, 130, 246, 0.15);
+}
+
+.experienceCard:active {
+  transform: translateX(4px);
 }
 
 .cardHeader {
@@ -44,12 +87,22 @@
 .companyName {
   margin-bottom: var(--spacing-xs);
   line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.experienceCard:hover .companyName {
+  color: var(--color-accent);
 }
 
 .role {
   color: var(--color-accent);
   margin-bottom: var(--spacing-xs);
   line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.experienceCard:hover .role {
+  color: var(--color-accent-hover);
 }
 
 .locationType {
@@ -90,12 +143,23 @@
   gap: var(--spacing-sm);
   color: var(--color-text-secondary);
   line-height: 1.8;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.experienceCard:hover .experienceListItem {
+  transform: translateX(4px);
 }
 
 .experienceListArrow {
   color: var(--color-accent);
   margin-top: 6px;
   flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.experienceCard:hover .experienceListArrow {
+  transform: translateX(2px);
+  color: var(--color-accent-hover);
 }
 
 .experienceTags {
@@ -108,6 +172,14 @@
 @media (max-width: 768px) {
   .timelineItem {
     padding-left: var(--spacing-md);
+  }
+
+  .timelineDotWrapper {
+    left: calc(-1 * var(--spacing-2xl) - 7px);
+  }
+
+  .experienceCard:hover {
+    transform: translateX(4px);
   }
 
   .cardHeader {

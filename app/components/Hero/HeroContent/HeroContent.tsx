@@ -2,14 +2,12 @@ import React from 'react';
 import styles from './HeroContent.module.css';
 
 interface HeroContentProps {
-  name: string;
   title: string;
   headline: string;
   description: string;
 }
 
 export const HeroContent: React.FC<HeroContentProps> = ({
-  name,
   title,
   headline,
   description,
@@ -18,10 +16,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({
 
   return (
     <div className={styles.heroText}>
-      <div className={styles.nameTitle}>
-        <h1 className={styles.name}>{name}</h1>
-        <p className={styles.subtitle}>{title}</p>
-      </div>
+      <p className={styles.subtitle}>{title}</p>
       <div className={styles.title}>
         {headlineLines.map((line, index) => (
           <h2 key={index} className={styles.headline}>

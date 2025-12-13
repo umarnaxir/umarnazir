@@ -1,69 +1,30 @@
 /* [project]/app/components/Contact/Contact.module.css [app-client] (css) */
 .Contact-module__Zv_Gsq__contact {
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  display: flex;
   position: relative;
 }
 
 .Contact-module__Zv_Gsq__contactWrapper {
   gap: var(--spacing-4xl);
   flex-direction: column;
+  align-items: center;
+  width: 100%;
   display: flex;
 }
 
 .Contact-module__Zv_Gsq__contactFormSection {
-  gap: var(--spacing-4xl);
-  grid-template-columns: 1fr auto;
-  align-items: flex-start;
-  display: grid;
-}
-
-.Contact-module__Zv_Gsq__contactFormVisual {
-  width: 20px;
-  height: 20px;
-  margin-top: calc(var(--spacing-xl)  + 120px);
-  flex-shrink: 0;
-  align-self: flex-start;
-  position: relative;
-}
-
-.Contact-module__Zv_Gsq__cursorIndicator {
-  border: 2px solid var(--color-text-primary);
-  border-radius: 50%;
   justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 100%;
+  max-width: 800px;
   display: flex;
-  position: relative;
-}
-
-.Contact-module__Zv_Gsq__cursorDot {
-  background-color: var(--color-text-primary);
-  border-radius: 50%;
-  width: 6px;
-  height: 6px;
-  animation: 2s ease-in-out infinite Contact-module__Zv_Gsq__pulse;
-}
-
-@keyframes Contact-module__Zv_Gsq__pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: .5;
-    transform: scale(.8);
-  }
 }
 
 @media (max-width: 1024px) {
   .Contact-module__Zv_Gsq__contactFormSection {
-    gap: var(--spacing-2xl);
-    grid-template-columns: 1fr;
-  }
-
-  .Contact-module__Zv_Gsq__contactFormVisual {
-    display: none;
+    max-width: 100%;
   }
 }
 

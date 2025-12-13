@@ -48,7 +48,7 @@ export const portfolioData: PortfolioData = {
   personal: {
     name: 'Umar Nazir',
     title: 'SOFTWARE ENGINEER & SEO EXECUTIVE',
-    headline: 'Building\nDigital\nSolutions',
+    headline: 'Building\nDigital Solutions',
     description:
       'Software Engineer & SEO Executive with 2+ years of experience creating high-performance web applications, optimizing digital presence, and delivering scalable solutions that drive business growth.',
     email: 'erumarnazir@gmail.com',

@@ -25,12 +25,22 @@
 
 .About-module__WVzPFq__aboutImage {
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   width: 100%;
   max-width: 500px;
   height: 600px;
   position: relative;
   overflow: hidden;
+}
+
+.About-module__WVzPFq__aboutImageImg {
+  border-radius: var(--radius-lg);
+}
+
+.About-module__WVzPFq__aboutDivider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  margin: 0;
 }
 
 @media (max-width: 1024px) {

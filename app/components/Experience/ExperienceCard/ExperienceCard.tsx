@@ -11,7 +11,10 @@ interface ExperienceCardProps {
 export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   return (
     <div className={styles.timelineItem}>
-      <div className={styles.timelineDot} />
+      <div className={styles.timelineDotWrapper}>
+        <div className={styles.timelineDotOuter} />
+        <div className={styles.timelineDot} />
+      </div>
       <div className={styles.experienceCard}>
         <div className={styles.cardHeader}>
           <div className={styles.cardHeaderLeft}>

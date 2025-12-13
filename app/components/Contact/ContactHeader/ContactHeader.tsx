@@ -13,23 +13,21 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({
   headline,
   description,
 }) => {
+  const headlineLines = headline.split('\n').filter((line) => line.trim() !== '');
+
   return (
     <div className={styles.contactHeader}>
       <div className={styles.contactHeaderContent}>
         <div className={styles.contactTitle}>
-          <Text variant="h2" className={styles.sectionNumber}>
-            {sectionNumber}
-          </Text>
-          <Text variant="h2">{headline}</Text>
+          {headlineLines.map((line, index) => (
+            <Text key={index} variant="h1" className={styles.headline}>
+              {line.trim()}
+            </Text>
+          ))}
         </div>
         <Text variant="bodyLarge" color="secondary" className={styles.contactDescription}>
           {description}
         </Text>
-      </div>
-      <div className={styles.contactVisual}>
-        <div className={styles.cursorIndicator}>
-          <div className={styles.cursorDot} />
-        </div>
       </div>
     </div>
   );

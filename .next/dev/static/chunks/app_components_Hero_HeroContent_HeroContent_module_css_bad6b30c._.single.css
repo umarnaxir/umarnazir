@@ -1,23 +1,10 @@
 /* [project]/app/components/Hero/HeroContent/HeroContent.module.css [app-client] (css) */
 .HeroContent-module__wypxCq__heroText {
   gap: var(--spacing-xl);
+  text-align: center;
   flex-direction: column;
+  align-items: center;
   display: flex;
-}
-
-.HeroContent-module__wypxCq__nameTitle {
-  gap: var(--spacing-xs);
-  flex-direction: column;
-  display: flex;
-}
-
-.HeroContent-module__wypxCq__name {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
-  margin: 0;
-  line-height: 1.2;
 }
 
 .HeroContent-module__wypxCq__subtitle {
@@ -28,12 +15,11 @@
   letter-spacing: .1em;
   color: var(--color-text-secondary);
   margin: 0;
-  margin-left: var(--spacing-sm);
 }
 
 .HeroContent-module__wypxCq__title {
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 0;
   line-height: 1;
   display: flex;
@@ -45,6 +31,7 @@
   font-weight: var(--font-weight-bold);
   letter-spacing: -.02em;
   color: var(--color-text-primary);
+  text-align: center;
   width: 100%;
   margin: 0;
   line-height: 1.1;
@@ -57,18 +44,11 @@
   color: var(--color-text-secondary);
   line-height: 1.8;
   font-size: var(--font-size-base);
+  text-align: center;
   margin: 0;
 }
 
 @media (max-width: 1024px) {
-  .HeroContent-module__wypxCq__heroText, .HeroContent-module__wypxCq__nameTitle {
-    align-items: center;
-  }
-
-  .HeroContent-module__wypxCq__subtitle {
-    margin-left: 0;
-  }
-
   .HeroContent-module__wypxCq__description {
     max-width: 100%;
   }

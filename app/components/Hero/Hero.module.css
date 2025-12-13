@@ -8,22 +8,13 @@
 }
 
 .heroContent {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-4xl);
+  display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--spacing-xl);
-}
-
-@media (max-width: 1024px) {
-  .heroContent {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-2xl);
-    text-align: center;
-  }
 }
 
 @media (max-width: 768px) {

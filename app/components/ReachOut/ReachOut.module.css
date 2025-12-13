@@ -10,6 +10,19 @@
   position: relative;
 }
 
+.reachOutHeaderWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+.reachOutLine {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
 .reachOutHeader {
   font-family: var(--font-family-body);
   text-align: center;
@@ -18,11 +31,13 @@
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .contactCards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--spacing-xl);
   position: relative;
 }
@@ -69,52 +84,18 @@
   color: var(--color-accent);
 }
 
-.visualIndicator {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-}
-
-.cursorIndicator {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--color-text-primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cursorDot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-text-primary);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(0.8);
-  }
-}
-
 @media (max-width: 1024px) {
   .contactCards {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
   }
 
-  .visualIndicator {
-    display: none;
+  .reachOutHeaderWrapper {
+    gap: var(--spacing-md);
+  }
+
+  .reachOutHeader {
+    font-size: var(--font-size-xs);
   }
 }
 

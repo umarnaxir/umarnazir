@@ -23,6 +23,13 @@
   display: flex;
 }
 
+.Experience-module__B5A2Yq__experienceDivider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .Experience-module__B5A2Yq__timeline {
     padding-left: var(--spacing-2xl);
