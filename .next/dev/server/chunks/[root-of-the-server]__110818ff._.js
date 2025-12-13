@@ -108,7 +108,7 @@ async function POST(req) {
             to: [
                 TEAM_EMAIL
             ],
-            subject: "New Contact Form Submission - Umar Nazir Portfolio",
+            subject: "Contact Form Submission - Portfolio",
             html: getContactFormHtmlForTeam(sanitizedData),
             replyTo: sanitizedData.email
         });
