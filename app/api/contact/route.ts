@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const TEAM_EMAIL = "erumarnazir@gmail.com";
+const TEAM_EMAIL = "sd.umarnazir@gmail.com";
 const FROM_EMAIL = "No Reply <no-reply@ninemash.com>";
 
 type TContactFormData = {

@@ -1,9 +1,11 @@
+'use client';
+
 import React from 'react';
 import { Section, Container } from '../atoms';
 import { ExperienceHeader } from './ExperienceHeader/ExperienceHeader';
 import { ExperienceCard } from './ExperienceCard/ExperienceCard';
 import { ExperienceItem } from '@/lib/data';
-import styles from './Experience.module.css';
+import { StyledExperience, Timeline, TimelineLine, TimelineItems } from './Experience.styles';
 
 export interface ExperienceProps {
   sectionNumber?: string;
@@ -15,22 +17,21 @@ export const Experience: React.FC<ExperienceProps> = ({
   experiences,
 }) => {
   return (
-    <>
-      <Section id="experience" className={styles.experience}>
-        <Container>
+    <Section id="experience">
+      <Container>
+        <StyledExperience>
           <ExperienceHeader sectionNumber={sectionNumber} />
-          <div className={styles.timeline}>
-            <div className={styles.timelineLine} />
-            <div className={styles.timelineItems}>
+          <Timeline>
+            <TimelineLine />
+            <TimelineItems>
               {experiences.map((exp, index) => (
                 <ExperienceCard key={exp.id} experience={exp} index={index} />
               ))}
-            </div>
-          </div>
-        </Container>
-      </Section>
-      <hr className={styles.experienceDivider} />
-    </>
+            </TimelineItems>
+          </Timeline>
+        </StyledExperience>
+      </Container>
+    </Section>
   );
 };
 

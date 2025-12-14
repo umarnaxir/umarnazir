@@ -1,6 +1,18 @@
+'use client';
+
 import React from 'react';
 import { Section, Container, Text } from '../atoms';
-import styles from './TechStack.module.css';
+import {
+  StyledTechStack,
+  TechStackContainer,
+  TechStackWrapper,
+  TechStackTitle,
+  TechStackGrid,
+  TechItem,
+  TechIcon,
+  TechName,
+  TechStackDivider,
+} from './TechStack.styles';
 
 interface Tech {
   name: string;
@@ -424,33 +436,36 @@ export const TechStack: React.FC = () => {
   
   return (
     <>
-      <Section id="techstack" className={styles.techStack}>
-        <Container className={styles.techStackContainer}>
-          <div className={styles.techStackWrapper}>
-            <Text variant="h2" className={styles.techStackTitle} data-aos="fade-up">
-              TECHNOLOGIES I WORK WITH
-            </Text>
-            <div className={styles.techStackGrid}>
-              {techStack.map((tech, index) => (
-                <div 
-                  key={index} 
-                  className={styles.techItem}
-                  data-aos="zoom-in"
-                  data-aos-delay={index * 50}
-                >
-                  <div className={styles.techIcon}>
-                    {tech.icon}
-                  </div>
-                  <Text variant="bodySmall" className={styles.techName}>
-                    {tech.name}
-                  </Text>
-                </div>
-              ))}
-            </div>
-          </div>
+      <Section id="techstack">
+        <Container>
+          <StyledTechStack>
+            <TechStackContainer>
+              <TechStackWrapper>
+                <TechStackTitle data-aos="fade-up">
+                  TECHNOLOGIES I WORK WITH
+                </TechStackTitle>
+                <TechStackGrid>
+                  {techStack.map((tech, index) => (
+                    <TechItem
+                      key={index}
+                      data-aos="zoom-in"
+                      data-aos-delay={index * 50}
+                    >
+                      <TechIcon>
+                        {tech.icon}
+                      </TechIcon>
+                      <Text variant="bodySmall" as="span">
+                        <TechName>{tech.name}</TechName>
+                      </Text>
+                    </TechItem>
+                  ))}
+                </TechStackGrid>
+              </TechStackWrapper>
+            </TechStackContainer>
+          </StyledTechStack>
         </Container>
       </Section>
-      <hr className={styles.techStackDivider} />
+      <TechStackDivider />
     </>
   );
 };

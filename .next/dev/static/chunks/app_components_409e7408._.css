@@ -1,0 +1,137 @@
+/* [project]/app/components/ReachOut/ReachOut.module.css [app-client] (css) */
+.ReachOut-module__Nj4sLq__reachOut {
+  padding: var(--spacing-4xl) 0;
+  position: relative;
+}
+
+.ReachOut-module__Nj4sLq__reachOutContent {
+  gap: var(--spacing-3xl);
+  flex-direction: column;
+  display: flex;
+  position: relative;
+}
+
+.ReachOut-module__Nj4sLq__reachOutHeaderWrapper {
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+  display: flex;
+}
+
+.ReachOut-module__Nj4sLq__reachOutLine {
+  background-color: var(--color-border);
+  flex: 1;
+  height: 1px;
+}
+
+.ReachOut-module__Nj4sLq__reachOutHeader {
+  font-family: var(--font-family-body);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ReachOut-module__Nj4sLq__contactCards {
+  gap: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid;
+  position: relative;
+}
+
+.ReachOut-module__Nj4sLq__contactCard {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  gap: var(--spacing-sm);
+  transition: all var(--transition-base);
+  flex-direction: column;
+  display: flex;
+}
+
+.ReachOut-module__Nj4sLq__contactCard:hover {
+  border-color: var(--color-text-secondary);
+  transform: translateY(-2px);
+}
+
+.ReachOut-module__Nj4sLq__cardLabel {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--color-text-secondary);
+}
+
+.ReachOut-module__Nj4sLq__cardValue {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  word-break: break-word;
+}
+
+.ReachOut-module__Nj4sLq__cardLink {
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.ReachOut-module__Nj4sLq__cardLink:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 1024px) {
+  .ReachOut-module__Nj4sLq__contactCards {
+    gap: var(--spacing-lg);
+    grid-template-columns: 1fr;
+  }
+
+  .ReachOut-module__Nj4sLq__reachOutHeaderWrapper {
+    gap: var(--spacing-md);
+  }
+
+  .ReachOut-module__Nj4sLq__reachOutHeader {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 768px) {
+  .ReachOut-module__Nj4sLq__reachOut {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+/* [project]/app/components/Footer/Footer.module.css [app-client] (css) */
+.Footer-module__JGhRua__footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.Footer-module__JGhRua__footerContent {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.Footer-module__JGhRua__footerCopyright, .Footer-module__JGhRua__footerTagline {
+  font-family: var(--font-family-body);
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+}
+
+@media (max-width: 768px) {
+  .Footer-module__JGhRua__footerContent {
+    gap: var(--spacing-md);
+    text-align: center;
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=app_components_409e7408._.css.map*/

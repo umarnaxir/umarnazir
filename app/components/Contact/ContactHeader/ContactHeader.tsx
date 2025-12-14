@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { Text } from '../../atoms';
-import styles from './ContactHeader.module.css';
+import { ContactHeaderWrapper, ContactHeaderContent, ContactTitle, Headline, ContactDescription } from './ContactHeader.styles';
 
 interface ContactHeaderProps {
   sectionNumber: string;
@@ -16,32 +18,24 @@ export const ContactHeader: React.FC<ContactHeaderProps> = ({
   const headlineLines = headline.split('\n').filter((line) => line.trim() !== '');
 
   return (
-    <div className={styles.contactHeader} data-aos="fade-up">
-      <div className={styles.contactHeaderContent}>
-        <div className={styles.contactTitle}>
+    <ContactHeaderWrapper data-aos="fade-up">
+      <ContactHeaderContent>
+        <ContactTitle>
           {headlineLines.map((line, index) => (
-            <Text 
-              key={index} 
-              variant="h1" 
-              className={styles.headline}
+            <Headline
+              key={index}
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
               {line.trim()}
-            </Text>
+            </Headline>
           ))}
-        </div>
-        <Text 
-          variant="bodyLarge" 
-          color="secondary" 
-          className={styles.contactDescription}
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
+        </ContactTitle>
+        <ContactDescription data-aos="fade-up" data-aos-delay="200">
           {description}
-        </Text>
-      </div>
-    </div>
+        </ContactDescription>
+      </ContactHeaderContent>
+    </ContactHeaderWrapper>
   );
 };
 

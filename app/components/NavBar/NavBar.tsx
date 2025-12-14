@@ -1,7 +1,33 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import styles from './NavBar.module.css';
+import {
+  StyledNavbar,
+  NavbarContent,
+  Logo,
+  NavRight,
+  NavLinks,
+  NavLink,
+  MobileMenuButton,
+  HamburgerLine,
+  MobileMenu,
+  MobileMenuContent,
+  MobileMenuHeader,
+  MobileMenuLogo,
+  MobileMenuCloseButton,
+  MobileMenuDivider,
+  MobileNavLinks,
+  MobileNavLinkItem,
+  MobileNavLink,
+  ResumeButton,
+  ResumeModalOverlay,
+  ResumeModal,
+  ResumeModalTitle,
+  ResumeModalText,
+  ResumeModalButtons,
+  ResumeModalButton,
+  ResumeModalClose,
+} from './NavBar.styles';
 
 interface NavItem {
   label: string;
@@ -70,129 +96,89 @@ export const NavBar: React.FC<NavBarProps> = ({
   };
 
   return (
-    <nav 
-      className={`${styles.navbar} ${mobileMenuOpen ? styles.mobileMenuActive : ''}`}
-    >
-      <div className={styles.navbarContent}>
-        <a href="#" className={styles.logo}>
-          {name}
-        </a>
+    <StyledNavbar $mobileMenuActive={mobileMenuOpen}>
+      <NavbarContent>
+        <Logo href="#">{name}</Logo>
 
-        <div className={styles.navRight}>
-          <ul className={styles.navLinks}>
+        <NavRight>
+          <NavLinks>
             {navItems.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className={styles.navLink}>
-                  {item.label}
-                </a>
+                <NavLink href={item.href}>{item.label}</NavLink>
               </li>
             ))}
-          </ul>
+          </NavLinks>
 
-          <a href="#" onClick={handleResumeClick} className={styles.resumeButton}>
+          <ResumeButton href="#" onClick={handleResumeClick}>
             Resume
-          </a>
-        </div>
+          </ResumeButton>
+        </NavRight>
 
-        <button
-          className={`${styles.mobileMenuButton} ${mobileMenuOpen ? styles.mobileMenuButtonOpen : ''}`}
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
-        >
-          <span className={styles.hamburgerLine}></span>
-          <span className={styles.hamburgerLine}></span>
-          <span className={styles.hamburgerLine}></span>
-        </button>
-      </div>
+        <MobileMenuButton $isOpen={mobileMenuOpen} onClick={toggleMobileMenu} aria-label="Toggle menu">
+          <HamburgerLine $index={0} $isOpen={mobileMenuOpen} />
+          <HamburgerLine $index={1} $isOpen={mobileMenuOpen} />
+          <HamburgerLine $index={2} $isOpen={mobileMenuOpen} />
+        </MobileMenuButton>
+      </NavbarContent>
 
-      <div 
-        className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.mobileMenuOpen : ''}`}
+      <MobileMenu
+        $isOpen={mobileMenuOpen}
         onClick={(e) => {
           if (e.target === e.currentTarget) {
             closeMobileMenu();
           }
         }}
       >
-        <div className={styles.mobileMenuContent}>
-          <div className={styles.mobileMenuHeader}>
-            <a href="#" className={styles.mobileMenuLogo} onClick={closeMobileMenu}>
+        <MobileMenuContent>
+          <MobileMenuHeader>
+            <MobileMenuLogo href="#" onClick={closeMobileMenu}>
               {name}
-            </a>
-            <button
-              className={styles.mobileMenuCloseButton}
-              onClick={closeMobileMenu}
-              aria-label="Close menu"
-            >
+            </MobileMenuLogo>
+            <MobileMenuCloseButton onClick={closeMobileMenu} aria-label="Close menu">
               ×
-            </button>
-          </div>
-          <hr className={styles.mobileMenuDivider} />
-          <ul className={styles.mobileNavLinks}>
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className={styles.navLink}
-                  onClick={closeMobileMenu}
-                >
+            </MobileMenuCloseButton>
+          </MobileMenuHeader>
+          <MobileMenuDivider />
+          <MobileNavLinks>
+            {navItems.map((item, index) => (
+              <MobileNavLinkItem key={item.href} $index={index}>
+                <MobileNavLink href={item.href} onClick={closeMobileMenu}>
                   {item.label}
-                </a>
-              </li>
+                </MobileNavLink>
+              </MobileNavLinkItem>
             ))}
-            <li>
-              <a
+            <MobileNavLinkItem $index={navItems.length}>
+              <MobileNavLink
                 href="#"
-                className={styles.resumeLink}
                 onClick={(e) => {
                   e.preventDefault();
                   closeMobileMenu();
-                  handleResumeClick(e);
+                  handleResumeClick(e as any);
                 }}
               >
                 Resume
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+              </MobileNavLink>
+            </MobileNavLinkItem>
+          </MobileNavLinks>
+        </MobileMenuContent>
+      </MobileMenu>
 
-      {/* Resume Modal */}
       {resumeModalOpen && (
-        <div 
-          className={styles.resumeModalOverlay}
-          onClick={closeResumeModal}
-        >
-          <div 
-            className={styles.resumeModal}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h3 className={styles.resumeModalTitle}>Resume Options</h3>
-            <p className={styles.resumeModalText}>Choose an option:</p>
-            <div className={styles.resumeModalButtons}>
-              <button 
-                className={styles.resumeModalButton}
-                onClick={handleViewResume}
-              >
-                View Resume
-              </button>
-              <button 
-                className={styles.resumeModalButton}
-                onClick={handleDownloadResume}
-              >
-                Download Resume
-              </button>
-            </div>
-            <button 
-              className={styles.resumeModalClose}
-              onClick={closeResumeModal}
-              aria-label="Close modal"
-            >
+        <ResumeModalOverlay onClick={closeResumeModal}>
+          <ResumeModal onClick={(e) => e.stopPropagation()}>
+            <ResumeModalTitle>Resume Options</ResumeModalTitle>
+            <ResumeModalText>Choose an option:</ResumeModalText>
+            <ResumeModalButtons>
+              <ResumeModalButton onClick={handleViewResume}>View Resume</ResumeModalButton>
+              <ResumeModalButton onClick={handleDownloadResume}>Download Resume</ResumeModalButton>
+            </ResumeModalButtons>
+            <ResumeModalClose onClick={closeResumeModal} aria-label="Close modal">
               ×
-            </button>
-          </div>
-        </div>
+            </ResumeModalClose>
+          </ResumeModal>
+        </ResumeModalOverlay>
       )}
-    </nav>
+    </StyledNavbar>
   );
 };
 

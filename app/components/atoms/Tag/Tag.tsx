@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import styles from './Tag.module.css';
+import { StyledTag } from './Tag.styles';
 
 export interface TagProps {
   children: React.ReactNode;
@@ -7,6 +9,6 @@ export interface TagProps {
 }
 
 export const Tag: React.FC<TagProps> = ({ children, className = '' }) => {
-  return <span className={`${styles.tag} ${className}`}>{children}</span>;
+  return <StyledTag className={className}>{children}</StyledTag>;
 };
 

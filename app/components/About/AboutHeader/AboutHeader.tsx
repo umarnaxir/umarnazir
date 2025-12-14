@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { Text } from '../../atoms';
-import styles from './AboutHeader.module.css';
+import { AboutHeaderWrapper, SectionNumber } from './AboutHeader.styles';
 
 interface AboutHeaderProps {
   sectionNumber: string;
@@ -8,12 +10,10 @@ interface AboutHeaderProps {
 
 export const AboutHeader: React.FC<AboutHeaderProps> = ({ sectionNumber }) => {
   return (
-    <div className={styles.aboutHeader} data-aos="fade-up">
-      <Text variant="h2" className={styles.sectionNumber}>
-        {sectionNumber}
-      </Text>
+    <AboutHeaderWrapper data-aos="fade-up">
+      <SectionNumber>{sectionNumber}</SectionNumber>
       <Text variant="h2">About</Text>
-    </div>
+    </AboutHeaderWrapper>
   );
 };
 

@@ -1,12 +1,14 @@
+'use client';
+
 import React from 'react';
-import styles from './ScrollIndicator.module.css';
+import { ScrollIndicatorWrapper, ScrollLine } from './ScrollIndicator.styles';
 
 export const ScrollIndicator: React.FC = () => {
   return (
-    <div className={styles.scrollIndicator}>
+    <ScrollIndicatorWrapper>
       <span>SCROLL TO EXPLORE</span>
-      <div className={styles.scrollLine} />
-    </div>
+      <ScrollLine />
+    </ScrollIndicatorWrapper>
   );
 };
 

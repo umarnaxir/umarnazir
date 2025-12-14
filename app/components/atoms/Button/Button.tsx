@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
-import styles from './Button.module.css';
 import { LucideIcon } from 'lucide-react';
+import { StyledButton, StyledButtonLink } from './Button.styles';
 
 type ButtonElement = HTMLButtonElement | HTMLAnchorElement;
 
@@ -31,16 +33,6 @@ export const Button = React.forwardRef<ButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const classNames = [
-      styles.button,
-      styles[variant],
-      styles[size],
-      fullWidth && styles.fullWidth,
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ');
-
     const content = (
       <>
         {Icon && iconPosition === 'left' && <Icon size={16} />}
@@ -51,16 +43,31 @@ export const Button = React.forwardRef<ButtonElement, ButtonProps>(
 
     if (as === 'a' && href) {
       return (
-        <a ref={ref as React.Ref<HTMLAnchorElement>} className={classNames} href={href} {...(props as any)}>
+        <StyledButtonLink
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          $variant={variant}
+          $size={size}
+          $fullWidth={fullWidth}
+          href={href}
+          className={className}
+          {...(props as any)}
+        >
           {content}
-        </a>
+        </StyledButtonLink>
       );
     }
 
     return (
-      <button ref={ref as React.Ref<HTMLButtonElement>} className={classNames} {...props}>
+      <StyledButton
+        ref={ref as React.Ref<HTMLButtonElement>}
+        $variant={variant}
+        $size={size}
+        $fullWidth={fullWidth}
+        className={className}
+        {...props}
+      >
         {content}
-      </button>
+      </StyledButton>
     );
   }
 );

@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 import { HeroContent } from './HeroContent/HeroContent';
 import { ScrollIndicator } from './ScrollIndicator/ScrollIndicator';
-import styles from './Hero.module.css';
+import { StyledHero, HeroContentWrapper } from './Hero.styles';
 
 export interface HeroProps {
   title: string;
@@ -11,12 +13,12 @@ export interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ title, headline, description }) => {
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroContent}>
+    <StyledHero>
+      <HeroContentWrapper>
         <HeroContent title={title} headline={headline} description={description} />
-      </div>
+      </HeroContentWrapper>
       <ScrollIndicator />
-    </section>
+    </StyledHero>
   );
 };
 

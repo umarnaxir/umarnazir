@@ -1,8 +1,27 @@
+'use client';
+
 import React from 'react';
 import { Text, Tag } from '../../atoms';
 import { ArrowRight } from 'lucide-react';
 import { ExperienceItem } from '@/lib/data';
-import styles from './ExperienceCard.module.css';
+import {
+  TimelineItem,
+  TimelineDotWrapper,
+  TimelineDotOuter,
+  TimelineDot,
+  StyledExperienceCard,
+  CardHeader,
+  CardHeaderLeft,
+  CompanyName,
+  Role,
+  LocationType,
+  DateLocation,
+  ExperienceDescription,
+  ExperienceList,
+  ExperienceListItem,
+  ExperienceListArrow,
+  ExperienceTags,
+} from './ExperienceCard.styles';
 
 interface ExperienceCardProps {
   experience: ExperienceItem;
@@ -11,46 +30,46 @@ interface ExperienceCardProps {
 
 export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, index }) => {
   return (
-    <div className={styles.timelineItem} data-aos="fade-up" data-aos-delay={index * 150}>
-      <div className={styles.timelineDotWrapper}>
-        <div className={styles.timelineDotOuter} />
-        <div className={styles.timelineDot} />
-      </div>
-      <div className={styles.experienceCard}>
-        <div className={styles.cardHeader}>
-          <div className={styles.cardHeaderLeft}>
-            <Text variant="h4" className={styles.companyName}>
-              {experience.company}
-            </Text>
-            <Text variant="h5" className={styles.role}>
-              {experience.role}
-            </Text>
-            <Text variant="bodySmall" color="tertiary" className={styles.locationType}>
-              {experience.location} • {experience.type}
-            </Text>
-          </div>
-          <Text variant="bodySmall" color="tertiary" className={styles.dateLocation}>
-            {experience.date}
+    <TimelineItem data-aos="fade-up" data-aos-delay={index * 150}>
+      <TimelineDotWrapper>
+        <TimelineDotOuter />
+        <TimelineDot />
+      </TimelineDotWrapper>
+      <StyledExperienceCard>
+        <CardHeader>
+          <DateLocation>{experience.date}</DateLocation>
+        </CardHeader>
+        <CardHeaderLeft>
+          <Text variant="h4" as="span">
+            <CompanyName>{experience.company}</CompanyName>
           </Text>
-        </div>
-        <Text variant="body" color="secondary" className={styles.experienceDescription}>
-          {experience.description}
+          <Text variant="h5" as="span">
+            <Role>{experience.role}</Role>
+          </Text>
+          <Text variant="bodySmall" color="tertiary" as="span">
+            <LocationType>{experience.location} • {experience.type}</LocationType>
+          </Text>
+        </CardHeaderLeft>
+        <Text variant="body" color="secondary" as="span">
+          <ExperienceDescription>{experience.description}</ExperienceDescription>
         </Text>
-        <ul className={styles.experienceList}>
-          {experience.responsibilities.map((responsibility, index) => (
-            <li key={index} className={styles.experienceListItem}>
-              <ArrowRight size={16} className={styles.experienceListArrow} />
+        <ExperienceList>
+          {experience.responsibilities.map((responsibility, idx) => (
+            <ExperienceListItem key={idx}>
+              <ExperienceListArrow>
+                <ArrowRight size={16} />
+              </ExperienceListArrow>
               <span>{responsibility}</span>
-            </li>
+            </ExperienceListItem>
           ))}
-        </ul>
-        <div className={styles.experienceTags}>
+        </ExperienceList>
+        <ExperienceTags>
           {experience.tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
-        </div>
-      </div>
-    </div>
+        </ExperienceTags>
+      </StyledExperienceCard>
+    </TimelineItem>
   );
 };
 

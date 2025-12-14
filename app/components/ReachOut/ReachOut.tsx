@@ -1,6 +1,19 @@
+'use client';
+
 import React from 'react';
 import { Container, Text } from '../atoms';
-import styles from './ReachOut.module.css';
+import {
+  StyledReachOut,
+  ReachOutContent,
+  ReachOutHeaderWrapper,
+  ReachOutLine,
+  ReachOutHeader,
+  ContactCards,
+  ContactCard,
+  CardLabel,
+  CardValue,
+  CardLink,
+} from './ReachOut.styles';
 
 export interface ContactCard {
   label: string;
@@ -16,7 +29,7 @@ export interface ReachOutProps {
 }
 
 export const ReachOut: React.FC<ReachOutProps> = ({
-  email = 'erumarnazir@gmail.com',
+  email = 'sd.umarnazir@gmail.com',
   phone = '+917051732616',
   github = 'https://github.com/umarnaxir',
   linkedin = 'https://www.linkedin.com/in/umar-nazir19/',
@@ -45,51 +58,48 @@ export const ReachOut: React.FC<ReachOutProps> = ({
   ];
 
   return (
-    <section className={styles.reachOut}>
+    <StyledReachOut>
       <Container>
-        <div className={styles.reachOutContent}>
-          <div className={styles.reachOutHeaderWrapper} data-aos="fade-up">
-            <div className={styles.reachOutLine} />
-            <Text variant="caption" color="secondary" className={styles.reachOutHeader}>
-              OR REACH OUT DIRECTLY
+        <ReachOutContent>
+          <ReachOutHeaderWrapper data-aos="fade-up">
+            <ReachOutLine />
+            <Text variant="caption" color="secondary" as="span">
+              <ReachOutHeader>OR REACH OUT DIRECTLY</ReachOutHeader>
             </Text>
-            <div className={styles.reachOutLine} />
-          </div>
+            <ReachOutLine />
+          </ReachOutHeaderWrapper>
 
-          <div className={styles.contactCards}>
+          <ContactCards>
             {contactCards.map((card, index) => (
-              <div 
-                key={index} 
-                className={styles.contactCard}
+              <ContactCard
+                key={index}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <Text variant="caption" color="secondary" className={styles.cardLabel}>
-                  {card.label}
+                <Text variant="caption" color="secondary" as="span">
+                  <CardLabel>{card.label}</CardLabel>
                 </Text>
                 {card.href ? (
-                  <a
+                  <CardLink
                     href={card.href}
                     target={card.label !== 'EMAIL' ? '_blank' : undefined}
                     rel={card.label !== 'EMAIL' ? 'noopener noreferrer' : undefined}
-                    className={styles.cardLink}
                   >
-                    <Text variant="body" className={styles.cardValue}>
-                      {card.value}
+                    <Text variant="body" as="span">
+                      <CardValue>{card.value}</CardValue>
                     </Text>
-                  </a>
+                  </CardLink>
                 ) : (
-                  <Text variant="body" className={styles.cardValue}>
-                    {card.value}
+                  <Text variant="body" as="span">
+                    <CardValue>{card.value}</CardValue>
                   </Text>
                 )}
-              </div>
+              </ContactCard>
             ))}
-          </div>
-
-        </div>
+          </ContactCards>
+        </ReachOutContent>
       </Container>
-    </section>
+    </StyledReachOut>
   );
 };
 

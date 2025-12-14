@@ -3491,22 +3491,6 @@ const portfolioData = {
             id: '2',
             number: '002',
             year: '2024',
-            category: 'LOGISTICS / E-COMMERCE',
-            title: 'EliteExpress Courier',
-            description: 'Delivery & Logistics System for managing shipments, tracking packages, and optimizing delivery routes. Features real-time tracking, automated notifications, and comprehensive admin dashboard.',
-            tags: [
-                'REACT',
-                'NEXT.JS',
-                'NODE.JS',
-                'MONGODB',
-                'FIREBASE'
-            ],
-            visualVariant: 'alt'
-        },
-        {
-            id: '3',
-            number: '003',
-            year: '2024',
             category: 'TOURISM / BOOKING',
             title: 'NineMash',
             description: 'Tourism & Online Booking Platform for Kashmir region. Enables users to book hotels, tours, and experiences with seamless payment integration and real-time availability.',
@@ -3520,24 +3504,55 @@ const portfolioData = {
             visualVariant: 'alt2'
         },
         {
-            id: '4',
-            number: '004',
+            id: '3',
+            number: '003',
             year: '2024',
-            category: 'HEALTHCARE / PORTFOLIO',
-            title: 'Dr. Jibran Bashir',
-            description: 'Professional portfolio website for Orthopedic Surgeon featuring appointment booking, patient testimonials, and medical service information with responsive design and SEO optimization.',
+            category: 'LOGISTICS / COURIER',
+            title: 'Rush Expected Courier',
+            description: 'All Critical Shipments courier service platform. Specialized in handling urgent and time-sensitive deliveries with real-time tracking, priority booking, and customer support integration.',
             tags: [
                 'REACT',
                 'NEXT.JS',
-                'TYPESCRIPT',
-                'SEO',
-                'RESPONSIVE'
+                'REAL-TIME TRACKING',
+                'FIREBASE'
             ],
             visualVariant: 'default'
         },
         {
+            id: '4',
+            number: '004',
+            year: '2024',
+            category: 'DIGITAL MARKETING / AGENCY',
+            title: 'Digitlia',
+            description: 'Digital marketing agency specializing in web development and SEO. Showcases services, portfolio, client testimonials, and case studies with integrated contact forms and lead generation features.',
+            tags: [
+                'REACT',
+                'NEXT.JS',
+                'SEO',
+                'DIGITAL MARKETING',
+                'LEAD GENERATION'
+            ],
+            visualVariant: 'alt'
+        },
+        {
             id: '5',
             number: '005',
+            year: '2024',
+            category: 'LOGISTICS / E-COMMERCE',
+            title: 'EliteExpress Courier',
+            description: 'Delivery & Logistics System for managing shipments, tracking packages, and optimizing delivery routes. Features real-time tracking, automated notifications, and comprehensive admin dashboard.',
+            tags: [
+                'REACT',
+                'NEXT.JS',
+                'NODE.JS',
+                'MONGODB',
+                'FIREBASE'
+            ],
+            visualVariant: 'alt'
+        },
+        {
+            id: '6',
+            number: '006',
             year: '2024',
             category: 'TRAVEL / BOOKING',
             title: 'Kashmir Tickets',
@@ -3551,8 +3566,8 @@ const portfolioData = {
             visualVariant: 'alt'
         },
         {
-            id: '6',
-            number: '006',
+            id: '7',
+            number: '007',
             year: '2024',
             category: 'NGO / NON-PROFIT',
             title: 'Kindness Towards Humanity',
@@ -3564,21 +3579,6 @@ const portfolioData = {
                 'ACCESSIBILITY'
             ],
             visualVariant: 'alt2'
-        },
-        {
-            id: '7',
-            number: '007',
-            year: '2024',
-            category: 'LOGISTICS / COURIER',
-            title: 'Rush Expected Courier',
-            description: 'All Critical Shipments courier service platform. Specialized in handling urgent and time-sensitive deliveries with real-time tracking, priority booking, and customer support integration.',
-            tags: [
-                'REACT',
-                'NEXT.JS',
-                'REAL-TIME TRACKING',
-                'FIREBASE'
-            ],
-            visualVariant: 'default'
         },
         {
             id: '8',
@@ -3614,7 +3614,23 @@ const portfolioData = {
         },
         {
             id: '10',
-            number: '10',
+            number: '008',
+            year: '2024',
+            category: 'HEALTHCARE / PORTFOLIO',
+            title: 'Dr. Jibran Bashir',
+            description: 'Professional portfolio website for Orthopedic Surgeon featuring appointment booking, patient testimonials, and medical service information with responsive design and SEO optimization.',
+            tags: [
+                'REACT',
+                'NEXT.JS',
+                'TYPESCRIPT',
+                'SEO',
+                'RESPONSIVE'
+            ],
+            visualVariant: 'default'
+        },
+        {
+            id: '11',
+            number: '009',
             year: '2024',
             category: 'HEALTHCARE / MEDICAL',
             title: 'Altaf Hospital',
@@ -3627,22 +3643,6 @@ const portfolioData = {
                 'SECURITY'
             ],
             visualVariant: 'default'
-        },
-        {
-            id: '11',
-            number: '11',
-            year: '2024',
-            category: 'DIGITAL MARKETING / AGENCY',
-            title: 'Digitlia',
-            description: 'Digital marketing agency specializing in web development and SEO. Showcases services, portfolio, client testimonials, and case studies with integrated contact forms and lead generation features.',
-            tags: [
-                'REACT',
-                'NEXT.JS',
-                'SEO',
-                'DIGITAL MARKETING',
-                'LEAD GENERATION'
-            ],
-            visualVariant: 'alt'
         }
     ],
     experiences: [

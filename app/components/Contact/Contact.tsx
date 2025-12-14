@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import { Section, Container } from '../atoms';
 import { ContactHeader } from './ContactHeader/ContactHeader';
 import { ContactForm } from './ContactForm/ContactForm';
-import styles from './Contact.module.css';
+import { StyledContact, ContactWrapper, ContactFormSection } from './Contact.styles';
 
 export interface ContactProps {
   sectionNumber?: string;
@@ -16,18 +18,20 @@ export const Contact: React.FC<ContactProps> = ({
   description = 'Open to collaboration on research projects, open-source contributions, healthcare AI initiatives, or consulting opportunities.',
 }) => {
   return (
-    <Section id="contact" className={styles.contact}>
+    <Section id="contact">
       <Container>
-        <div className={styles.contactWrapper}>
-          <ContactHeader
-            sectionNumber={sectionNumber}
-            headline={headline}
-            description={description}
-          />
-          <div className={styles.contactFormSection}>
-            <ContactForm />
-          </div>
-        </div>
+        <StyledContact>
+          <ContactWrapper>
+            <ContactHeader
+              sectionNumber={sectionNumber}
+              headline={headline}
+              description={description}
+            />
+            <ContactFormSection>
+              <ContactForm />
+            </ContactFormSection>
+          </ContactWrapper>
+        </StyledContact>
       </Container>
     </Section>
   );

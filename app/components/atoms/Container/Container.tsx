@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import styles from './Container.module.css';
+import { StyledContainer } from './Container.styles';
 
 export interface ContainerProps {
   children: React.ReactNode;
@@ -7,6 +9,6 @@ export interface ContainerProps {
 }
 
 export const Container: React.FC<ContainerProps> = ({ children, className = '' }) => {
-  return <div className={`${styles.container} ${className}`}>{children}</div>;
+  return <StyledContainer className={className}>{children}</StyledContainer>;
 };
 

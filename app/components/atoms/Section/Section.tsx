@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import styles from './Section.module.css';
+import { StyledSection } from './Section.styles';
 
 export interface SectionProps {
   children: React.ReactNode;
@@ -14,12 +16,10 @@ export const Section: React.FC<SectionProps> = ({
   className = '',
   id,
 }) => {
-  const sizeClass = size === 'small' ? styles.sectionSmall : size === 'large' ? styles.sectionLarge : '';
-
   return (
-    <section id={id} className={`${styles.section} ${sizeClass} ${className}`}>
+    <StyledSection id={id} $size={size} className={className}>
       {children}
-    </section>
+    </StyledSection>
   );
 };
 

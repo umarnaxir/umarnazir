@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
+import { CornerRightDown, CornerRightUp } from 'lucide-react';
 import { Section, Container } from '../atoms';
 import { WorkHeader } from './WorkHeader/WorkHeader';
 import { ProjectCard } from './ProjectCard/ProjectCard';
 import { Project } from '@/lib/data';
-import styles from './Work.module.css';
+import { StyledWork, ProjectsList, ViewAllButtonContainer, ViewAllButton } from './Work.styles';
 
 export interface WorkProps {
   sectionNumber?: string;
@@ -43,44 +44,35 @@ export const Work: React.FC<WorkProps> = ({
   };
 
   return (
-    <Section id="work" className={styles.work}>
+    <Section id="work">
       <Container>
-        <WorkHeader sectionNumber={sectionNumber} />
-        <div className={styles.projectsList}>
-          {displayedProjects.map((project, index) => {
-            const isLastInDisplayed = index === displayedProjects.length - 1;
-            // Only mark as last if we're showing all projects and this is the last one
-            const isLast = showAll && isLastInDisplayed;
-            
-            return (
+        <StyledWork>
+          <WorkHeader sectionNumber={sectionNumber} />
+          <ProjectsList>
+            {displayedProjects.map((project, index) => (
               <ProjectCard 
                 key={project.id} 
                 project={project} 
-                index={index} 
-                isLast={isLast}
+                index={index}
               />
-            );
-          })}
-        </div>
-        {hasMoreProjects && (
-          <div className={styles.viewAllButtonContainer}>
-            {showAll ? (
-              <button 
-                className={styles.viewAllButton}
-                onClick={handleShowLess}
-              >
-                Show Less
-              </button>
-            ) : (
-              <button 
-                className={styles.viewAllButton}
-                onClick={handleViewAll}
-              >
-                View All Projects
-              </button>
-            )}
-          </div>
-        )}
+            ))}
+          </ProjectsList>
+          {hasMoreProjects && (
+            <ViewAllButtonContainer>
+              {showAll ? (
+                <ViewAllButton onClick={handleShowLess}>
+                  Show Less
+                  <CornerRightUp size={14} />
+                </ViewAllButton>
+              ) : (
+                <ViewAllButton onClick={handleViewAll}>
+                  View All Projects
+                  <CornerRightDown size={14} />
+                </ViewAllButton>
+              )}
+            </ViewAllButtonContainer>
+          )}
+        </StyledWork>
       </Container>
     </Section>
   );
