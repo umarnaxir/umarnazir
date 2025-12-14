@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
-import { Toaster } from "sonner";
+import { Toaster } from "react-hot-toast";
 import { AOSInit } from "./components/AOSInit";
-import "./globals.css";
+import { ThemeProvider } from "./components/ThemeProvider";
+import StyledComponentsRegistry from "./components/StyledComponentsRegistry";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -27,11 +28,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
-      <body>
-        <AOSInit />
-        {children}
-        <Toaster position="top-right" richColors />
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning style={{ backgroundColor: '#0a0a0a', color: '#ffffff', margin: 0, padding: 0, overflowX: 'hidden' }}>
+        <StyledComponentsRegistry>
+          <ThemeProvider>
+            <AOSInit />
+            {children}
+            <Toaster
+              position="top-right"
+              reverseOrder={false}
+            />
+          </ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

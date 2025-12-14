@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Section, Container } from '../atoms';
 import { AboutHeader } from './AboutHeader/AboutHeader';
 import { AboutContent } from './AboutContent/AboutContent';
-import styles from './About.module.css';
+import { StyledAbout, AboutContent as AboutContentWrapper, AboutText, AboutVisual, AboutImage, AboutDivider } from './About.styles';
 
 export interface AboutProps {
   sectionNumber?: string;
@@ -36,28 +36,29 @@ export const About: React.FC<AboutProps> = ({
 
   return (
     <>
-      <Section id="about" className={styles.about}>
+      <Section id="about">
         <Container>
-          <div className={styles.aboutContent}>
-            <div className={styles.aboutText}>
-              <AboutHeader sectionNumber={sectionNumber} />
-              <AboutContent content={content} />
-            </div>
-            <div className={styles.aboutVisual} {...aosProps}>
-              <div className={styles.aboutImage}>
-                <Image
-                  src="/images/me.png"
-                  alt="Profile photo"
-                  fill
-                  className={styles.aboutImageImg}
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-            </div>
-          </div>
+          <StyledAbout>
+            <AboutContentWrapper>
+              <AboutText>
+                <AboutHeader sectionNumber={sectionNumber} />
+                <AboutContent content={content} />
+              </AboutText>
+              <AboutVisual {...aosProps}>
+                <AboutImage>
+                  <Image
+                    src="/images/me.png"
+                    alt="Profile photo"
+                    fill
+                    style={{ objectFit: 'cover', borderRadius: '1rem' }}
+                  />
+                </AboutImage>
+              </AboutVisual>
+            </AboutContentWrapper>
+          </StyledAbout>
         </Container>
       </Section>
-      <hr className={styles.aboutDivider} />
+      <AboutDivider />
     </>
   );
 };

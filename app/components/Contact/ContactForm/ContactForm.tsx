@@ -4,14 +4,14 @@ import React from 'react';
 import { Input, Textarea } from '../../atoms';
 import { Send } from 'lucide-react';
 import { useContactForm } from './hooks/useContactForm';
-import styles from './ContactForm.module.css';
+import { ContactFormWrapper, FormActions, SendButton } from './ContactForm.styles';
 
 export const ContactForm: React.FC = () => {
   const { formik, isSubmitting } = useContactForm();
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } = formik;
 
   return (
-    <form className={styles.contactForm} onSubmit={handleSubmit} data-aos="fade-up" data-aos-delay="300">
+    <ContactFormWrapper onSubmit={handleSubmit} data-aos="fade-up" data-aos-delay="300">
       <Input
         label="NAME"
         name="name"
@@ -40,17 +40,16 @@ export const ContactForm: React.FC = () => {
         error={touched.message && errors.message ? errors.message : undefined}
         placeholder=""
       />
-      <div className={styles.formActions}>
-        <button
+      <FormActions>
+        <SendButton
           type="submit"
-          className={styles.sendButton}
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
           <Send size={16} />
-        </button>
-      </div>
-    </form>
+        </SendButton>
+      </FormActions>
+    </ContactFormWrapper>
   );
 };
 

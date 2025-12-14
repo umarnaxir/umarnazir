@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import styles from './Text.module.css';
+import { StyledText } from './Text.styles';
 
 export type TextVariant =
   | 'h1'
@@ -45,17 +47,17 @@ export const Text: React.FC<TextProps> = ({
     return 'p';
   };
 
-  const Component = getTagName();
-  
-  const classNames = [
-    styles.text,
-    styles[variant],
-    styles[color],
-    weight && styles[weight],
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const Component = getTagName() as 'p';
 
-  return React.createElement(Component, { className: classNames }, children);
+  return (
+    <StyledText
+      as={Component}
+      $variant={variant}
+      $color={color}
+      $weight={weight}
+      className={className}
+    >
+      {children}
+    </StyledText>
+  );
 };

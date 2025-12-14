@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { Text } from '../../atoms';
-import styles from './ExperienceHeader.module.css';
+import { SectionHeader, SectionNumber } from './ExperienceHeader.styles';
 
 interface ExperienceHeaderProps {
   sectionNumber: string;
@@ -8,12 +10,10 @@ interface ExperienceHeaderProps {
 
 export const ExperienceHeader: React.FC<ExperienceHeaderProps> = ({ sectionNumber }) => {
   return (
-    <div className={styles.sectionHeader} data-aos="fade-up">
-      <Text variant="h2" className={styles.sectionNumber}>
-        {sectionNumber}
-      </Text>
+    <SectionHeader data-aos="fade-up">
+      <SectionNumber>{sectionNumber}</SectionNumber>
       <Text variant="h2">Experience</Text>
-    </div>
+    </SectionHeader>
   );
 };
 

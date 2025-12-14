@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { toast } from 'sonner';
+import toast from 'react-hot-toast';
 import {
   contactFormInitialValues,
   contactFormValidationSchema,
@@ -32,9 +32,7 @@ export const useContactForm = (): UseContactFormReturn => {
         }
 
         // Success
-        toast.success('Message sent successfully!', {
-          description: "Message received. I’ll get back to you shortly.",
-        });
+        toast.success("Message sent successfully! I'll get back to you shortly.");
 
         // Reset form
         resetForm();
@@ -45,9 +43,7 @@ export const useContactForm = (): UseContactFormReturn => {
             ? error.message
             : 'Failed to send message. Please try again later.';
 
-        toast.error('Failed to send message', {
-          description: errorMessage,
-        });
+        toast.error(`Failed to send message: ${errorMessage}`);
       } finally {
         setSubmitting(false);
       }
@@ -59,4 +55,3 @@ export const useContactForm = (): UseContactFormReturn => {
     isSubmitting: formik.isSubmitting,
   };
 };
-

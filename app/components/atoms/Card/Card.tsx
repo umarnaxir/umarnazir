@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import styles from './Card.module.css';
+import { StyledCard } from './Card.styles';
 
 export interface CardProps {
   children: React.ReactNode;
@@ -14,18 +16,10 @@ export const Card: React.FC<CardProps> = ({
   interactive = false,
   onClick,
 }) => {
-  const classNames = [
-    styles.card,
-    interactive && styles.cardInteractive,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
   return (
-    <div className={classNames} onClick={onClick}>
+    <StyledCard $interactive={interactive} className={className} onClick={onClick}>
       {children}
-    </div>
+    </StyledCard>
   );
 };
 

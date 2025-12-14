@@ -5,15 +5,28 @@ import Image from 'next/image';
 import { Text, Tag } from '../../atoms';
 import { ExternalLink } from 'lucide-react';
 import { Project } from '@/lib/data';
-import styles from './ProjectCard.module.css';
+import {
+  ProjectCardWrapper,
+  ProjectInfo,
+  ProjectNumber,
+  ProjectMeta,
+  ProjectMetaLeft,
+  ProjectYear,
+  ProjectCategory,
+  ProjectTitleWrapper,
+  ProjectTitle,
+  ProjectDescription,
+  ProjectTags,
+  ProjectLink,
+  ProjectVisual,
+} from './ProjectCard.styles';
 
 interface ProjectCardProps {
   project: Project;
   index: number;
-  isLast?: boolean;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isLast = false }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -32,56 +45,58 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isLast
     'data-aos-delay': index * 100
   };
 
+  const isReverse = index % 2 === 1;
+
   return (
-    <>
-      <div
-        className={`${styles.projectCard} ${
-          index % 2 === 1 ? styles.projectCardReverse : ''
-        }`}
-        {...aosProps}
-      >
-        <div className={styles.projectInfo}>
-          <Text variant="h4" className={styles.projectNumber}>
-            {project.number}
-          </Text>
-          <div className={styles.projectMeta}>
-            <span className={styles.projectYear}>{project.year}</span>
+    <ProjectCardWrapper 
+      $isReverse={isReverse} 
+      {...aosProps}
+      className="project-card-wrapper"
+    >
+      <ProjectInfo $isReverse={isReverse}>
+        <Text variant="h4" as="span">
+          <ProjectNumber>{project.number}</ProjectNumber>
+        </Text>
+        <ProjectMeta>
+          <ProjectMetaLeft>
+            <ProjectYear>{project.year}</ProjectYear>
             <span>•</span>
-            <span className={styles.projectCategory}>{project.category}</span>
-          </div>
-          <Text variant="h3" className={styles.projectTitle}>
-            {project.title}
+            <ProjectCategory>{project.category}</ProjectCategory>
+          </ProjectMetaLeft>
+        </ProjectMeta>
+        <ProjectTitleWrapper>
+          <Text variant="h3" as="span">
+            <ProjectTitle className="project-title">{project.title}</ProjectTitle>
           </Text>
-          <Text variant="body" color="secondary" className={styles.projectDescription}>
-            {project.description}
-          </Text>
-          <div className={styles.projectTags}>
-            {project.tags.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
-            ))}
-          </div>
-          <a
-            href={project.link || 'https://google.com'}
+        </ProjectTitleWrapper>
+        <Text variant="body" color="secondary" as="span">
+          <ProjectDescription>{project.description}</ProjectDescription>
+        </Text>
+        <ProjectTags>
+          {project.tags.map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </ProjectTags>
+        {project.link && (
+          <ProjectLink
+            href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.projectLink}
           >
             Live Link
             <ExternalLink size={16} />
-          </a>
-        </div>
-        <div className={styles.projectVisual}>
-          <Image
-            src="/images/ml-jobs.png"
-            alt={project.title}
-            fill
-            className={styles.projectVisualImg}
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
-      </div>
-      {!isLast && <hr className={styles.projectDivider} />}
-    </>
+          </ProjectLink>
+        )}
+      </ProjectInfo>
+      <ProjectVisual $isReverse={isReverse}>
+        <Image
+          src={project.imageLink || '/images/ml-jobs.png'}
+          alt={project.title}
+          fill
+          style={{ objectFit: 'cover', borderRadius: '0.5rem' }}
+        />
+      </ProjectVisual>
+    </ProjectCardWrapper>
   );
 };
 

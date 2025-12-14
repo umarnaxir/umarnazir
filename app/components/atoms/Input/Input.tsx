@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import styles from './Input.module.css';
+import { InputWrapper, Label, StyledInput, StyledTextarea, ErrorMessage } from './Input.styles';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -15,14 +17,11 @@ export const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <div className={styles.inputWrapper} style={{ width: fullWidth ? '100%' : 'auto' }}>
-      {label && <label className={styles.label}>{label}</label>}
-      <input
-        className={`${styles.input} ${error ? styles.error : ''} ${className}`}
-        {...props}
-      />
-      {error && <span className={styles.errorMessage}>{error}</span>}
-    </div>
+    <InputWrapper $fullWidth={fullWidth}>
+      {label && <Label>{label}</Label>}
+      <StyledInput $error={!!error} className={className} {...props} />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </InputWrapper>
   );
 };
 
@@ -40,14 +39,11 @@ export const Textarea: React.FC<TextareaProps> = ({
   ...props
 }) => {
   return (
-    <div className={styles.inputWrapper} style={{ width: fullWidth ? '100%' : 'auto' }}>
-      {label && <label className={styles.label}>{label}</label>}
-      <textarea
-        className={`${styles.textarea} ${error ? styles.error : ''} ${className}`}
-        {...props}
-      />
-      {error && <span className={styles.errorMessage}>{error}</span>}
-    </div>
+    <InputWrapper $fullWidth={fullWidth}>
+      {label && <Label>{label}</Label>}
+      <StyledTextarea $error={!!error} className={className} {...props} />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </InputWrapper>
   );
 };
 
