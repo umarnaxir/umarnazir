@@ -9,7 +9,7 @@ export const projectsData: Project[] = [
     title: 'AI-Mployed',
     description:
       'AI/ML Talent & Career Platform connecting job seekers with opportunities in artificial intelligence and machine learning. Built with React.js and Next.js for optimal performance and user experience.',
-    tags: ['REACT', 'NEXT.JS', 'TYPESCRIPT', 'AI/ML', 'FIREBASE'],
+    tags: ['NEXT.JS', 'TYPESCRIPT', 'AI/ML', 'MONGODB', 'NODE.JS', 'AWS'],
     link: 'https://ml-jobs.com',
     imageLink: '/images/mljobs.png',
     visualVariant: 'default',
@@ -22,7 +22,7 @@ export const projectsData: Project[] = [
     title: 'NineMash',
     description:
       'Tourism & Online Booking Platform for Kashmir region. Enables users to book hotels, tours, and experiences with seamless payment integration and real-time availability.',
-    tags: ['REACT', 'NEXT.JS', 'STRIPE', 'MONGODB', 'SEO'],
+    tags: ['NEXT.JS', 'TYPESCRIPT', 'MONGODB', 'SEO', 'NODE.JS', 'AWS'],
     link: 'https://ninemash.com/',
     imageLink: '/images/ninemash.png',
     visualVariant: 'alt2',
@@ -35,7 +35,7 @@ export const projectsData: Project[] = [
     title: 'Rush Expected Courier',
     description:
       'All Critical Shipments courier service platform. Specialized in handling urgent and time-sensitive deliveries with real-time tracking, priority booking, and customer support integration.',
-    tags: ['REACT', 'NEXT.JS', 'REAL-TIME TRACKING', 'FIREBASE'],
+    tags: ['REACT',  'REAL-TIME TRACKING', 'FIREBASE', 'PYTHON'],
     link: 'https://re-courier.com/',
     imageLink: '/images/re-courier.png',
     visualVariant: 'default',
@@ -47,8 +47,8 @@ export const projectsData: Project[] = [
     category: 'DIGITAL MARKETING / AGENCY',
     title: 'Digitlia',
     description:
-      'Digital marketing agency specializing in web development and SEO. Showcases services, portfolio, client testimonials, and case studies with integrated contact forms and lead generation features.',
-    tags: ['REACT', 'NEXT.JS', 'SEO', 'DIGITAL MARKETING', 'LEAD GENERATION'],
+      'Digital marketing agency specializing in web and app development and SEO. Showcases services, portfolio, client testimonials, and case studies with integrated contact forms and lead generation features.',
+    tags: ['REACT', 'NEXT.JS', 'SEO', 'DIGITAL MARKETING', 'LEAD GENERATION', 'PYTHON'],
     link: 'https://digitlia.com/',
     imageLink: '/images/digitlia.jpeg',
     visualVariant: 'alt',
@@ -61,7 +61,7 @@ export const projectsData: Project[] = [
     title: 'EliteExpress Courier',
     description:
       'Delivery & Logistics System for managing shipments, tracking packages, and optimizing delivery routes. Features real-time tracking, automated notifications, and comprehensive admin dashboard.',
-    tags: ['REACT', 'NEXT.JS', 'NODE.JS', 'MONGODB', 'FIREBASE'],
+    tags: ['NEXT.JS', 'NODE.JS', 'MONGODB', ],
     link: 'https://eliteexpressdeliveryservices.com/',
     imageLink: '/images/eliteexpress.png',
     visualVariant: 'alt',
@@ -74,7 +74,7 @@ export const projectsData: Project[] = [
     title: 'Kashmir Tickets',
     description:
       'Travel & Ticket Booking System for Kashmir region. Comprehensive platform for booking flights, buses, and travel packages with secure payment processing and booking management.',
-    tags: ['REACT', 'NEXT.JS', 'PAYMENT GATEWAY', 'MONGODB'],
+    tags: ['NEXT.JS', 'SEO', 'MONGODB'],
     link: 'https://kashmirtickets.com/',
     imageLink: '/images/kashmirtickets.png',
     visualVariant: 'alt',
@@ -100,7 +100,7 @@ export const projectsData: Project[] = [
     title: 'Office Management System',
     description:
       'HR & Workflow Automation system for managing employee data, attendance, payroll, and workflow processes. Features role-based access control, reporting dashboards, and automated notifications.',
-    tags: ['REACT', 'NODE.JS', 'MONGODB', 'AUTOMATION', 'HR SYSTEM'],
+    tags: ['REACT', 'NODE.JS', 'FIREBASE', 'MONGODB', 'AUTOMATION', 'HR SYSTEM'],
     link: 'https://example.com',
     imageLink: '/images/office-management.png',
     visualVariant: 'alt',
@@ -113,7 +113,7 @@ export const projectsData: Project[] = [
     title: 'Hotel Sea View',
     description:
       'Hospitality Booking Website for hotel reservations. Features room availability, online booking, payment processing, and guest management system with beautiful UI/UX design.',
-    tags: ['REACT', 'NEXT.JS', 'BOOKING SYSTEM', 'PAYMENT', 'UI/UX'],
+    tags: ['REACT', 'NEXT.JS', 'BOOKING SYSTEM', 'NODE.JS'],
     link: 'https://thehotelseaview.in/',
     imageLink: '/images/hotel-sea-view.png',
     visualVariant: 'alt2',
@@ -126,7 +126,7 @@ export const projectsData: Project[] = [
     title: 'Dr. Jibran Bashir',
     description:
       'Professional portfolio website for Orthopedic Surgeon featuring appointment booking, patient testimonials, and medical service information with responsive design and SEO optimization.',
-    tags: ['REACT', 'NEXT.JS', 'TYPESCRIPT', 'SEO', 'RESPONSIVE'],
+    tags: ['NEXT.JS', 'TYPESCRIPT', 'SEO', 'RESPONSIVE', 'MONGODB','NODE.JS'],
     link: 'https://www.drjibranbashir.com/',
     imageLink: '/images/dr-jibran-bashir.png',
     visualVariant: 'default',
@@ -139,8 +139,8 @@ export const projectsData: Project[] = [
     title: 'Altaf Hospital',
     description:
       'Healthcare & Medical Services Website for hospital. Includes appointment booking, doctor profiles, department information, and patient portal with secure data handling and HIPAA compliance considerations.',
-    tags: ['REACT', 'NEXT.JS', 'HEALTHCARE', 'APPOINTMENT SYSTEM', 'SECURITY'],
-    link: 'https://www.altafhospital.com/',
+      tags: ['NEXT.JS', 'TYPESCRIPT', 'SEO', 'RESPONSIVE', 'MONGODB','NODE.JS'],
+      link: 'https://www.altafhospital.com/',
     imageLink: '/images/altaf-hospital.png',
     visualVariant: 'default',
   },

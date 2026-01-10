@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/components/atoms/Tag/Tag.module.css"],"sourcesContent":[".tag {\n  font-family: var(--font-family-body);\n  display: inline-flex;\n  align-items: center;\n  padding: var(--spacing-xs) var(--spacing-md);\n  font-size: var(--font-size-xs);\n  font-weight: var(--font-weight-medium);\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  border-radius: var(--radius-sm);\n  background-color: var(--color-bg-tertiary);\n  color: var(--color-text-secondary);\n  border: 1px solid var(--color-border);\n  transition: all var(--transition-fast);\n}\n\n.tag:hover {\n  border-color: var(--color-text-secondary);\n  color: var(--color-text-primary);\n}\n\n"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;AAgBA"}}]
-}

@@ -46,7 +46,10 @@ export const TimelineDotOuter = styled.div`
   ${TimelineItem}:hover & {
     border-color: ${({ theme }) => theme.colors.accentHover};
     transform: scale(1.1);
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    box-shadow: ${({ theme }) =>
+      theme.mode === 'dark'
+        ? `0 0 0 4px ${theme.colors.accent}33`
+        : `0 0 0 4px ${theme.colors.accent}33`};
   }
 
   @media (max-width: 768px) {
@@ -90,7 +93,10 @@ export const StyledExperienceCard = styled.div`
   ${TimelineItem}:hover & {
     border-color: ${({ theme }) => theme.colors.accent};
     transform: translateX(8px);
-    box-shadow: 0 4px 24px rgba(59, 130, 246, 0.15);
+    box-shadow: ${({ theme }) =>
+      theme.mode === 'dark'
+        ? `0 4px 24px ${theme.colors.accent}26`
+        : `0 4px 24px ${theme.colors.accent}20`};
   }
 
   @media (max-width: 768px) {
@@ -99,7 +105,10 @@ export const StyledExperienceCard = styled.div`
 
     ${TimelineItem}:hover & {
       transform: translateX(4px);
-      box-shadow: 0 2px 12px rgba(59, 130, 246, 0.12);
+      box-shadow: ${({ theme }) =>
+        theme.mode === 'dark'
+          ? `0 2px 12px ${theme.colors.accent}20`
+          : `0 2px 12px ${theme.colors.accent}15`};
     }
   }
 `;
@@ -132,25 +141,27 @@ export const CardHeaderLeft = styled.div`
 
 export const CompanyName = styled.span`
   font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.textSecondary};
   line-height: 1.2;
   transition: color 0.3s ease;
   display: block;
 
   ${StyledExperienceCard}:hover & {
-    color: #e0e7ff;
+    color: ${({ theme }) =>
+      theme.mode === 'dark' ? '#e0e7ff' : theme.colors.textSecondary};
   }
 `;
 
 export const Role = styled.span`
   font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.accent};
   line-height: 1.3;
   transition: color 0.3s ease;
   display: block;
 
   ${StyledExperienceCard}:hover & {
-    color: #60a5fa;
+    color: ${({ theme }) =>
+      theme.mode === 'dark' ? theme.colors.accentHover : theme.colors.accent};
   }
 `;
 
@@ -193,7 +204,8 @@ export const ExperienceDescription = styled.span`
   display: block;
 
   ${StyledExperienceCard}:hover & {
-    color: #e0e7ff;
+    color: ${({ theme }) =>
+      theme.mode === 'dark' ? '#e0e7ff' : theme.colors.textSecondary};
   }
 
   @media (max-width: 768px) {
@@ -226,7 +238,8 @@ export const ExperienceListItem = styled.li`
   transition: color 0.3s ease;
 
   ${StyledExperienceCard}:hover & {
-    color: #e0e7ff;
+    color: ${({ theme }) =>
+      theme.mode === 'dark' ? '#e0e7ff' : theme.colors.textSecondary};
   }
 
   @media (max-width: 768px) {

@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from '../../hooks/useTheme';
 import {
   StyledNavbar,
   NavbarContent,
@@ -8,17 +10,22 @@ import {
   NavRight,
   NavLinks,
   NavLink,
+  MobileNavRight,
+  MobileNavThemeToggleButton,
   MobileMenuButton,
   HamburgerLine,
   MobileMenu,
   MobileMenuContent,
   MobileMenuHeader,
+  MobileMenuHeaderRight,
   MobileMenuLogo,
   MobileMenuCloseButton,
   MobileMenuDivider,
   MobileNavLinks,
   MobileNavLinkItem,
   MobileNavLink,
+  ThemeToggleButton,
+  MobileThemeToggleButton,
   ResumeButton,
   ResumeModalOverlay,
   ResumeModal,
@@ -49,6 +56,7 @@ export const NavBar: React.FC<NavBarProps> = ({
     { label: 'Contact', href: '#contact' },
   ],
 }) => {
+  const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
@@ -77,14 +85,14 @@ export const NavBar: React.FC<NavBarProps> = ({
   };
 
   const handleViewResume = () => {
-    window.open('/resume/cv.pdf', '_blank');
+    window.open('/resume/umarnazir.pdf', '_blank');
     setResumeModalOpen(false);
   };
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume/cv.pdf';
-    link.download = 'Umar_Nazir_Resume.pdf';
+    link.href = '/resume/umarnazir.pdf';
+    link.download = 'umarnazir.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -109,16 +117,33 @@ export const NavBar: React.FC<NavBarProps> = ({
             ))}
           </NavLinks>
 
+          <ThemeToggleButton
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </ThemeToggleButton>
+
           <ResumeButton href="#" onClick={handleResumeClick}>
             Resume
           </ResumeButton>
         </NavRight>
 
-        <MobileMenuButton $isOpen={mobileMenuOpen} onClick={toggleMobileMenu} aria-label="Toggle menu">
-          <HamburgerLine $index={0} $isOpen={mobileMenuOpen} />
-          <HamburgerLine $index={1} $isOpen={mobileMenuOpen} />
-          <HamburgerLine $index={2} $isOpen={mobileMenuOpen} />
-        </MobileMenuButton>
+        <MobileNavRight>
+          <MobileNavThemeToggleButton
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </MobileNavThemeToggleButton>
+          <MobileMenuButton $isOpen={mobileMenuOpen} onClick={toggleMobileMenu} aria-label="Toggle menu">
+            <HamburgerLine $index={0} $isOpen={mobileMenuOpen} />
+            <HamburgerLine $index={1} $isOpen={mobileMenuOpen} />
+            <HamburgerLine $index={2} $isOpen={mobileMenuOpen} />
+          </MobileMenuButton>
+        </MobileNavRight>
       </NavbarContent>
 
       <MobileMenu
@@ -134,9 +159,20 @@ export const NavBar: React.FC<NavBarProps> = ({
             <MobileMenuLogo href="#" onClick={closeMobileMenu}>
               {name}
             </MobileMenuLogo>
-            <MobileMenuCloseButton onClick={closeMobileMenu} aria-label="Close menu">
-              ×
-            </MobileMenuCloseButton>
+            <MobileMenuHeaderRight>
+              <MobileThemeToggleButton
+                onClick={() => {
+                  toggleTheme();
+                }}
+                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                $isInHeader
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </MobileThemeToggleButton>
+              <MobileMenuCloseButton onClick={closeMobileMenu} aria-label="Close menu">
+                ×
+              </MobileMenuCloseButton>
+            </MobileMenuHeaderRight>
           </MobileMenuHeader>
           <MobileMenuDivider />
           <MobileNavLinks>
@@ -160,6 +196,16 @@ export const NavBar: React.FC<NavBarProps> = ({
               </MobileNavLink>
             </MobileNavLinkItem>
           </MobileNavLinks>
+          <MobileThemeToggleButton
+            onClick={() => {
+              toggleTheme();
+            }}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            $isInMenu
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+          </MobileThemeToggleButton>
         </MobileMenuContent>
       </MobileMenu>
 

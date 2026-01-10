@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} suppressHydrationWarning>
-      <body suppressHydrationWarning style={{ backgroundColor: '#0a0a0a', color: '#ffffff', margin: 0, padding: 0, overflowX: 'hidden' }}>
+      <body suppressHydrationWarning style={{ margin: 0, padding: 0, overflowX: 'hidden' }}>
         <StyledComponentsRegistry>
           <ThemeProvider>
             <AOSInit />
