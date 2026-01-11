@@ -21,3 +21,4 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
 [00:02:28.025] Browser WARN    Image with src "/images/re-courier.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [00:02:29.636] Browser WARN    Image with src "/images/digitlia.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [00:02:30.173] Browser WARN    Image with src "/images/eliteexpress.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:15:26.804] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
