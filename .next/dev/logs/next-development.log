@@ -1,17 +1,23 @@
-[00:00:01.992] Server  LOG      ✓ Ready in 1708ms
-[00:00:10.870] Server  LOG      ○ Compiling / ...
-[00:00:12.049] Server  WARN     ⚠ Cross origin request detected from 192.168.1.4 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:00:06.076] Server  LOG      ✓ Ready in 5.7s
+[00:00:15.180] Server  LOG      ○ Compiling / ...
+[00:01:02.473] Server  WARN     ⚠ Cross origin request detected from 192.168.1.4 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:00:12.083] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:14.414] Browser WARN    Image with src "/images/mljobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:14.414] Browser WARN    Image with src "/images/ninemash.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:15.464] Browser WARN    Image with src "/images/re-courier.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:15.572] Browser WARN    Image with src "/images/digitlia.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:16.069] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/mljobs.png" "received" null
-[00:00:16.073] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/re-courier.png" "received" null
-[00:00:16.098] Server  ERROR   Error: The requested resource isn't a valid image.
-[00:00:16.105] Server  ERROR   Error: The requested resource isn't a valid image.
-[00:00:16.133] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/digitlia.jpeg" "received" null
-[00:00:16.141] Server  ERROR   Error: The requested resource isn't a valid image.
-[00:00:16.448] Browser WARN    Image with src "/images/eliteexpress.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:00:19.076] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:02.505] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:04.821] Browser WARN    Image with src "/images/mljobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:04.821] Browser WARN    Image with src "/images/ninemash.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:05.000] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/mljobs.png" "received" null
+[00:01:05.018] Server  ERROR   Error: The requested resource isn't a valid image.
+[00:01:21.268] Browser WARN    Image with src "/images/re-courier.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:21.586] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/re-courier.png" "received" null
+[00:01:21.594] Server  ERROR   Error: The requested resource isn't a valid image.
+[00:01:22.223] Browser WARN    Image with src "/images/digitlia.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:22.288] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/digitlia.jpeg" "received" null
+[00:01:22.292] Server  ERROR   Error: The requested resource isn't a valid image.
+[00:01:22.384] Browser WARN    Image with src "/images/eliteexpress.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:29.889] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:21.039] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:23.342] Browser WARN    Image with src "/images/ninemash.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:23.342] Browser WARN    Image with src "/images/mljobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:28.025] Browser WARN    Image with src "/images/re-courier.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:29.636] Browser WARN    Image with src "/images/digitlia.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:30.173] Browser WARN    Image with src "/images/eliteexpress.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
