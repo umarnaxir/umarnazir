@@ -1,24 +1,11 @@
-[00:00:06.076] Server  LOG      ✓ Ready in 5.7s
-[00:00:15.180] Server  LOG      ○ Compiling / ...
-[00:01:02.473] Server  WARN     ⚠ Cross origin request detected from 192.168.1.4 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+[00:02:35.364] Server  LOG      ✓ Ready in 155.1s
+[00:02:38.373] Server  LOG      ○ Compiling / ...
+[00:04:48.396] Server  WARN     ⚠ Cross origin request detected from 10.122.45.173 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
 Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
-[00:01:02.505] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:04.821] Browser WARN    Image with src "/images/mljobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:04.821] Browser WARN    Image with src "/images/ninemash.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:05.000] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/mljobs.png" "received" null
-[00:01:05.018] Server  ERROR   Error: The requested resource isn't a valid image.
-[00:01:21.268] Browser WARN    Image with src "/images/re-courier.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:21.586] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/re-courier.png" "received" null
-[00:01:21.594] Server  ERROR   Error: The requested resource isn't a valid image.
-[00:01:22.223] Browser WARN    Image with src "/images/digitlia.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:22.288] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/digitlia.jpeg" "received" null
-[00:01:22.292] Server  ERROR   Error: The requested resource isn't a valid image.
-[00:01:22.384] Browser WARN    Image with src "/images/eliteexpress.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:29.889] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:21.039] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:23.342] Browser WARN    Image with src "/images/ninemash.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:23.342] Browser WARN    Image with src "/images/mljobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:28.025] Browser WARN    Image with src "/images/re-courier.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:29.636] Browser WARN    Image with src "/images/digitlia.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:02:30.173] Browser WARN    Image with src "/images/eliteexpress.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:15:26.804] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:48.428] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:50.808] Browser WARN    Image with src "/images/mljobs.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:04:50.808] Browser WARN    Image with src "/images/ninemash.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:03.250] Browser WARN    Image with src "/images/re-courier.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:03.250] Browser WARN    Image with src "/images/digitlia.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:07.168] Browser WARN    Image with src "/images/eliteexpress.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:07.366] Browser WARN    Image with src "/images/me.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
