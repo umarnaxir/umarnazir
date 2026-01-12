@@ -9,7 +9,7 @@ export const ProjectCardWrapper = styled.div<{ $isReverse?: boolean }>`
   padding: ${({ theme }) => theme.spacing['4xl']} 0;
 
   &:hover .project-title {
-    color: #60a5fa;
+    color: ${({ theme }) => theme.colors.accent};
   }
 
   @media (max-width: 1024px) {

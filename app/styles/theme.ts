@@ -1,18 +1,39 @@
-export const theme = {
-  colors: {
-    bgPrimary: '#0a0a0a',
-    bgSecondary: '#1a1a1a',
-    bgTertiary: '#2a2a2a',
-    textPrimary: '#ffffff',
-    textSecondary: '#b3b3b3',
-    textTertiary: '#808080',
-    accent: '#3b82f6',
-    accentHover: '#2563eb',
-    border: '#333333',
-    inputBg: '#1a1a1a',
-    inputBorder: '#333333',
-    inputFocus: '#3b82f6',
-  },
+import { ThemeMode } from '../context/ThemeContext';
+
+// Dark theme colors (default - existing UI)
+const darkColors = {
+  bgPrimary: '#0a0a0a',
+  bgSecondary: '#1a1a1a',
+  bgTertiary: '#2a2a2a',
+  textPrimary: '#ffffff',
+  textSecondary: '#b3b3b3',
+  textTertiary: '#808080',
+  accent: '#3b82f6',
+  accentHover: '#2563eb',
+  border: '#333333',
+  inputBg: '#1a1a1a',
+  inputBorder: '#333333',
+  inputFocus: '#3b82f6',
+};
+
+// Light theme colors
+const lightColors = {
+  bgPrimary: '#FFFFFF',
+  bgSecondary: '#F5F5F5',
+  bgTertiary: '#E5E5E5',
+  textPrimary: '#000000',
+  textSecondary: '#4A4A4A',
+  textTertiary: '#6B6B6B',
+  accent: '#FF6B35', // Orange color
+  accentHover: '#E55A2B', // Darker orange for hover
+  border: '#E0E0E0',
+  inputBg: '#F5F5F5',
+  inputBorder: '#E0E0E0',
+  inputFocus: '#FF6B35', // Orange color
+};
+
+// Shared theme properties
+const sharedTheme = {
   typography: {
     fontFamilyHeading: 'var(--font-space-grotesk), "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     fontFamilyBody: 'var(--font-inter), Inter, -apple-system, "system-ui", sans-serif',
@@ -79,4 +100,14 @@ export const theme = {
   },
 };
 
-export type Theme = typeof theme;
+// Theme factory function
+export const getTheme = (mode: ThemeMode = 'dark') => ({
+  mode,
+  colors: mode === 'light' ? lightColors : darkColors,
+  ...sharedTheme,
+});
+
+// Default theme (dark) for backward compatibility
+export const theme = getTheme('dark');
+
+export type Theme = ReturnType<typeof getTheme>;

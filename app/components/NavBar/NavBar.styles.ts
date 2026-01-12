@@ -62,9 +62,14 @@ export const StyledNavbar = styled.nav<{ $mobileMenuActive?: boolean }>`
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: ${({ theme }) => theme.zIndex.sticky};
-  background-color: rgba(10, 10, 10, 0.8);
+  background-color: ${({ theme }) =>
+    theme.mode === 'dark'
+      ? 'rgba(10, 10, 10, 0.8)'
+      : 'rgba(255, 255, 255, 0.8)'};
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   padding: ${({ theme }) => theme.spacing.lg} 0;
 
@@ -81,6 +86,7 @@ export const StyledNavbar = styled.nav<{ $mobileMenuActive?: boolean }>`
   }
 
   @media (max-width: 768px) {
+    position: fixed;
     padding: ${({ theme }) => theme.spacing.md} 0;
   }
 `;
@@ -130,6 +136,41 @@ export const NavRight = styled.div`
   }
 `;
 
+export const MobileNavRight = styled.div`
+  display: none;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.md};
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+`;
+
+export const MobileNavThemeToggleButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  padding: ${({ theme }) => theme.spacing.xs};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  transition: all ${({ theme }) => theme.transitions.base};
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
+    color: ${({ theme }) => theme.colors.accent};
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
 export const NavLinks = styled.ul`
   display: flex;
   align-items: center;
@@ -140,10 +181,10 @@ export const NavLinks = styled.ul`
 `;
 
 export const NavLink = styled.a`
-  font-family: ${({ theme }) => theme.typography.fontFamilyBody};
+  font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 0.05em;
   color: ${({ theme }) => theme.colors.textPrimary};
   transition: color ${({ theme }) => theme.transitions.fast};
@@ -251,6 +292,12 @@ export const MobileMenuHeader = styled.div`
   padding-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
+export const MobileMenuHeaderRight = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.sm};
+`;
+
 export const MobileMenuLogo = styled.a`
   font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
   font-size: ${({ theme }) => theme.typography.fontSize.xl};
@@ -311,9 +358,9 @@ export const MobileNavLink = styled.a`
   padding: ${({ theme }) => theme.spacing.sm} 0;
   display: block;
   transition: all ${({ theme }) => theme.transitions.base};
-  font-family: ${({ theme }) => theme.typography.fontFamilyBody};
+  font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 0.05em;
   color: ${({ theme }) => theme.colors.textPrimary};
   text-decoration: none;
@@ -321,6 +368,79 @@ export const MobileNavLink = styled.a`
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
     padding-left: ${({ theme }) => theme.spacing.sm};
+  }
+`;
+
+export const ThemeToggleButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  padding: ${({ theme }) => theme.spacing.xs};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  transition: all ${({ theme }) => theme.transitions.base};
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-left: ${({ theme }) => theme.spacing.lg};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
+    color: ${({ theme }) => theme.colors.accent};
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const MobileThemeToggleButton = styled.button<{ $isInHeader?: boolean; $isInMenu?: boolean }>`
+  background-color: transparent;
+  border: none;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  transition: all ${({ theme }) => theme.transitions.base};
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.sm};
+  font-family: ${({ theme }) => theme.typography.fontFamilyBody};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  
+  ${({ $isInHeader }) =>
+    $isInHeader
+      ? css`
+          padding: ${({ theme }) => theme.spacing.xs};
+          width: 40px;
+          height: 40px;
+          opacity: 0;
+          animation: ${spinIn} 0.6s ease-out 0.15s forwards;
+        `
+      : css`
+          padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.lg};
+          width: 100%;
+          font-size: ${({ theme }) => theme.typography.fontSize.base};
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-top: ${({ theme }) => theme.spacing.md};
+        `}
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.bgSecondary};
+    color: ${({ theme }) => theme.colors.accent};
+    transform: ${({ $isInHeader }) => ($isInHeader ? 'scale(1.1)' : 'none')};
+  }
+
+  &:active {
+    transform: ${({ $isInHeader }) => ($isInHeader ? 'scale(0.95)' : 'none')};
   }
 `;
 
@@ -332,7 +452,7 @@ export const ResumeButton = styled.a`
   padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.lg};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 0.05em;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   transition: all ${({ theme }) => theme.transitions.base};
@@ -357,7 +477,8 @@ export const ResumeModalOverlay = styled.div`
   width: 100%;
   height: 100vh;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: ${({ theme }) =>
+    theme.mode === 'dark' ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.5)'};
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;

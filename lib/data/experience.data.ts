@@ -9,14 +9,14 @@ export const experienceData: ExperienceItem[] = [
     location: 'On-Site',
     type: 'Full-time',
     description:
-      'Building high-performance React/Next.js applications with focus on SEO optimization, page speed, and exceptional user experience.',
+      'Building high-performance React/Next.js Websites and React Native Mobile applications with focus on SEO optimization, page speed, and exceptional user experience.',
     responsibilities: [
-      'Build high-performance React/Next.js applications',
+      'Build high-performance React/Next.js Web and React Native  Apps',
       'Improve SEO structure, page speed, and user experience',
       'Develop reusable components and optimized UI patterns',
       'Integrate APIs, Firebase services, and backend logic',
     ],
-    tags: ['REACT', 'NEXT.JS', 'TYPESCRIPT', 'SEO', 'FIREBASE', 'API INTEGRATION'],
+    tags: ['REACT', 'NEXT.JS', 'TYPESCRIPT', 'REACT NATIVE', 'SEO', 'DB', 'API INTEGRATION'],
   },
   {
     id: '2',

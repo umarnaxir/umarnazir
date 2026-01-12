@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/components/About/AboutContent/AboutContent.module.css"],"sourcesContent":[".aboutDescription {\n  font-family: var(--font-family-body);\n  color: var(--color-text-secondary);\n  line-height: 1.8;\n}\n\n.aboutDescription p {\n  margin-bottom: var(--spacing-md);\n}\n\n.aboutDescription p:last-child {\n  margin-bottom: 0;\n}\n\n"],"names":[],"mappings":"AAAA;;;;;;AAMA;;;;AAIA"}}]
-}

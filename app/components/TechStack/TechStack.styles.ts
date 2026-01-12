@@ -49,19 +49,24 @@ export const TechStackTitle = styled.h2`
 
 export const TechStackGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: ${({ theme }) => theme.spacing.xl};
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: ${({ theme }) => theme.spacing.lg};
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: ${({ theme }) => theme.spacing.lg};
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: ${({ theme }) => theme.spacing.md};
   }
 `;
 
@@ -70,54 +75,67 @@ export const TechItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.md};
   transition: all ${({ theme }) => theme.transitions.base};
   cursor: pointer;
+  padding: ${({ theme }) => theme.spacing.sm};
 
   &:hover {
     transform: translateY(-4px);
   }
 
   &:hover svg {
-    opacity: 0.8;
+    transform: scale(1.1);
   }
 `;
 
 export const TechIcon = styled.div`
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${({ theme }) => theme.spacing.xs};
+  padding: ${({ theme }) => theme.spacing.sm};
+  color: ${({ theme }) => theme.colors.textPrimary};
 
   svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    color: inherit;
   }
 
   @media (max-width: 1024px) {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
   }
 
   @media (max-width: 768px) {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
+  }
+
+  @media (max-width: 480px) {
+    width: 70px;
+    height: 70px;
   }
 `;
 
 export const TechName = styled.span`
   font-family: ${({ theme }) => theme.typography.fontFamilyBody};
-  font-size: ${({ theme }) => theme.typography.fontSize.xs};
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) => theme.colors.textPrimary};
   text-align: center;
   margin: 0;
+  line-height: 1.4;
 
   @media (max-width: 768px) {
-    font-size: 0.8rem;
+    font-size: ${({ theme }) => theme.typography.fontSize.xs};
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
   }
 `;
 

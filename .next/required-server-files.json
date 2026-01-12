@@ -101,7 +101,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/umarnazir/websites/umarnazir",
+    "outputFileTracingRoot": "/Users/umarnazir/Documents/websites/umarnazir",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -291,11 +291,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "/Users/umarnazir/websites/umarnazir"
+      "root": "/Users/umarnazir/Documents/websites/umarnazir"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "/Users/umarnazir/websites/umarnazir",
+  "appDir": "/Users/umarnazir/Documents/websites/umarnazir",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

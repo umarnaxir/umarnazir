@@ -1,7 +1,6 @@
 'use client';
 
 import { createGlobalStyle } from 'styled-components';
-import { theme } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -15,17 +14,18 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${theme.colors.bgPrimary};
-    color: ${theme.colors.textPrimary};
-    font-family: ${theme.typography.fontFamilyBody};
-    font-size: ${theme.typography.fontSize.base};
+    background-color: ${({ theme }) => theme.colors.bgPrimary};
+    color: ${({ theme }) => theme.colors.textPrimary};
+    font-family: ${({ theme }) => theme.typography.fontFamilyBody};
+    font-size: ${({ theme }) => theme.typography.fontSize.base};
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    transition: background-color ${({ theme }) => theme.transitions.base}, color ${({ theme }) => theme.transitions.base};
   }
 
-  /* Grid background pattern */
+  /* Grid background pattern - only visible in dark mode */
   body::before {
     content: '';
     position: fixed;
@@ -39,6 +39,36 @@ export const GlobalStyles = createGlobalStyle`
     background-size: 50px 50px;
     pointer-events: none;
     z-index: 0;
+    opacity: ${({ theme }) => (theme.mode === 'dark' ? 1 : 0)};
+    transition: opacity ${({ theme }) => theme.transitions.base};
+  }
+
+  /* Grid background pattern for light mode - subtle orange grid */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: ${({ theme }) => (theme.mode === 'light' ? 1 : 0)};
+    transition: opacity ${({ theme }) => theme.transitions.base};
+    background-image: 
+      linear-gradient(rgba(255, 107, 53, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 107, 53, 0.03) 1px, transparent 1px),
+      radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 107, 53, 0.015) 0%, transparent 100%);
+    background-size: 
+      50px 50px,
+      50px 50px,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%;
   }
 
   #__next {
@@ -49,11 +79,11 @@ export const GlobalStyles = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
-    transition: color ${theme.transitions.fast};
+    transition: color ${({ theme }) => theme.transitions.fast};
   }
 
   a:hover {
-    color: ${theme.colors.accent};
+    color: ${({ theme }) => theme.colors.accent};
   }
 
   button {
@@ -76,15 +106,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    background: ${theme.colors.bgPrimary};
+    background: ${({ theme }) => theme.colors.bgPrimary};
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${theme.colors.border};
-    border-radius: ${theme.borderRadius.sm};
+    background: ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.borderRadius.sm};
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: ${theme.colors.textTertiary};
+    background: ${({ theme }) => theme.colors.textTertiary};
   }
 `;
