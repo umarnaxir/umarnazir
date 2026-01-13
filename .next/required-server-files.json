@@ -293,6 +293,9 @@
     "turbopack": {
       "root": "/Users/umarnazir/Documents/websites/umarnazir"
     },
+    "transpilePackages": [
+      "react-fast-compare"
+    ],
     "distDirRoot": ".next"
   },
   "appDir": "/Users/umarnazir/Documents/websites/umarnazir",

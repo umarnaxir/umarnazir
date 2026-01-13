@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(process.cwd()),
   },
+  transpilePackages: ['react-fast-compare'],
 };
 
 export default nextConfig;

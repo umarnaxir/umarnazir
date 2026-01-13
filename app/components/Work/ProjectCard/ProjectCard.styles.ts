@@ -7,15 +7,30 @@ export const ProjectCardWrapper = styled.div<{ $isReverse?: boolean }>`
   align-items: center;
   width: 100%;
   padding: ${({ theme }) => theme.spacing['4xl']} 0;
+  transition: transform ${({ theme }) => theme.transitions.base};
 
   &:hover .project-title {
     color: ${({ theme }) => theme.colors.accent};
+  }
+
+  &:hover .project-visual {
+    @media (min-width: 1025px) {
+      transform: scale(1.02);
+      
+      img {
+        transform: scale(1.05);
+      }
+    }
   }
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
     gap: ${({ theme }) => theme.spacing['2xl']};
     padding: ${({ theme }) => theme.spacing['2xl']} 0;
+    
+    &:active {
+      transform: scale(0.98);
+    }
   }
 `;
 
@@ -25,9 +40,22 @@ export const ProjectInfo = styled.div<{ $isReverse?: boolean }>`
   gap: ${({ theme }) => theme.spacing.md};
   max-width: 100%;
   order: ${({ $isReverse }) => ($isReverse ? 2 : 1)};
+  transition: opacity ${({ theme }) => theme.transitions.base};
 
   @media (max-width: 1024px) {
-    order: 2;
+    order: 1;
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 
@@ -105,6 +133,23 @@ export const ProjectLink = styled.a`
   &:hover {
     gap: ${({ theme }) => theme.spacing.sm};
   }
+
+  &.project-link-mobile {
+    margin-top: ${({ theme }) => theme.spacing.lg};
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+    order: 3;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
 export const ProjectVisual = styled.div<{ $isReverse?: boolean }>`
@@ -115,14 +160,31 @@ export const ProjectVisual = styled.div<{ $isReverse?: boolean }>`
   overflow: hidden;
   flex-shrink: 0;
   order: ${({ $isReverse }) => ($isReverse ? 1 : 2)};
+  transition: transform ${({ theme }) => theme.transitions.base}, opacity ${({ theme }) => theme.transitions.base};
+
+  img {
+    transition: transform ${({ theme }) => theme.transitions.base};
+  }
 
   @media (max-width: 1024px) {
     height: 350px;
-    order: 1;
+    order: 2;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
   }
 
   @media (max-width: 768px) {
     height: 280px;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 

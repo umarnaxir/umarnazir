@@ -25,6 +25,7 @@ import {
   MobileNavLinks,
   MobileNavLinkItem,
   MobileNavLink,
+  MobileResumeLink,
   ThemeToggleButton,
   ThemeToggleThumb,
   MobileThemeToggleButton,
@@ -120,6 +121,10 @@ export const NavBar: React.FC<NavBarProps> = ({
             ))}
           </NavLinks>
 
+          <ResumeButton href="#" onClick={handleResumeClick}>
+            Resume
+          </ResumeButton>
+
           <ThemeToggleButton
             onClick={toggleTheme}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -130,10 +135,6 @@ export const NavBar: React.FC<NavBarProps> = ({
               {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
             </ThemeToggleThumb>
           </ThemeToggleButton>
-
-          <ResumeButton href="#" onClick={handleResumeClick}>
-            Resume
-          </ResumeButton>
         </NavRight>
 
         <MobileNavRight>
@@ -144,7 +145,7 @@ export const NavBar: React.FC<NavBarProps> = ({
             $isLight={theme === 'light'}
           >
             <MobileNavThemeToggleThumb $isLight={theme === 'light'}>
-              {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
+              {theme === 'light' ? <Sun size={14} /> : <Moon size={14} />}
             </MobileNavThemeToggleThumb>
           </MobileNavThemeToggleButton>
           <MobileMenuButton $isOpen={mobileMenuOpen} onClick={toggleMobileMenu} aria-label="Toggle menu">
@@ -178,7 +179,7 @@ export const NavBar: React.FC<NavBarProps> = ({
                 $isLight={theme === 'light'}
               >
                 <MobileThemeToggleThumb $isLight={theme === 'light'} $isInHeader>
-                  {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
+                  {theme === 'light' ? <Sun size={14} /> : <Moon size={14} />}
                 </MobileThemeToggleThumb>
               </MobileThemeToggleButton>
               <MobileMenuCloseButton onClick={closeMobileMenu} aria-label="Close menu">
@@ -196,7 +197,7 @@ export const NavBar: React.FC<NavBarProps> = ({
               </MobileNavLinkItem>
             ))}
             <MobileNavLinkItem $index={navItems.length}>
-              <MobileNavLink
+              <MobileResumeLink
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
@@ -205,7 +206,7 @@ export const NavBar: React.FC<NavBarProps> = ({
                 }}
               >
                 Resume
-              </MobileNavLink>
+              </MobileResumeLink>
             </MobileNavLinkItem>
           </MobileNavLinks>
         </MobileMenuContent>

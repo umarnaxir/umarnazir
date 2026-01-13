@@ -77,18 +77,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <Tag key={tag}>{tag}</Tag>
           ))}
         </ProjectTags>
-        {project.link && (
+        {project.link && !isMobile && (
           <ProjectLink
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
+            className="project-link-desktop"
           >
             Live Link
             <ExternalLink size={16} />
           </ProjectLink>
         )}
       </ProjectInfo>
-      <ProjectVisual $isReverse={isReverse}>
+      <ProjectVisual $isReverse={isReverse} className="project-visual">
         <Image
           src={project.imageLink || '/images/ml-jobs.png'}
           alt={project.title}
@@ -96,6 +97,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           style={{ objectFit: 'cover', borderRadius: '0.5rem' }}
         />
       </ProjectVisual>
+      {project.link && isMobile && (
+        <ProjectLink
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-link-mobile"
+        >
+          Live Link
+          <ExternalLink size={16} />
+        </ProjectLink>
+      )}
     </ProjectCardWrapper>
   );
 };

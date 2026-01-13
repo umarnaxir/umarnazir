@@ -162,8 +162,8 @@ export const MobileNavRight = styled.div`
 
 export const MobileNavThemeToggleButton = styled.button<{ $isLight?: boolean }>`
   position: relative;
-  width: 56px;
-  height: 32px;
+  width: 48px;
+  height: 28px;
   background-color: ${({ theme }) => 
     theme.mode === 'dark' 
       ? 'rgba(255, 255, 255, 0.1)' 
@@ -175,10 +175,14 @@ export const MobileNavThemeToggleButton = styled.button<{ $isLight?: boolean }>`
   border-radius: 9999px;
   cursor: pointer;
   padding: 0;
-  transition: all ${({ theme }) => theme.transitions.base};
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 
   &:hover {
     border-color: ${({ theme }) => 
@@ -188,32 +192,42 @@ export const MobileNavThemeToggleButton = styled.button<{ $isLight?: boolean }>`
     transform: scale(1.05);
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => 
+      theme.mode === 'dark' 
+        ? 'rgba(255, 255, 255, 0.1)' 
+        : 'rgba(0, 0, 0, 0.1)'};
     transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 `;
 
 export const MobileNavThemeToggleThumb = styled.div<{ $isLight?: boolean }>`
   position: absolute;
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background-color: ${({ $isLight }) => 
     $isLight ? '#FFD700' : '#4A5568'};
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translate(${({ $isLight }) => ($isLight ? '24px, -50%' : '2px, -50%')});
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(${({ $isLight }) => ($isLight ? '20px, -50%' : '2px, -50%')});
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   left: 0;
   top: 50%;
   
   svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     color: white;
-    transition: opacity ${({ theme }) => theme.transitions.fast};
+    transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
 
@@ -243,20 +257,25 @@ export const NavLink = styled.a`
 export const MobileMenuButton = styled.button<{ $isOpen?: boolean }>`
   display: none;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.xs};
   justify-content: center;
   align-items: flex-end;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   position: relative;
   z-index: 1001;
   align-self: center;
   border-radius: 12px;
   transition: all ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
   
   &:hover {
     background-color: ${({ theme }) => 
@@ -271,8 +290,15 @@ export const MobileMenuButton = styled.button<{ $isOpen?: boolean }>`
     }
   }
   
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
+    border: none;
     transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 
   @media (max-width: 768px) {
@@ -282,7 +308,7 @@ export const MobileMenuButton = styled.button<{ $isOpen?: boolean }>`
 
 export const HamburgerLine = styled.span<{ $index: number; $isOpen?: boolean }>`
   display: block;
-  height: 3.5px;
+  height: 3px;
   background-color: ${({ theme }) => theme.colors.textPrimary};
   transition: all ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 8px;
@@ -293,19 +319,19 @@ export const HamburgerLine = styled.span<{ $index: number; $isOpen?: boolean }>`
     switch ($index) {
       case 0:
         return css`
-          width: 16px;
+          width: 14px;
           align-self: flex-end;
           border-radius: 8px 2px 2px 8px;
         `;
       case 1:
         return css`
-          width: 22px;
+          width: 18px;
           align-self: flex-end;
           border-radius: 8px 2px 2px 8px;
         `;
       case 2:
         return css`
-          width: 28px;
+          width: 24px;
           align-self: flex-end;
           border-radius: 8px 2px 2px 8px;
         `;
@@ -317,8 +343,8 @@ export const HamburgerLine = styled.span<{ $index: number; $isOpen?: boolean }>`
     css`
       ${$index === 0 &&
       css`
-        width: 32px;
-        transform: rotate(45deg) translate(10px, 10px);
+        width: 28px;
+        transform: rotate(45deg) translate(8px, 8px);
         border-radius: 8px;
       `}
       ${$index === 1 &&
@@ -328,8 +354,8 @@ export const HamburgerLine = styled.span<{ $index: number; $isOpen?: boolean }>`
       `}
       ${$index === 2 &&
       css`
-        width: 32px;
-        transform: rotate(-45deg) translate(10px, -10px);
+        width: 28px;
+        transform: rotate(-45deg) translate(8px, -8px);
         border-radius: 8px;
       `}
     `}
@@ -444,6 +470,40 @@ export const MobileNavLink = styled.a`
   }
 `;
 
+export const MobileResumeLink = styled.a`
+  font-size: ${({ theme }) => theme.typography.fontSize.xl};
+  padding: ${({ theme }) => theme.spacing.sm} 0;
+  display: inline-block;
+  transition: all ${({ theme }) => theme.transitions.base};
+  font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  text-decoration: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: ${({ theme }) => theme.spacing.sm};
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.textPrimary};
+    transition: all ${({ theme }) => theme.transitions.base};
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.textSecondary};
+    padding-left: ${({ theme }) => theme.spacing.sm};
+    
+    &::after {
+      background-color: ${({ theme }) => theme.colors.textSecondary};
+    }
+  }
+`;
+
 export const ThemeToggleButton = styled.button<{ $isLight?: boolean }>`
   position: relative;
   width: 56px;
@@ -459,8 +519,8 @@ export const ThemeToggleButton = styled.button<{ $isLight?: boolean }>`
   border-radius: 9999px;
   cursor: pointer;
   padding: 0;
-  margin-left: ${({ theme }) => theme.spacing.lg};
-  transition: all ${({ theme }) => theme.transitions.base};
+  margin-left: ${({ theme }) => theme.spacing.xl};
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
   outline: none;
@@ -492,7 +552,7 @@ export const ThemeToggleThumb = styled.div<{ $isLight?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate(${({ $isLight }) => ($isLight ? '24px, -50%' : '2px, -50%')});
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   left: 0;
@@ -502,7 +562,7 @@ export const ThemeToggleThumb = styled.div<{ $isLight?: boolean }>`
     width: 16px;
     height: 16px;
     color: white;
-    transition: opacity ${({ theme }) => theme.transitions.fast};
+    transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
 
@@ -510,7 +570,7 @@ export const MobileThemeToggleButton = styled.button<{ $isInHeader?: boolean; $i
   position: relative;
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  transition: all ${({ theme }) => theme.transitions.base};
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -523,8 +583,8 @@ export const MobileThemeToggleButton = styled.button<{ $isInHeader?: boolean; $i
   ${({ $isInHeader }) =>
     $isInHeader
       ? css`
-          width: 56px;
-          height: 32px;
+          width: 48px;
+          height: 28px;
           background-color: ${({ theme }) => 
             theme.mode === 'dark' 
               ? 'rgba(255, 255, 255, 0.1)' 
@@ -539,8 +599,8 @@ export const MobileThemeToggleButton = styled.button<{ $isInHeader?: boolean; $i
           animation: ${spinIn} 0.6s ease-out 0.15s forwards;
         `
       : css`
-          width: 56px;
-          height: 32px;
+          width: 48px;
+          height: 28px;
           background-color: ${({ theme }) => 
             theme.mode === 'dark' 
               ? 'rgba(255, 255, 255, 0.1)' 
@@ -576,25 +636,25 @@ export const MobileThemeToggleButton = styled.button<{ $isInHeader?: boolean; $i
 
 export const MobileThemeToggleThumb = styled.div<{ $isLight?: boolean; $isInHeader?: boolean }>`
   position: absolute;
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background-color: ${({ $isLight }) => 
     $isLight ? '#FFD700' : '#4A5568'};
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translate(${({ $isLight }) => ($isLight ? '24px, -50%' : '2px, -50%')});
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(${({ $isLight }) => ($isLight ? '20px, -50%' : '2px, -50%')});
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   left: 0;
   top: 50%;
   
   svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     color: white;
-    transition: opacity ${({ theme }) => theme.transitions.fast};
+    transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
 
@@ -615,16 +675,15 @@ export const MobileThemeToggleLabel = styled.span`
 `;
 
 export const ResumeButton = styled.a`
-  font-family: ${({ theme }) => theme.typography.fontFamilyBody};
+  font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
   background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.colors.textPrimary};
+  border: none;
   color: ${({ theme }) => theme.colors.textPrimary};
-  padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.lg};
+  padding: 0;
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   text-transform: capitalize;
   letter-spacing: 0.05em;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
   transition: all ${({ theme }) => theme.transitions.base};
   cursor: pointer;
   text-decoration: none;
@@ -632,10 +691,25 @@ export const ResumeButton = styled.a`
   align-items: center;
   justify-content: center;
   margin-left: ${({ theme }) => theme.spacing.xl};
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.textPrimary};
+    transition: all ${({ theme }) => theme.transitions.base};
+  }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.textPrimary};
-    color: ${({ theme }) => theme.colors.bgPrimary};
+    color: ${({ theme }) => theme.colors.textSecondary};
+    
+    &::after {
+      background-color: ${({ theme }) => theme.colors.textSecondary};
+    }
   }
 `;
 

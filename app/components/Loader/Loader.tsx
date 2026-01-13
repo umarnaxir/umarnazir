@@ -18,17 +18,11 @@ const getTheme = (): 'light' | 'dark' => {
 };
 
 const getColors = (theme: 'light' | 'dark') => {
-  if (theme === 'light') {
-    return {
-      dotColor: '#000000', // Black for light theme
-      bgColor: '#FFFFFF'   // White background for light theme
-    };
-  } else {
-    return {
-      dotColor: '#ffffff', // White for dark theme
-      bgColor: '#0a0a0a'   // Dark background for dark theme
-    };
-  }
+  // Always return white dots on dark background for consistent visibility across both themes
+  return {
+    dotColor: '#ffffff', // White dots for both themes
+    bgColor: '#0a0a0a'   // Dark background for both themes (ensures white dots are visible)
+  };
 };
 
 export const Loader: React.FC = () => {

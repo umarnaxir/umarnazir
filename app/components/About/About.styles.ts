@@ -30,7 +30,19 @@ export const AboutVisual = styled.div`
   position: relative;
 
   @media (max-width: 1024px) {
-    order: -1;
+    order: 2;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 
@@ -52,7 +64,59 @@ export const AboutImage = styled.div`
 
   @media (max-width: 1024px) {
     max-width: 100%;
-    height: 400px;
+    height: 450px;
+  }
+`;
+
+export const AboutSectionNumber = styled.span`
+  font-size: ${({ theme }) => theme.typography.fontSize['4xl']};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  color: ${({ theme }) => theme.colors.textTertiary};
+  font-family: ${({ theme }) => theme.typography.fontFamilyMono};
+  order: 1;
+  animation: fadeInUp 0.6s ease-out;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+export const AboutTitle = styled.div`
+  order: 3;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+export const AboutDescriptionWrapper = styled.div`
+  order: 4;
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 

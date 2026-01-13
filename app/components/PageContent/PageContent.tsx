@@ -10,6 +10,7 @@ import { TechStack } from '../TechStack/TechStack';
 import { Contact } from '../Contact/Contact';
 import { ReachOut } from '../ReachOut/ReachOut';
 import { Footer } from '../Footer/Footer';
+import { BackToTop } from '../BackToTop/BackToTop';
 import { portfolioData } from '@/lib/data';
 
 export const PageContent: React.FC = () => {
@@ -39,6 +40,7 @@ export const PageContent: React.FC = () => {
         linkedin="https://www.linkedin.com/in/umar-nazir19/"
       />
       <Footer name={personal.name} />
+      <BackToTop />
     </main>
   );
 };
