@@ -19,7 +19,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Umar Nazir - Software Engineer & SEO Executive",
-  description: "Software Engineer & SEO Executive with 2+ years of experience in Software Development, SEO Optimization, and building scalable digital products. Skilled in React.js, Next.js, TypeScript, and modern UI frameworks.",
+  description: "Software Engineer & SEO Executive with 2+ years experience building scalable web & apps, optimizing search results, and working with React & Next.js.",
 };
 
 export default function RootLayout({
