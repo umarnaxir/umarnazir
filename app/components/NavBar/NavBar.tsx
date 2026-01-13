@@ -12,6 +12,7 @@ import {
   NavLink,
   MobileNavRight,
   MobileNavThemeToggleButton,
+  MobileNavThemeToggleThumb,
   MobileMenuButton,
   HamburgerLine,
   MobileMenu,
@@ -25,7 +26,9 @@ import {
   MobileNavLinkItem,
   MobileNavLink,
   ThemeToggleButton,
+  ThemeToggleThumb,
   MobileThemeToggleButton,
+  MobileThemeToggleThumb,
   ResumeButton,
   ResumeModalOverlay,
   ResumeModal,
@@ -121,8 +124,11 @@ export const NavBar: React.FC<NavBarProps> = ({
             onClick={toggleTheme}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            $isLight={theme === 'light'}
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            <ThemeToggleThumb $isLight={theme === 'light'}>
+              {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
+            </ThemeToggleThumb>
           </ThemeToggleButton>
 
           <ResumeButton href="#" onClick={handleResumeClick}>
@@ -135,8 +141,11 @@ export const NavBar: React.FC<NavBarProps> = ({
             onClick={toggleTheme}
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            $isLight={theme === 'light'}
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            <MobileNavThemeToggleThumb $isLight={theme === 'light'}>
+              {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
+            </MobileNavThemeToggleThumb>
           </MobileNavThemeToggleButton>
           <MobileMenuButton $isOpen={mobileMenuOpen} onClick={toggleMobileMenu} aria-label="Toggle menu">
             <HamburgerLine $index={0} $isOpen={mobileMenuOpen} />
@@ -166,8 +175,11 @@ export const NavBar: React.FC<NavBarProps> = ({
                 }}
                 aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                 $isInHeader
+                $isLight={theme === 'light'}
               >
-                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                <MobileThemeToggleThumb $isLight={theme === 'light'} $isInHeader>
+                  {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
+                </MobileThemeToggleThumb>
               </MobileThemeToggleButton>
               <MobileMenuCloseButton onClick={closeMobileMenu} aria-label="Close menu">
                 ×
@@ -196,16 +208,6 @@ export const NavBar: React.FC<NavBarProps> = ({
               </MobileNavLink>
             </MobileNavLinkItem>
           </MobileNavLinks>
-          <MobileThemeToggleButton
-            onClick={() => {
-              toggleTheme();
-            }}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            $isInMenu
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
-          </MobileThemeToggleButton>
         </MobileMenuContent>
       </MobileMenu>
 

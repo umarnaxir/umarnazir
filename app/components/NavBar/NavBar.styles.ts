@@ -73,6 +73,18 @@ export const StyledNavbar = styled.nav<{ $mobileMenuActive?: boolean }>`
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   padding: ${({ theme }) => theme.spacing.lg} 0;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: ${({ theme }) =>
+      theme.mode === 'dark'
+        ? 'linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%)'
+        : 'linear-gradient(180deg, rgba(255, 107, 53, 0.05) 0%, transparent 100%)'};
+    pointer-events: none;
+    z-index: -1;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -88,6 +100,8 @@ export const StyledNavbar = styled.nav<{ $mobileMenuActive?: boolean }>`
   @media (max-width: 768px) {
     position: fixed;
     padding: ${({ theme }) => theme.spacing.md} 0;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
   }
 `;
 
@@ -108,7 +122,7 @@ export const NavbarContent = styled.div`
 
 export const Logo = styled.a`
   font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
-  font-size: ${({ theme }) => theme.typography.fontSize.lg};
+  font-size: ${({ theme }) => theme.typography.fontSize.xl};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   color: ${({ theme }) => theme.colors.textPrimary};
   transition: color ${({ theme }) => theme.transitions.fast};
@@ -121,8 +135,8 @@ export const Logo = styled.a`
   }
 
   @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.typography.fontSize.base};
-    height: 32px;
+    font-size: ${({ theme }) => theme.typography.fontSize.lg};
+    height: 36px;
   }
 `;
 
@@ -146,28 +160,60 @@ export const MobileNavRight = styled.div`
   }
 `;
 
-export const MobileNavThemeToggleButton = styled.button`
-  background-color: transparent;
-  border: none;
-  color: ${({ theme }) => theme.colors.textPrimary};
-  padding: ${({ theme }) => theme.spacing.xs};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-  transition: all ${({ theme }) => theme.transitions.base};
+export const MobileNavThemeToggleButton = styled.button<{ $isLight?: boolean }>`
+  position: relative;
+  width: 56px;
+  height: 32px;
+  background-color: ${({ theme }) => 
+    theme.mode === 'dark' 
+      ? 'rgba(255, 255, 255, 0.1)' 
+      : 'rgba(0, 0, 0, 0.05)'};
+  border: 1px solid ${({ theme }) => 
+    theme.mode === 'dark' 
+      ? 'rgba(255, 255, 255, 0.1)' 
+      : 'rgba(0, 0, 0, 0.1)'};
+  border-radius: 9999px;
   cursor: pointer;
+  padding: 0;
+  transition: all ${({ theme }) => theme.transitions.base};
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
+  outline: none;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.bgSecondary};
-    color: ${({ theme }) => theme.colors.accent};
+    border-color: ${({ theme }) => 
+      theme.mode === 'dark' 
+        ? 'rgba(255, 255, 255, 0.2)' 
+        : 'rgba(0, 0, 0, 0.2)'};
     transform: scale(1.05);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
+  }
+`;
+
+export const MobileNavThemeToggleThumb = styled.div<{ $isLight?: boolean }>`
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: ${({ $isLight }) => 
+    $isLight ? '#FFD700' : '#4A5568'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(${({ $isLight }) => ($isLight ? '24px, -50%' : '2px, -50%')});
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 50%;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+    transition: opacity ${({ theme }) => theme.transitions.fast};
   }
 `;
 
@@ -203,12 +249,31 @@ export const MobileMenuButton = styled.button<{ $isOpen?: boolean }>`
   cursor: pointer;
   padding: ${({ theme }) => theme.spacing.sm};
   justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
+  align-items: flex-end;
+  width: 48px;
+  height: 48px;
   position: relative;
   z-index: 1001;
   align-self: center;
+  border-radius: 12px;
+  transition: all ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    background-color: ${({ theme }) => 
+      theme.mode === 'dark' 
+        ? 'rgba(255, 255, 255, 0.05)' 
+        : 'rgba(0, 0, 0, 0.05)'};
+    transform: scale(1.1);
+    
+    span {
+      background-color: ${({ theme }) => theme.colors.accent};
+      box-shadow: 0 0 8px ${({ theme }) => theme.colors.accent};
+    }
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
 
   @media (max-width: 768px) {
     display: ${({ $isOpen }) => ($isOpen ? 'none' : 'flex')};
@@ -217,26 +282,32 @@ export const MobileMenuButton = styled.button<{ $isOpen?: boolean }>`
 
 export const HamburgerLine = styled.span<{ $index: number; $isOpen?: boolean }>`
   display: block;
-  height: 2px;
+  height: 3.5px;
   background-color: ${({ theme }) => theme.colors.textPrimary};
-  transition: all ${({ theme }) => theme.transitions.base};
-  border-radius: 2px;
+  transition: all ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 
   ${({ $index }) => {
     switch ($index) {
       case 0:
         return css`
-          width: 12px;
+          width: 16px;
           align-self: flex-end;
+          border-radius: 8px 2px 2px 8px;
         `;
       case 1:
         return css`
+          width: 22px;
           align-self: flex-end;
-          width: 18px;
+          border-radius: 8px 2px 2px 8px;
         `;
       case 2:
         return css`
-          width: 24px;
+          width: 28px;
+          align-self: flex-end;
+          border-radius: 8px 2px 2px 8px;
         `;
     }
   }}
@@ -248,6 +319,7 @@ export const HamburgerLine = styled.span<{ $index: number; $isOpen?: boolean }>`
       css`
         width: 32px;
         transform: rotate(45deg) translate(10px, 10px);
+        border-radius: 8px;
       `}
       ${$index === 1 &&
       css`
@@ -258,6 +330,7 @@ export const HamburgerLine = styled.span<{ $index: number; $isOpen?: boolean }>`
       css`
         width: 32px;
         transform: rotate(-45deg) translate(10px, -10px);
+        border-radius: 8px;
       `}
     `}
 `;
@@ -300,7 +373,7 @@ export const MobileMenuHeaderRight = styled.div`
 
 export const MobileMenuLogo = styled.a`
   font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
-  font-size: ${({ theme }) => theme.typography.fontSize.xl};
+  font-size: ${({ theme }) => theme.typography.fontSize['2xl']};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   color: ${({ theme }) => theme.colors.textPrimary};
   text-decoration: none;
@@ -371,29 +444,37 @@ export const MobileNavLink = styled.a`
   }
 `;
 
-export const ThemeToggleButton = styled.button`
-  background-color: transparent;
-  border: none;
-  color: ${({ theme }) => theme.colors.textPrimary};
-  padding: ${({ theme }) => theme.spacing.xs};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-  transition: all ${({ theme }) => theme.transitions.base};
+export const ThemeToggleButton = styled.button<{ $isLight?: boolean }>`
+  position: relative;
+  width: 56px;
+  height: 32px;
+  background-color: ${({ theme }) => 
+    theme.mode === 'dark' 
+      ? 'rgba(255, 255, 255, 0.1)' 
+      : 'rgba(0, 0, 0, 0.05)'};
+  border: 1px solid ${({ theme }) => 
+    theme.mode === 'dark' 
+      ? 'rgba(255, 255, 255, 0.1)' 
+      : 'rgba(0, 0, 0, 0.1)'};
+  border-radius: 9999px;
   cursor: pointer;
+  padding: 0;
+  margin-left: ${({ theme }) => theme.spacing.lg};
+  transition: all ${({ theme }) => theme.transitions.base};
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-left: ${({ theme }) => theme.spacing.lg};
+  outline: none;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.bgSecondary};
-    color: ${({ theme }) => theme.colors.accent};
+    border-color: ${({ theme }) => 
+      theme.mode === 'dark' 
+        ? 'rgba(255, 255, 255, 0.2)' 
+        : 'rgba(0, 0, 0, 0.2)'};
     transform: scale(1.05);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
   }
 
   @media (max-width: 768px) {
@@ -401,10 +482,33 @@ export const ThemeToggleButton = styled.button`
   }
 `;
 
-export const MobileThemeToggleButton = styled.button<{ $isInHeader?: boolean; $isInMenu?: boolean }>`
-  background-color: transparent;
+export const ThemeToggleThumb = styled.div<{ $isLight?: boolean }>`
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: ${({ $isLight }) => 
+    $isLight ? '#FFD700' : '#4A5568'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(${({ $isLight }) => ($isLight ? '24px, -50%' : '2px, -50%')});
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 50%;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+    transition: opacity ${({ theme }) => theme.transitions.fast};
+  }
+`;
+
+export const MobileThemeToggleButton = styled.button<{ $isInHeader?: boolean; $isInMenu?: boolean; $isLight?: boolean }>`
+  position: relative;
   border: none;
-  color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   transition: all ${({ theme }) => theme.transitions.base};
   cursor: pointer;
@@ -414,34 +518,100 @@ export const MobileThemeToggleButton = styled.button<{ $isInHeader?: boolean; $i
   gap: ${({ theme }) => theme.spacing.sm};
   font-family: ${({ theme }) => theme.typography.fontFamilyBody};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  outline: none;
   
   ${({ $isInHeader }) =>
     $isInHeader
       ? css`
-          padding: ${({ theme }) => theme.spacing.xs};
-          width: 40px;
-          height: 40px;
+          width: 56px;
+          height: 32px;
+          background-color: ${({ theme }) => 
+            theme.mode === 'dark' 
+              ? 'rgba(255, 255, 255, 0.1)' 
+              : 'rgba(0, 0, 0, 0.05)'};
+          border: 1px solid ${({ theme }) => 
+            theme.mode === 'dark' 
+              ? 'rgba(255, 255, 255, 0.1)' 
+              : 'rgba(0, 0, 0, 0.1)'};
+          border-radius: 9999px;
+          padding: 0;
           opacity: 0;
           animation: ${spinIn} 0.6s ease-out 0.15s forwards;
         `
       : css`
-          padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.lg};
-          width: 100%;
-          font-size: ${({ theme }) => theme.typography.fontSize.base};
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
+          width: 56px;
+          height: 32px;
+          background-color: ${({ theme }) => 
+            theme.mode === 'dark' 
+              ? 'rgba(255, 255, 255, 0.1)' 
+              : 'rgba(0, 0, 0, 0.05)'};
+          border: 1px solid ${({ theme }) => 
+            theme.mode === 'dark' 
+              ? 'rgba(255, 255, 255, 0.1)' 
+              : 'rgba(0, 0, 0, 0.1)'};
+          border-radius: 9999px;
+          padding: 0;
           margin-top: ${({ theme }) => theme.spacing.md};
         `}
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.bgSecondary};
-    color: ${({ theme }) => theme.colors.accent};
-    transform: ${({ $isInHeader }) => ($isInHeader ? 'scale(1.1)' : 'none')};
+    ${({ $isInHeader, theme }) =>
+      $isInHeader
+        ? css`
+            border-color: ${theme.mode === 'dark' 
+              ? 'rgba(255, 255, 255, 0.2)' 
+              : 'rgba(0, 0, 0, 0.2)'};
+            transform: scale(1.05);
+          `
+        : css`
+            background-color: ${theme.colors.bgSecondary};
+            color: ${theme.colors.accent};
+          `}
   }
 
   &:active {
-    transform: ${({ $isInHeader }) => ($isInHeader ? 'scale(0.95)' : 'none')};
+    transform: ${({ $isInHeader }) => ($isInHeader ? 'scale(0.98)' : 'none')};
   }
+`;
+
+export const MobileThemeToggleThumb = styled.div<{ $isLight?: boolean; $isInHeader?: boolean }>`
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: ${({ $isLight }) => 
+    $isLight ? '#FFD700' : '#4A5568'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${({ theme }) => theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(${({ $isLight }) => ($isLight ? '24px, -50%' : '2px, -50%')});
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 50%;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+    transition: opacity ${({ theme }) => theme.transitions.fast};
+  }
+`;
+
+export const MobileThemeToggleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.md};
+  margin-top: ${({ theme }) => theme.spacing.md};
+`;
+
+export const MobileThemeToggleLabel = styled.span`
+  font-family: ${({ theme }) => theme.typography.fontFamilyBody};
+  font-size: ${({ theme }) => theme.typography.fontSize.base};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const ResumeButton = styled.a`

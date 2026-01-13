@@ -8,12 +8,12 @@ const darkColors = {
   textPrimary: '#ffffff',
   textSecondary: '#b3b3b3',
   textTertiary: '#808080',
-  accent: '#3b82f6',
-  accentHover: '#2563eb',
+  accent: '#0d9488',
+  accentHover: '#0f766e',
   border: '#333333',
   inputBg: '#1a1a1a',
   inputBorder: '#333333',
-  inputFocus: '#3b82f6',
+  inputFocus: '#0d9488',
 };
 
 // Light theme colors
@@ -24,12 +24,12 @@ const lightColors = {
   textPrimary: '#000000',
   textSecondary: '#4A4A4A',
   textTertiary: '#6B6B6B',
-  accent: '#FF6B35', // Orange color
-  accentHover: '#E55A2B', // Darker orange for hover
+  accent: '#0d9488', // Teal color
+  accentHover: '#0f766e', // Darker teal for hover
   border: '#E0E0E0',
   inputBg: '#F5F5F5',
   inputBorder: '#E0E0E0',
-  inputFocus: '#FF6B35', // Orange color
+  inputFocus: '#0d9488', // Teal color
 };
 
 // Shared theme properties

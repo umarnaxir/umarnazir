@@ -20,9 +20,11 @@ const LoaderContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme })=>theme.colors.bgPrimary};
+  background-color: ${({ $bgColor, theme })=>$bgColor || theme?.colors?.bgPrimary || '#0a0a0a'};
   z-index: 9999;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 `;
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
@@ -45,11 +47,50 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+const getTheme = ()=>{
+    // Always check data-theme attribute first (set by blocking script in head)
+    // This ensures server and client use the same value
+    if (typeof document !== 'undefined') {
+        const dataTheme = document.documentElement.getAttribute('data-theme');
+        if (dataTheme === 'light' || dataTheme === 'dark') {
+            return dataTheme;
+        }
+    }
+    // Fallback to 'dark' if data-theme is not set (shouldn't happen with blocking script)
+    return 'dark';
+};
+const getColors = (theme)=>{
+    if (theme === 'light') {
+        return {
+            dotColor: '#000000',
+            bgColor: '#FFFFFF' // White background for light theme
+        };
+    } else {
+        return {
+            dotColor: '#ffffff',
+            bgColor: '#0a0a0a' // Dark background for dark theme
+        };
+    }
+};
 const Loader = ()=>{
     _s();
-    // Scroll to top when loader is shown to ensure it's always centered
+    // Initialize with theme from data-theme attribute
+    // On server, this defaults to 'dark' since document is undefined
+    // On client, blocking script sets data-theme before React hydrates, so we can read it
+    const [colors, setColors] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        "Loader.useState": ()=>{
+            const theme = getTheme();
+            return getColors(theme);
+        }
+    }["Loader.useState"]);
+    // Update colors after mount to ensure we have the correct theme
+    // This handles any edge cases and ensures theme is correct
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Loader.useEffect": ()=>{
+            const theme = getTheme();
+            const newColors = getColors(theme);
+            setColors(newColors);
+            // Scroll to top when loader is shown to ensure it's always centered
             window.scrollTo(0, 0);
             document.body.style.overflow = 'hidden';
             return ({
@@ -60,23 +101,32 @@ const Loader = ()=>{
         }
     }["Loader.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$Loader$2f$Loader$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LoaderContainer"], {
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$loading$2d$indicators$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ThreeDot"], {
-            color: "#ffffff",
-            size: "small",
-            text: "",
-            textColor: ""
+        $bgColor: colors.bgColor,
+        suppressHydrationWarning: true,
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            suppressHydrationWarning: true,
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$loading$2d$indicators$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ThreeDot"], {
+                color: colors.dotColor,
+                size: "small",
+                text: "",
+                textColor: ""
+            }, void 0, false, {
+                fileName: "[project]/app/components/Loader/Loader.tsx",
+                lineNumber: 62,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/app/components/Loader/Loader.tsx",
-            lineNumber: 19,
+            lineNumber: 61,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/app/components/Loader/Loader.tsx",
-        lineNumber: 18,
+        lineNumber: 60,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(Loader, "OD7bBpZva5O2jO+Puf00hKivP7c=");
+_s(Loader, "3ztqQXfFy8kJ3urkIi/HihUxP+A=");
 _c = Loader;
 var _c;
 __turbopack_context__.k.register(_c, "Loader");
@@ -144,8 +194,16 @@ __turbopack_context__.s([
     ()=>MobileNavRight,
     "MobileNavThemeToggleButton",
     ()=>MobileNavThemeToggleButton,
+    "MobileNavThemeToggleThumb",
+    ()=>MobileNavThemeToggleThumb,
     "MobileThemeToggleButton",
     ()=>MobileThemeToggleButton,
+    "MobileThemeToggleLabel",
+    ()=>MobileThemeToggleLabel,
+    "MobileThemeToggleThumb",
+    ()=>MobileThemeToggleThumb,
+    "MobileThemeToggleWrapper",
+    ()=>MobileThemeToggleWrapper,
     "NavLink",
     ()=>NavLink,
     "NavLinks",
@@ -173,7 +231,9 @@ __turbopack_context__.s([
     "StyledNavbar",
     ()=>StyledNavbar,
     "ThemeToggleButton",
-    ()=>ThemeToggleButton
+    ()=>ThemeToggleButton,
+    "ThemeToggleThumb",
+    ()=>ThemeToggleThumb
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-components/dist/styled-components.browser.esm.js [app-client] (ecmascript)");
 ;
@@ -245,6 +305,15 @@ const StyledNavbar = __TURBOPACK__imported__module__$5b$project$5d2f$node_module
   border-bottom: 1px solid ${({ theme })=>theme.colors.border};
   padding: ${({ theme })=>theme.spacing.lg} 0;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: ${({ theme })=>theme.mode === 'dark' ? 'linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%)' : 'linear-gradient(180deg, rgba(255, 107, 53, 0.05) 0%, transparent 100%)'};
+    pointer-events: none;
+    z-index: -1;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -260,6 +329,8 @@ const StyledNavbar = __TURBOPACK__imported__module__$5b$project$5d2f$node_module
   @media (max-width: 768px) {
     position: fixed;
     padding: ${({ theme })=>theme.spacing.md} 0;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
   }
 `;
 const NavbarContent = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
@@ -284,7 +355,7 @@ const Logo = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sty
     componentId: "sc-eefaf6bf-2"
 })`
   font-family: ${({ theme })=>theme.typography.fontFamilyHeading};
-  font-size: ${({ theme })=>theme.typography.fontSize.lg};
+  font-size: ${({ theme })=>theme.typography.fontSize.xl};
   font-weight: ${({ theme })=>theme.typography.fontWeight.semibold};
   color: ${({ theme })=>theme.colors.textPrimary};
   transition: color ${({ theme })=>theme.transitions.fast};
@@ -297,8 +368,8 @@ const Logo = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sty
   }
 
   @media (max-width: 768px) {
-    font-size: ${({ theme })=>theme.typography.fontSize.base};
-    height: 32px;
+    font-size: ${({ theme })=>theme.typography.fontSize.lg};
+    height: 36px;
   }
 `;
 const NavRight = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
@@ -329,32 +400,56 @@ const MobileNavThemeToggleButton = __TURBOPACK__imported__module__$5b$project$5d
     displayName: "NavBar.styles__MobileNavThemeToggleButton",
     componentId: "sc-eefaf6bf-5"
 })`
-  background-color: transparent;
-  border: none;
-  color: ${({ theme })=>theme.colors.textPrimary};
-  padding: ${({ theme })=>theme.spacing.xs};
-  border-radius: ${({ theme })=>theme.borderRadius.sm};
-  transition: all ${({ theme })=>theme.transitions.base};
+  position: relative;
+  width: 56px;
+  height: 32px;
+  background-color: ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
+  border: 1px solid ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
+  border-radius: 9999px;
   cursor: pointer;
+  padding: 0;
+  transition: all ${({ theme })=>theme.transitions.base};
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
+  outline: none;
 
   &:hover {
-    background-color: ${({ theme })=>theme.colors.bgSecondary};
-    color: ${({ theme })=>theme.colors.accent};
+    border-color: ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'};
     transform: scale(1.05);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
+  }
+`;
+const MobileNavThemeToggleThumb = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "NavBar.styles__MobileNavThemeToggleThumb",
+    componentId: "sc-eefaf6bf-6"
+})`
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: ${({ $isLight })=>$isLight ? '#FFD700' : '#4A5568'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${({ theme })=>theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(${({ $isLight })=>$isLight ? '24px, -50%' : '2px, -50%'});
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 50%;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+    transition: opacity ${({ theme })=>theme.transitions.fast};
   }
 `;
 const NavLinks = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].ul.withConfig({
     displayName: "NavBar.styles__NavLinks",
-    componentId: "sc-eefaf6bf-6"
+    componentId: "sc-eefaf6bf-7"
 })`
   display: flex;
   align-items: center;
@@ -365,7 +460,7 @@ const NavLinks = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f
 `;
 const NavLink = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].a.withConfig({
     displayName: "NavBar.styles__NavLink",
-    componentId: "sc-eefaf6bf-7"
+    componentId: "sc-eefaf6bf-8"
 })`
   font-family: ${({ theme })=>theme.typography.fontFamilyHeading};
   font-size: ${({ theme })=>theme.typography.fontSize.sm};
@@ -381,7 +476,7 @@ const NavLink = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$
 `;
 const MobileMenuButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].button.withConfig({
     displayName: "NavBar.styles__MobileMenuButton",
-    componentId: "sc-eefaf6bf-8"
+    componentId: "sc-eefaf6bf-9"
 })`
   display: none;
   flex-direction: column;
@@ -391,12 +486,28 @@ const MobileMenuButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
   cursor: pointer;
   padding: ${({ theme })=>theme.spacing.sm};
   justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
+  align-items: flex-end;
+  width: 48px;
+  height: 48px;
   position: relative;
   z-index: 1001;
   align-self: center;
+  border-radius: 12px;
+  transition: all ${({ theme })=>theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    background-color: ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)'};
+    transform: scale(1.1);
+    
+    span {
+      background-color: ${({ theme })=>theme.colors.accent};
+      box-shadow: 0 0 8px ${({ theme })=>theme.colors.accent};
+    }
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
 
   @media (max-width: 768px) {
     display: ${({ $isOpen })=>$isOpen ? 'none' : 'flex'};
@@ -404,29 +515,35 @@ const MobileMenuButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
 `;
 const HamburgerLine = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].span.withConfig({
     displayName: "NavBar.styles__HamburgerLine",
-    componentId: "sc-eefaf6bf-9"
+    componentId: "sc-eefaf6bf-10"
 })`
   display: block;
-  height: 2px;
+  height: 3.5px;
   background-color: ${({ theme })=>theme.colors.textPrimary};
-  transition: all ${({ theme })=>theme.transitions.base};
-  border-radius: 2px;
+  transition: all ${({ theme })=>theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 
   ${({ $index })=>{
     switch($index){
         case 0:
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
-          width: 12px;
+          width: 16px;
           align-self: flex-end;
+          border-radius: 8px 2px 2px 8px;
         `;
         case 1:
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
+          width: 22px;
           align-self: flex-end;
-          width: 18px;
+          border-radius: 8px 2px 2px 8px;
         `;
         case 2:
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
-          width: 24px;
+          width: 28px;
+          align-self: flex-end;
+          border-radius: 8px 2px 2px 8px;
         `;
     }
 }}
@@ -435,6 +552,7 @@ const HamburgerLine = __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
       ${$index === 0 && __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
         width: 32px;
         transform: rotate(45deg) translate(10px, 10px);
+        border-radius: 8px;
       `}
       ${$index === 1 && __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
         opacity: 0;
@@ -443,12 +561,13 @@ const HamburgerLine = __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
       ${$index === 2 && __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
         width: 32px;
         transform: rotate(-45deg) translate(10px, -10px);
+        border-radius: 8px;
       `}
     `}
 `;
 const MobileMenu = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
     displayName: "NavBar.styles__MobileMenu",
-    componentId: "sc-eefaf6bf-10"
+    componentId: "sc-eefaf6bf-11"
 })`
   display: ${({ $isOpen })=>$isOpen ? 'block' : 'none'};
   position: fixed;
@@ -464,7 +583,7 @@ const MobileMenu = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$
 `;
 const MobileMenuContent = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
     displayName: "NavBar.styles__MobileMenuContent",
-    componentId: "sc-eefaf6bf-11"
+    componentId: "sc-eefaf6bf-12"
 })`
   display: flex;
   flex-direction: column;
@@ -474,7 +593,7 @@ const MobileMenuContent = __TURBOPACK__imported__module__$5b$project$5d2f$node_m
 `;
 const MobileMenuHeader = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
     displayName: "NavBar.styles__MobileMenuHeader",
-    componentId: "sc-eefaf6bf-12"
+    componentId: "sc-eefaf6bf-13"
 })`
   display: flex;
   align-items: center;
@@ -484,7 +603,7 @@ const MobileMenuHeader = __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
 `;
 const MobileMenuHeaderRight = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
     displayName: "NavBar.styles__MobileMenuHeaderRight",
-    componentId: "sc-eefaf6bf-13"
+    componentId: "sc-eefaf6bf-14"
 })`
   display: flex;
   align-items: center;
@@ -492,10 +611,10 @@ const MobileMenuHeaderRight = __TURBOPACK__imported__module__$5b$project$5d2f$no
 `;
 const MobileMenuLogo = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].a.withConfig({
     displayName: "NavBar.styles__MobileMenuLogo",
-    componentId: "sc-eefaf6bf-14"
+    componentId: "sc-eefaf6bf-15"
 })`
   font-family: ${({ theme })=>theme.typography.fontFamilyHeading};
-  font-size: ${({ theme })=>theme.typography.fontSize.xl};
+  font-size: ${({ theme })=>theme.typography.fontSize['2xl']};
   font-weight: ${({ theme })=>theme.typography.fontWeight.semibold};
   color: ${({ theme })=>theme.colors.textPrimary};
   text-decoration: none;
@@ -504,7 +623,7 @@ const MobileMenuLogo = __TURBOPACK__imported__module__$5b$project$5d2f$node_modu
 `;
 const MobileMenuCloseButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].button.withConfig({
     displayName: "NavBar.styles__MobileMenuCloseButton",
-    componentId: "sc-eefaf6bf-15"
+    componentId: "sc-eefaf6bf-16"
 })`
   background: none;
   border: none;
@@ -528,7 +647,7 @@ const MobileMenuCloseButton = __TURBOPACK__imported__module__$5b$project$5d2f$no
 `;
 const MobileMenuDivider = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].hr.withConfig({
     displayName: "NavBar.styles__MobileMenuDivider",
-    componentId: "sc-eefaf6bf-16"
+    componentId: "sc-eefaf6bf-17"
 })`
   border: none;
   border-top: 1px solid ${({ theme })=>theme.colors.border};
@@ -538,7 +657,7 @@ const MobileMenuDivider = __TURBOPACK__imported__module__$5b$project$5d2f$node_m
 `;
 const MobileNavLinks = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].ul.withConfig({
     displayName: "NavBar.styles__MobileNavLinks",
-    componentId: "sc-eefaf6bf-17"
+    componentId: "sc-eefaf6bf-18"
 })`
   display: flex;
   flex-direction: column;
@@ -549,7 +668,7 @@ const MobileNavLinks = __TURBOPACK__imported__module__$5b$project$5d2f$node_modu
 `;
 const MobileNavLinkItem = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].li.withConfig({
     displayName: "NavBar.styles__MobileNavLinkItem",
-    componentId: "sc-eefaf6bf-18"
+    componentId: "sc-eefaf6bf-19"
 })`
   opacity: 0;
   animation: ${fadeInUp} 0.4s ease-out forwards;
@@ -557,7 +676,7 @@ const MobileNavLinkItem = __TURBOPACK__imported__module__$5b$project$5d2f$node_m
 `;
 const MobileNavLink = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].a.withConfig({
     displayName: "NavBar.styles__MobileNavLink",
-    componentId: "sc-eefaf6bf-19"
+    componentId: "sc-eefaf6bf-20"
 })`
   font-size: ${({ theme })=>theme.typography.fontSize.xl};
   padding: ${({ theme })=>theme.spacing.sm} 0;
@@ -577,43 +696,66 @@ const MobileNavLink = __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
 `;
 const ThemeToggleButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].button.withConfig({
     displayName: "NavBar.styles__ThemeToggleButton",
-    componentId: "sc-eefaf6bf-20"
+    componentId: "sc-eefaf6bf-21"
 })`
-  background-color: transparent;
-  border: none;
-  color: ${({ theme })=>theme.colors.textPrimary};
-  padding: ${({ theme })=>theme.spacing.xs};
-  border-radius: ${({ theme })=>theme.borderRadius.sm};
-  transition: all ${({ theme })=>theme.transitions.base};
+  position: relative;
+  width: 56px;
+  height: 32px;
+  background-color: ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
+  border: 1px solid ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
+  border-radius: 9999px;
   cursor: pointer;
+  padding: 0;
+  margin-left: ${({ theme })=>theme.spacing.lg};
+  transition: all ${({ theme })=>theme.transitions.base};
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-left: ${({ theme })=>theme.spacing.lg};
+  outline: none;
 
   &:hover {
-    background-color: ${({ theme })=>theme.colors.bgSecondary};
-    color: ${({ theme })=>theme.colors.accent};
+    border-color: ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'};
     transform: scale(1.05);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
   }
 
   @media (max-width: 768px) {
     display: none;
   }
 `;
+const ThemeToggleThumb = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "NavBar.styles__ThemeToggleThumb",
+    componentId: "sc-eefaf6bf-22"
+})`
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: ${({ $isLight })=>$isLight ? '#FFD700' : '#4A5568'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${({ theme })=>theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(${({ $isLight })=>$isLight ? '24px, -50%' : '2px, -50%'});
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 50%;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+    transition: opacity ${({ theme })=>theme.transitions.fast};
+  }
+`;
 const MobileThemeToggleButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].button.withConfig({
     displayName: "NavBar.styles__MobileThemeToggleButton",
-    componentId: "sc-eefaf6bf-21"
+    componentId: "sc-eefaf6bf-23"
 })`
-  background-color: transparent;
+  position: relative;
   border: none;
-  color: ${({ theme })=>theme.colors.textPrimary};
   border-radius: ${({ theme })=>theme.borderRadius.sm};
   transition: all ${({ theme })=>theme.transitions.base};
   cursor: pointer;
@@ -623,35 +765,89 @@ const MobileThemeToggleButton = __TURBOPACK__imported__module__$5b$project$5d2f$
   gap: ${({ theme })=>theme.spacing.sm};
   font-family: ${({ theme })=>theme.typography.fontFamilyBody};
   font-weight: ${({ theme })=>theme.typography.fontWeight.medium};
+  outline: none;
   
   ${({ $isInHeader })=>$isInHeader ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
-          padding: ${({ theme })=>theme.spacing.xs};
-          width: 40px;
-          height: 40px;
+          width: 56px;
+          height: 32px;
+          background-color: ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
+          border: 1px solid ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
+          border-radius: 9999px;
+          padding: 0;
           opacity: 0;
           animation: ${spinIn} 0.6s ease-out 0.15s forwards;
         ` : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
-          padding: ${({ theme })=>theme.spacing.sm} ${({ theme })=>theme.spacing.lg};
-          width: 100%;
-          font-size: ${({ theme })=>theme.typography.fontSize.base};
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
+          width: 56px;
+          height: 32px;
+          background-color: ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
+          border: 1px solid ${({ theme })=>theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
+          border-radius: 9999px;
+          padding: 0;
           margin-top: ${({ theme })=>theme.spacing.md};
         `}
 
   &:hover {
-    background-color: ${({ theme })=>theme.colors.bgSecondary};
-    color: ${({ theme })=>theme.colors.accent};
-    transform: ${({ $isInHeader })=>$isInHeader ? 'scale(1.1)' : 'none'};
+    ${({ $isInHeader, theme })=>$isInHeader ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
+            border-color: ${theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'};
+            transform: scale(1.05);
+          ` : __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
+            background-color: ${theme.colors.bgSecondary};
+            color: ${theme.colors.accent};
+          `}
   }
 
   &:active {
-    transform: ${({ $isInHeader })=>$isInHeader ? 'scale(0.95)' : 'none'};
+    transform: ${({ $isInHeader })=>$isInHeader ? 'scale(0.98)' : 'none'};
   }
+`;
+const MobileThemeToggleThumb = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "NavBar.styles__MobileThemeToggleThumb",
+    componentId: "sc-eefaf6bf-24"
+})`
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: ${({ $isLight })=>$isLight ? '#FFD700' : '#4A5568'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ${({ theme })=>theme.transitions.base} cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(${({ $isLight })=>$isLight ? '24px, -50%' : '2px, -50%'});
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 50%;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+    transition: opacity ${({ theme })=>theme.transitions.fast};
+  }
+`;
+const MobileThemeToggleWrapper = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
+    displayName: "NavBar.styles__MobileThemeToggleWrapper",
+    componentId: "sc-eefaf6bf-25"
+})`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme })=>theme.spacing.md};
+  margin-top: ${({ theme })=>theme.spacing.md};
+`;
+const MobileThemeToggleLabel = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].span.withConfig({
+    displayName: "NavBar.styles__MobileThemeToggleLabel",
+    componentId: "sc-eefaf6bf-26"
+})`
+  font-family: ${({ theme })=>theme.typography.fontFamilyBody};
+  font-size: ${({ theme })=>theme.typography.fontSize.base};
+  font-weight: ${({ theme })=>theme.typography.fontWeight.medium};
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: ${({ theme })=>theme.colors.textPrimary};
 `;
 const ResumeButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].a.withConfig({
     displayName: "NavBar.styles__ResumeButton",
-    componentId: "sc-eefaf6bf-22"
+    componentId: "sc-eefaf6bf-27"
 })`
   font-family: ${({ theme })=>theme.typography.fontFamilyBody};
   background-color: transparent;
@@ -678,7 +874,7 @@ const ResumeButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_module
 `;
 const ResumeModalOverlay = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
     displayName: "NavBar.styles__ResumeModalOverlay",
-    componentId: "sc-eefaf6bf-23"
+    componentId: "sc-eefaf6bf-28"
 })`
   position: fixed;
   top: 0;
@@ -698,7 +894,7 @@ const ResumeModalOverlay = __TURBOPACK__imported__module__$5b$project$5d2f$node_
 `;
 const ResumeModal = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
     displayName: "NavBar.styles__ResumeModal",
-    componentId: "sc-eefaf6bf-24"
+    componentId: "sc-eefaf6bf-29"
 })`
   background-color: ${({ theme })=>theme.colors.bgSecondary};
   border: 1px solid ${({ theme })=>theme.colors.border};
@@ -717,7 +913,7 @@ const ResumeModal = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules
 `;
 const ResumeModalTitle = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].h3.withConfig({
     displayName: "NavBar.styles__ResumeModalTitle",
-    componentId: "sc-eefaf6bf-25"
+    componentId: "sc-eefaf6bf-30"
 })`
   font-family: ${({ theme })=>theme.typography.fontFamilyHeading};
   font-size: ${({ theme })=>theme.typography.fontSize.xl};
@@ -728,7 +924,7 @@ const ResumeModalTitle = __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
 `;
 const ResumeModalText = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].p.withConfig({
     displayName: "NavBar.styles__ResumeModalText",
-    componentId: "sc-eefaf6bf-26"
+    componentId: "sc-eefaf6bf-31"
 })`
   font-family: ${({ theme })=>theme.typography.fontFamilyBody};
   font-size: ${({ theme })=>theme.typography.fontSize.base};
@@ -738,7 +934,7 @@ const ResumeModalText = __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
 `;
 const ResumeModalButtons = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
     displayName: "NavBar.styles__ResumeModalButtons",
-    componentId: "sc-eefaf6bf-27"
+    componentId: "sc-eefaf6bf-32"
 })`
   display: flex;
   flex-direction: column;
@@ -746,7 +942,7 @@ const ResumeModalButtons = __TURBOPACK__imported__module__$5b$project$5d2f$node_
 `;
 const ResumeModalButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].button.withConfig({
     displayName: "NavBar.styles__ResumeModalButton",
-    componentId: "sc-eefaf6bf-28"
+    componentId: "sc-eefaf6bf-33"
 })`
   font-family: ${({ theme })=>theme.typography.fontFamilyBody};
   font-size: ${({ theme })=>theme.typography.fontSize.base};
@@ -770,7 +966,7 @@ const ResumeModalButton = __TURBOPACK__imported__module__$5b$project$5d2f$node_m
 `;
 const ResumeModalClose = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].button.withConfig({
     displayName: "NavBar.styles__ResumeModalClose",
-    componentId: "sc-eefaf6bf-29"
+    componentId: "sc-eefaf6bf-34"
 })`
   position: absolute;
   top: 0;
@@ -895,7 +1091,7 @@ const NavBar = ({ name, navItems = [
                         children: name
                     }, void 0, false, {
                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                        lineNumber: 109,
+                        lineNumber: 112,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NavRight"], {
@@ -907,39 +1103,47 @@ const NavBar = ({ name, navItems = [
                                             children: item.label
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                            lineNumber: 115,
+                                            lineNumber: 118,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, item.href, false, {
                                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                        lineNumber: 114,
+                                        lineNumber: 117,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)))
                             }, void 0, false, {
                                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                lineNumber: 112,
+                                lineNumber: 115,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ThemeToggleButton"], {
                                 onClick: toggleTheme,
                                 "aria-label": theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
                                 title: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
-                                children: theme === 'dark' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
-                                    size: 20
+                                $isLight: theme === 'light',
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ThemeToggleThumb"], {
+                                    $isLight: theme === 'light',
+                                    children: theme === 'light' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
+                                        size: 16
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/NavBar/NavBar.tsx",
+                                        lineNumber: 130,
+                                        columnNumber: 36
+                                    }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
+                                        size: 16
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/NavBar/NavBar.tsx",
+                                        lineNumber: 130,
+                                        columnNumber: 56
+                                    }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 125,
-                                    columnNumber: 33
-                                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
-                                    size: 20
-                                }, void 0, false, {
-                                    fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 125,
-                                    columnNumber: 53
+                                    lineNumber: 129,
+                                    columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                lineNumber: 120,
+                                lineNumber: 123,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResumeButton"], {
@@ -948,13 +1152,13 @@ const NavBar = ({ name, navItems = [
                                 children: "Resume"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                lineNumber: 128,
+                                lineNumber: 134,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                        lineNumber: 111,
+                        lineNumber: 114,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileNavRight"], {
@@ -963,22 +1167,30 @@ const NavBar = ({ name, navItems = [
                                 onClick: toggleTheme,
                                 "aria-label": theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
                                 title: theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
-                                children: theme === 'dark' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
-                                    size: 20
+                                $isLight: theme === 'light',
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileNavThemeToggleThumb"], {
+                                    $isLight: theme === 'light',
+                                    children: theme === 'light' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
+                                        size: 16
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/NavBar/NavBar.tsx",
+                                        lineNumber: 147,
+                                        columnNumber: 36
+                                    }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
+                                        size: 16
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/NavBar/NavBar.tsx",
+                                        lineNumber: 147,
+                                        columnNumber: 56
+                                    }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 139,
-                                    columnNumber: 33
-                                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
-                                    size: 20
-                                }, void 0, false, {
-                                    fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 139,
-                                    columnNumber: 53
+                                    lineNumber: 146,
+                                    columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                lineNumber: 134,
+                                lineNumber: 140,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileMenuButton"], {
@@ -991,7 +1203,7 @@ const NavBar = ({ name, navItems = [
                                         $isOpen: mobileMenuOpen
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 151,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HamburgerLine"], {
@@ -999,7 +1211,7 @@ const NavBar = ({ name, navItems = [
                                         $isOpen: mobileMenuOpen
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                        lineNumber: 143,
+                                        lineNumber: 152,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HamburgerLine"], {
@@ -1007,25 +1219,25 @@ const NavBar = ({ name, navItems = [
                                         $isOpen: mobileMenuOpen
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                        lineNumber: 144,
+                                        lineNumber: 153,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                lineNumber: 141,
+                                lineNumber: 150,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                        lineNumber: 133,
+                        lineNumber: 139,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                lineNumber: 108,
+                lineNumber: 111,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileMenu"], {
@@ -1045,7 +1257,7 @@ const NavBar = ({ name, navItems = [
                                     children: name
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 159,
+                                    lineNumber: 168,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileMenuHeaderRight"], {
@@ -1056,22 +1268,31 @@ const NavBar = ({ name, navItems = [
                                             },
                                             "aria-label": theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
                                             $isInHeader: true,
-                                            children: theme === 'dark' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
-                                                size: 20
+                                            $isLight: theme === 'light',
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileThemeToggleThumb"], {
+                                                $isLight: theme === 'light',
+                                                $isInHeader: true,
+                                                children: theme === 'light' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
+                                                    size: 16
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/components/NavBar/NavBar.tsx",
+                                                    lineNumber: 181,
+                                                    columnNumber: 40
+                                                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
+                                                    size: 16
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/components/NavBar/NavBar.tsx",
+                                                    lineNumber: 181,
+                                                    columnNumber: 60
+                                                }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                                lineNumber: 170,
-                                                columnNumber: 37
-                                            }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
-                                                size: 20
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                                lineNumber: 170,
-                                                columnNumber: 57
+                                                lineNumber: 180,
+                                                columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                            lineNumber: 163,
+                                            lineNumber: 172,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileMenuCloseButton"], {
@@ -1080,24 +1301,24 @@ const NavBar = ({ name, navItems = [
                                             children: "×"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                            lineNumber: 172,
+                                            lineNumber: 184,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 162,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                            lineNumber: 158,
+                            lineNumber: 167,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileMenuDivider"], {}, void 0, false, {
                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                            lineNumber: 177,
+                            lineNumber: 189,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileNavLinks"], {
@@ -1110,12 +1331,12 @@ const NavBar = ({ name, navItems = [
                                             children: item.label
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                            lineNumber: 181,
+                                            lineNumber: 193,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, item.href, false, {
                                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                        lineNumber: 180,
+                                        lineNumber: 192,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileNavLinkItem"], {
@@ -1130,62 +1351,29 @@ const NavBar = ({ name, navItems = [
                                         children: "Resume"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 199,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 186,
+                                    lineNumber: 198,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                            lineNumber: 178,
-                            columnNumber: 11
-                        }, ("TURBOPACK compile-time value", void 0)),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MobileThemeToggleButton"], {
-                            onClick: ()=>{
-                                toggleTheme();
-                            },
-                            "aria-label": theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
-                            $isInMenu: true,
-                            children: [
-                                theme === 'dark' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sun$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sun$3e$__["Sun"], {
-                                    size: 20
-                                }, void 0, false, {
-                                    fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 206,
-                                    columnNumber: 33
-                                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
-                                    size: 20
-                                }, void 0, false, {
-                                    fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 206,
-                                    columnNumber: 53
-                                }, ("TURBOPACK compile-time value", void 0)),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    children: theme === 'dark' ? 'Light Mode' : 'Dark Mode'
-                                }, void 0, false, {
-                                    fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 207,
-                                    columnNumber: 13
-                                }, ("TURBOPACK compile-time value", void 0))
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                            lineNumber: 199,
+                            lineNumber: 190,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                    lineNumber: 157,
+                    lineNumber: 166,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                lineNumber: 149,
+                lineNumber: 158,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             resumeModalOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResumeModalOverlay"], {
@@ -1197,14 +1385,14 @@ const NavBar = ({ name, navItems = [
                             children: "Resume Options"
                         }, void 0, false, {
                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                            lineNumber: 215,
+                            lineNumber: 217,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResumeModalText"], {
                             children: "Choose an option:"
                         }, void 0, false, {
                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                            lineNumber: 216,
+                            lineNumber: 218,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResumeModalButtons"], {
@@ -1214,7 +1402,7 @@ const NavBar = ({ name, navItems = [
                                     children: "View Resume"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 218,
+                                    lineNumber: 220,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResumeModalButton"], {
@@ -1222,13 +1410,13 @@ const NavBar = ({ name, navItems = [
                                     children: "Download Resume"
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                                    lineNumber: 219,
+                                    lineNumber: 221,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                            lineNumber: 217,
+                            lineNumber: 219,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$components$2f$NavBar$2f$NavBar$2e$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResumeModalClose"], {
@@ -1237,24 +1425,24 @@ const NavBar = ({ name, navItems = [
                             children: "×"
                         }, void 0, false, {
                             fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                            lineNumber: 221,
+                            lineNumber: 223,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                    lineNumber: 214,
+                    lineNumber: 216,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/components/NavBar/NavBar.tsx",
-                lineNumber: 213,
+                lineNumber: 215,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/components/NavBar/NavBar.tsx",
-        lineNumber: 107,
+        lineNumber: 110,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1907,11 +2095,16 @@ const StyledCard = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$
   border: 1px solid ${({ theme })=>theme.colors.border};
   border-radius: ${({ theme })=>theme.borderRadius.md};
   padding: ${({ theme })=>theme.spacing.xl};
-  transition: all ${({ theme })=>theme.transitions.base};
+  transition: all ${({ theme })=>theme.transitions.base} ease-out;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  will-change: transform;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
   &:hover {
     border-color: ${({ theme })=>theme.colors.textSecondary};
-    transform: translateY(-2px);
+    transform: translateY(-4px) translateZ(10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   }
 
   ${({ $interactive })=>$interactive && __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["css"]`
@@ -1919,6 +2112,7 @@ const StyledCard = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$
 
       &:hover {
         border-color: ${({ theme })=>theme.colors.accent};
+        box-shadow: 0 12px 32px ${({ theme })=>theme.colors.accent}20;
       }
     `}
 `;
@@ -2070,13 +2264,17 @@ const StyledInput = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules
   border-radius: ${({ theme })=>theme.borderRadius.sm};
   color: ${({ theme })=>theme.colors.textPrimary};
   font-size: ${({ theme })=>theme.typography.fontSize.base};
-  transition: all ${({ theme })=>theme.transitions.base};
+  transition: all ${({ theme })=>theme.transitions.base} ease-out;
   font-family: inherit;
+  transform-style: preserve-3d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   &:focus {
     outline: none;
     border-color: ${({ theme, $error })=>$error ? '#ef4444' : theme.colors.inputFocus};
     background-color: ${({ theme })=>theme.colors.bgTertiary};
+    transform: translateZ(5px);
+    box-shadow: 0 4px 12px ${({ theme, $error })=>$error ? 'rgba(239, 68, 68, 0.15)' : `${theme.colors.inputFocus}20`};
   }
 
   &::placeholder {
@@ -2094,15 +2292,19 @@ const StyledTextarea = __TURBOPACK__imported__module__$5b$project$5d2f$node_modu
   border-radius: ${({ theme })=>theme.borderRadius.sm};
   color: ${({ theme })=>theme.colors.textPrimary};
   font-size: ${({ theme })=>theme.typography.fontSize.base};
-  transition: all ${({ theme })=>theme.transitions.base};
+  transition: all ${({ theme })=>theme.transitions.base} ease-out;
   font-family: inherit;
   resize: vertical;
   min-height: 120px;
+  transform-style: preserve-3d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   &:focus {
     outline: none;
     border-color: ${({ theme, $error })=>$error ? '#ef4444' : theme.colors.inputFocus};
     background-color: ${({ theme })=>theme.colors.bgTertiary};
+    transform: translateZ(5px);
+    box-shadow: 0 4px 12px ${({ theme, $error })=>$error ? 'rgba(239, 68, 68, 0.15)' : `${theme.colors.inputFocus}20`};
   }
 
   &::placeholder {
@@ -2480,6 +2682,7 @@ const StyledSection = __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
 })`
   padding: ${({ theme })=>theme.spacing['4xl']} 0;
   position: relative;
+  transform-style: preserve-3d;
 
   ${({ $size = 'medium' })=>{
     switch($size){
@@ -4271,6 +4474,7 @@ const AboutContent = __TURBOPACK__imported__module__$5b$project$5d2f$node_module
   grid-template-columns: 1fr 1fr;
   gap: ${({ theme })=>theme.spacing['4xl']};
   align-items: center;
+  transform-style: preserve-3d;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
@@ -4308,6 +4512,14 @@ const AboutImage = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$
   border-radius: ${({ theme })=>theme.borderRadius.lg};
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform ${({ theme })=>theme.transitions.slow} ease-out;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    transform: translateZ(20px) rotateY(-2deg) rotateX(2deg);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  }
 
   @media (max-width: 1024px) {
     max-width: 100%;
@@ -4501,10 +4713,13 @@ const StyledTechStack = __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
   padding: ${({ theme })=>theme.spacing['4xl']} 0;
   display: flex;
   align-items: center;
+  transform-style: preserve-3d;
+  perspective: 1200px;
 
   @media (max-width: 768px) {
     padding: ${({ theme })=>theme.spacing['3xl']} 0;
     min-height: 100vh;
+    perspective: 800px;
   }
 `;
 const TechStackContainer = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
@@ -4539,6 +4754,9 @@ const TechStackTitle = __TURBOPACK__imported__module__$5b$project$5d2f$node_modu
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0;
+  transform-style: preserve-3d;
+  transform: translateZ(10px);
+  transition: transform ${({ theme })=>theme.transitions.slow} ease-out;
 
   @media (max-width: 768px) {
     font-size: ${({ theme })=>theme.typography.fontSize['2xl']};
@@ -4555,6 +4773,7 @@ const TechStackGrid = __TURBOPACK__imported__module__$5b$project$5d2f$node_modul
   gap: ${({ theme })=>theme.spacing.xl};
   width: 100%;
   max-width: 1400px;
+  transform-style: preserve-3d;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
@@ -4580,16 +4799,39 @@ const TechItem = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f
   align-items: center;
   justify-content: center;
   gap: ${({ theme })=>theme.spacing.md};
-  transition: all ${({ theme })=>theme.transitions.base};
+  transition: all ${({ theme })=>theme.transitions.base} ease-out;
   cursor: pointer;
   padding: ${({ theme })=>theme.spacing.sm};
+  transform-style: preserve-3d;
+  position: relative;
+  border-radius: ${({ theme })=>theme.borderRadius.md};
+  background: ${({ theme })=>theme.colors.bgSecondary};
+  border: 1px solid ${({ theme })=>theme.colors.border};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: ${({ theme })=>theme.mode === 'dark' ? `linear-gradient(135deg, ${theme.colors.accent}15, transparent)` : `linear-gradient(135deg, ${theme.colors.accent}20, transparent)`};
+    border-radius: ${({ theme })=>theme.borderRadius.md};
+    opacity: 0;
+    transition: opacity ${({ theme })=>theme.transitions.base} ease-out;
+    z-index: -1;
+  }
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-12px) translateZ(30px) rotateX(8deg);
+    border-color: ${({ theme })=>theme.colors.accent};
+    box-shadow: 0 16px 48px ${({ theme })=>theme.colors.accent}25;
+  }
+
+  &:hover::before {
+    opacity: 1;
   }
 
   &:hover svg {
-    transform: scale(1.1);
+    transform: scale(1.2) translateZ(15px);
   }
 `;
 const TechIcon = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div.withConfig({
@@ -4603,12 +4845,24 @@ const TechIcon = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f
   justify-content: center;
   padding: ${({ theme })=>theme.spacing.sm};
   color: ${({ theme })=>theme.colors.textPrimary};
+  transform-style: preserve-3d;
+  transition: transform ${({ theme })=>theme.transitions.base} ease-out;
 
   svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
     color: inherit;
+    transition: transform ${({ theme })=>theme.transitions.base} ease-out,
+                filter ${({ theme })=>theme.transitions.base} ease-out;
+  }
+
+  ${TechItem}:hover & {
+    transform: translateZ(15px);
+  }
+
+  ${TechItem}:hover svg {
+    filter: drop-shadow(0 8px 16px ${({ theme })=>theme.colors.accent}30);
   }
 
   @media (max-width: 1024px) {
@@ -6955,6 +7209,8 @@ const ContactFormSection = __TURBOPACK__imported__module__$5b$project$5d2f$node_
   justify-content: center;
   width: 100%;
   max-width: 800px;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
 
   @media (max-width: 1024px) {
     max-width: 100%;
@@ -7151,11 +7407,16 @@ const ContactCard = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules
   display: flex;
   flex-direction: column;
   gap: ${({ theme })=>theme.spacing.sm};
-  transition: all ${({ theme })=>theme.transitions.base};
+  transition: all ${({ theme })=>theme.transitions.base} ease-out;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  will-change: transform;
 
   &:hover {
     border-color: ${({ theme })=>theme.colors.textSecondary};
-    transform: translateY(-2px);
+    transform: translateY(-6px) translateZ(15px) rotateX(2deg);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   }
 `;
 const CardLabel = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].span.withConfig({
@@ -7519,7 +7780,7 @@ const personalData = {
     name: 'Umar Nazir',
     title: 'SOFTWARE ENGINEER & SEO EXECUTIVE',
     headline: 'Developing\nFuture-Ready\nSoftware',
-    description: 'Software Engineer & SEO Executive with 2+ years of experience creating high-performance web and app applications, optimizing digital presence, and delivering scalable solutions that drive business growth.',
+    description: 'Software Engineer & SEO Executive with 2+ years of experience creating high-performance Websites and Applications, optimizing digital presence, and delivering scalable solutions that drive business growth.',
     email: 'sd.umarnazir@gmail.com',
     phone: '+91 705-173-2616',
     location: 'Baramulla, J&K India',

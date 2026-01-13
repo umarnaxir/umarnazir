@@ -9,6 +9,7 @@ export const AboutContent = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: ${({ theme }) => theme.spacing['4xl']};
   align-items: center;
+  transform-style: preserve-3d;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
@@ -40,6 +41,14 @@ export const AboutImage = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform ${({ theme }) => theme.transitions.slow} ease-out;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    transform: translateZ(20px) rotateY(-2deg) rotateX(2deg);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  }
 
   @media (max-width: 1024px) {
     max-width: 100%;

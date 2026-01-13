@@ -132,12 +132,12 @@ const darkColors = {
     textPrimary: '#ffffff',
     textSecondary: '#b3b3b3',
     textTertiary: '#808080',
-    accent: '#3b82f6',
-    accentHover: '#2563eb',
+    accent: '#0d9488',
+    accentHover: '#0f766e',
     border: '#333333',
     inputBg: '#1a1a1a',
     inputBorder: '#333333',
-    inputFocus: '#3b82f6'
+    inputFocus: '#0d9488'
 };
 // Light theme colors
 const lightColors = {
@@ -147,12 +147,12 @@ const lightColors = {
     textPrimary: '#000000',
     textSecondary: '#4A4A4A',
     textTertiary: '#6B6B6B',
-    accent: '#FF6B35',
-    accentHover: '#E55A2B',
+    accent: '#0d9488',
+    accentHover: '#0f766e',
     border: '#E0E0E0',
     inputBg: '#F5F5F5',
     inputBorder: '#E0E0E0',
-    inputFocus: '#FF6B35'
+    inputFocus: '#0d9488'
 };
 // Shared theme properties
 const sharedTheme = {
@@ -282,7 +282,7 @@ const GlobalStyles = __TURBOPACK__imported__module__$5b$project$5d2f$node_module
     transition: opacity ${({ theme })=>theme.transitions.base};
   }
 
-  /* Grid background pattern for light mode - subtle orange grid */
+  /* Grid background pattern for light mode - subtle teal grid */
   body::after {
     content: '';
     position: fixed;
@@ -295,12 +295,12 @@ const GlobalStyles = __TURBOPACK__imported__module__$5b$project$5d2f$node_module
     opacity: ${({ theme })=>theme.mode === 'light' ? 1 : 0};
     transition: opacity ${({ theme })=>theme.transitions.base};
     background-image: 
-      linear-gradient(rgba(255, 107, 53, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 107, 53, 0.03) 1px, transparent 1px),
-      radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 40% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255, 107, 53, 0.015) 0%, transparent 100%);
+      linear-gradient(rgba(13, 148, 136, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13, 148, 136, 0.03) 1px, transparent 1px),
+      radial-gradient(circle at 20% 50%, rgba(13, 148, 136, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(13, 148, 136, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(13, 148, 136, 0.03) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(13, 148, 136, 0.015) 0%, transparent 100%);
     background-size: 
       50px 50px,
       50px 50px,

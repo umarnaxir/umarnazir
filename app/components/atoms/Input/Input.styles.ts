@@ -24,13 +24,18 @@ export const StyledInput = styled.input<{ $error?: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-size: ${({ theme }) => theme.typography.fontSize.base};
-  transition: all ${({ theme }) => theme.transitions.base};
+  transition: all ${({ theme }) => theme.transitions.base} ease-out;
   font-family: inherit;
+  transform-style: preserve-3d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   &:focus {
     outline: none;
     border-color: ${({ theme, $error }) => ($error ? '#ef4444' : theme.colors.inputFocus)};
     background-color: ${({ theme }) => theme.colors.bgTertiary};
+    transform: translateZ(5px);
+    box-shadow: 0 4px 12px ${({ theme, $error }) => 
+      $error ? 'rgba(239, 68, 68, 0.15)' : `${theme.colors.inputFocus}20`};
   }
 
   &::placeholder {
@@ -46,15 +51,20 @@ export const StyledTextarea = styled.textarea<{ $error?: boolean }>`
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   color: ${({ theme }) => theme.colors.textPrimary};
   font-size: ${({ theme }) => theme.typography.fontSize.base};
-  transition: all ${({ theme }) => theme.transitions.base};
+  transition: all ${({ theme }) => theme.transitions.base} ease-out;
   font-family: inherit;
   resize: vertical;
   min-height: 120px;
+  transform-style: preserve-3d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   &:focus {
     outline: none;
     border-color: ${({ theme, $error }) => ($error ? '#ef4444' : theme.colors.inputFocus)};
     background-color: ${({ theme }) => theme.colors.bgTertiary};
+    transform: translateZ(5px);
+    box-shadow: 0 4px 12px ${({ theme, $error }) => 
+      $error ? 'rgba(239, 68, 68, 0.15)' : `${theme.colors.inputFocus}20`};
   }
 
   &::placeholder {

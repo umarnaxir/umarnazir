@@ -21,6 +21,8 @@ export const ContactFormSection = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 800px;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
 
   @media (max-width: 1024px) {
     max-width: 100%;

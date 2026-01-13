@@ -43,7 +43,7 @@ export const GlobalStyles = createGlobalStyle`
     transition: opacity ${({ theme }) => theme.transitions.base};
   }
 
-  /* Grid background pattern for light mode - subtle orange grid */
+  /* Grid background pattern for light mode - subtle teal grid */
   body::after {
     content: '';
     position: fixed;
@@ -56,12 +56,12 @@ export const GlobalStyles = createGlobalStyle`
     opacity: ${({ theme }) => (theme.mode === 'light' ? 1 : 0)};
     transition: opacity ${({ theme }) => theme.transitions.base};
     background-image: 
-      linear-gradient(rgba(255, 107, 53, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 107, 53, 0.03) 1px, transparent 1px),
-      radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 40% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255, 107, 53, 0.015) 0%, transparent 100%);
+      linear-gradient(rgba(13, 148, 136, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13, 148, 136, 0.03) 1px, transparent 1px),
+      radial-gradient(circle at 20% 50%, rgba(13, 148, 136, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(13, 148, 136, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(13, 148, 136, 0.03) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(13, 148, 136, 0.015) 0%, transparent 100%);
     background-size: 
       50px 50px,
       50px 50px,

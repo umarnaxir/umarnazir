@@ -5,6 +5,7 @@ export const StyledSection = styled.section<{
 }>`
   padding: ${({ theme }) => theme.spacing['4xl']} 0;
   position: relative;
+  transform-style: preserve-3d;
 
   ${({ $size = 'medium' }) => {
     switch ($size) {

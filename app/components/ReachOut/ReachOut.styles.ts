@@ -69,11 +69,16 @@ export const ContactCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.sm};
-  transition: all ${({ theme }) => theme.transitions.base};
+  transition: all ${({ theme }) => theme.transitions.base} ease-out;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  will-change: transform;
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.textSecondary};
-    transform: translateY(-2px);
+    transform: translateY(-6px) translateZ(15px) rotateX(2deg);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
   }
 `;
 
