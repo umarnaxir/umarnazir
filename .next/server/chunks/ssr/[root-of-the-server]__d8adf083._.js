@@ -1,4 +1,4 @@
-module.exports=[18622,(a,b,c)=>{b.exports=a.x("next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",()=>require("next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"))},42602,(a,b,c)=>{"use strict";b.exports=a.r(18622)},87924,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored["react-ssr"].ReactJsxRuntime},72131,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored["react-ssr"].React},88947,(a,b,c)=>{b.exports=a.x("stream",()=>require("stream"))},53744,a=>{"use strict";var b=a.i(72131),c=a.i(71476);a.s(["AOSInit",0,()=>((0,b.useEffect)(()=>{c.default.init({duration:800,easing:"ease-in-out",once:!0,offset:100,delay:0})},[]),null)])},21991,a=>{"use strict";var b=a.i(87924),c=a.i(72131),d=a.i(75716),e=a.i(34043);let f={bgPrimary:"#0a0a0a",bgSecondary:"#1a1a1a",bgTertiary:"#2a2a2a",textPrimary:"#ffffff",textSecondary:"#b3b3b3",textTertiary:"#808080",accent:"#0d9488",accentHover:"#0f766e",border:"#333333",inputBg:"#1a1a1a",inputBorder:"#333333",inputFocus:"#0d9488"},g={bgPrimary:"#FFFFFF",bgSecondary:"#F5F5F5",bgTertiary:"#E5E5E5",textPrimary:"#000000",textSecondary:"#4A4A4A",textTertiary:"#6B6B6B",accent:"#0d9488",accentHover:"#0f766e",border:"#E0E0E0",inputBg:"#F5F5F5",inputBorder:"#E0E0E0",inputFocus:"#0d9488"},h={typography:{fontFamilyHeading:'var(--font-space-grotesk), "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',fontFamilyBody:'var(--font-inter), Inter, -apple-system, "system-ui", sans-serif',fontFamilyMono:"'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace",fontSize:{xs:"0.75rem",sm:"0.875rem",base:"1rem",lg:"1.125rem",xl:"1.25rem","2xl":"1.5rem","3xl":"2rem","4xl":"2.5rem","5xl":"3rem","6xl":"4rem"},fontWeight:{normal:400,medium:500,semibold:600,bold:700}},spacing:{xs:"0.25rem",sm:"0.5rem",md:"1rem",lg:"1.5rem",xl:"2rem",xxl:"2.5rem","2xl":"3rem","3xl":"4rem","4xl":"5rem","5xl":"6rem","6xl":"7rem","7xl":"8rem","8xl":"9rem"},borderRadius:{sm:"0.25rem",md:"0.5rem",lg:"1rem"},transitions:{fast:"150ms ease",base:"250ms ease",slow:"350ms ease"},zIndex:{dropdown:1e3,sticky:1020,fixed:1030,modalBackdrop:1040,modal:1050,popover:1060,tooltip:1070},breakpoints:{sm:"640px",md:"768px",lg:"1024px",xl:"1280px","2xl":"1536px"}},i=(a="dark")=>({mode:a,colors:"light"===a?g:f,...h});i("dark");let j=d.createGlobalStyle`
+module.exports=[18622,(a,b,c)=>{b.exports=a.x("next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",()=>require("next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"))},42602,(a,b,c)=>{"use strict";b.exports=a.r(18622)},87924,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored["react-ssr"].ReactJsxRuntime},72131,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored["react-ssr"].React},88947,(a,b,c)=>{b.exports=a.x("stream",()=>require("stream"))},53744,a=>{"use strict";var b=a.i(72131),c=a.i(71476);a.s(["AOSInit",0,()=>((0,b.useEffect)(()=>{c.default.init({duration:800,easing:"ease-in-out",once:!0,offset:100,delay:0})},[]),null)])},21991,a=>{"use strict";var b=a.i(87924),c=a.i(72131),d=a.i(75716),e=a.i(34043);let f={bgPrimary:"#0a0a0a",bgSecondary:"#1a1a1a",bgTertiary:"#2a2a2a",textPrimary:"#ffffff",textSecondary:"#b3b3b3",textTertiary:"#808080",accent:"#0d9488",accentHover:"#0f766e",border:"#333333",inputBg:"#1a1a1a",inputBorder:"#333333",inputFocus:"#0d9488"},g={bgPrimary:"#FFFFFF",bgSecondary:"#EBEBEB",bgTertiary:"#D5D5D5",textPrimary:"#000000",textSecondary:"#4A4A4A",textTertiary:"#6B6B6B",accent:"#0d9488",accentHover:"#0f766e",border:"#E0E0E0",inputBg:"#F5F5F5",inputBorder:"#E0E0E0",inputFocus:"#0d9488"},h={typography:{fontFamilyHeading:'var(--font-space-grotesk), "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',fontFamilyBody:'var(--font-lexend), "Lexend", -apple-system, "system-ui", sans-serif',fontFamilyMono:"'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace",fontSize:{xs:"0.75rem",sm:"0.875rem",base:"1rem",lg:"1.125rem",xl:"1.25rem","2xl":"1.5rem","3xl":"2rem","4xl":"2.5rem","5xl":"3rem","6xl":"4rem"},fontWeight:{normal:400,medium:500,semibold:600,bold:700}},spacing:{xs:"0.25rem",sm:"0.5rem",md:"1rem",lg:"1.5rem",xl:"2rem",xxl:"2.5rem","2xl":"3rem","3xl":"4rem","4xl":"5rem","5xl":"6rem","6xl":"7rem","7xl":"8rem","8xl":"9rem"},borderRadius:{sm:"0.25rem",md:"0.5rem",lg:"1rem"},transitions:{fast:"150ms ease",base:"250ms ease",slow:"350ms ease"},zIndex:{dropdown:1e3,sticky:1020,fixed:1030,modalBackdrop:1040,modal:1050,popover:1060,tooltip:1070},breakpoints:{sm:"640px",md:"768px",lg:"1024px",xl:"1280px","2xl":"1536px"}},i=(a="dark")=>({mode:a,colors:"light"===a?g:f,...h});i("dark");let j=d.createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -94,6 +94,20 @@ module.exports=[18622,(a,b,c)=>{b.exports=a.x("next/dist/compiled/next-server/ap
   textarea {
     font-family: inherit;
     color: inherit;
+  }
+
+  /* Apply Lexend to all paragraphs and plain text elements, excluding headings */
+  p {
+    font-family: ${({theme:a})=>a.typography.fontFamilyBody};
+  }
+
+  span {
+    font-family: inherit;
+  }
+
+  /* Ensure headings keep their heading font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${({theme:a})=>a.typography.fontFamilyHeading};
   }
 
   /* Scrollbar styling */

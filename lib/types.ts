@@ -10,6 +10,7 @@ export interface Project {
   linkLabel?: string;
   imageLink?: string;
   visualVariant?: 'default' | 'alt' | 'alt2';
+  note?: string;
 }
 
 export interface ExperienceItem {

@@ -100,6 +100,20 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
   }
 
+  /* Apply Lexend to all paragraphs and plain text elements, excluding headings */
+  p {
+    font-family: ${({ theme }) => theme.typography.fontFamilyBody};
+  }
+
+  span {
+    font-family: inherit;
+  }
+
+  /* Ensure headings keep their heading font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
+  }
+
   /* Scrollbar styling */
   ::-webkit-scrollbar {
     width: 8px;

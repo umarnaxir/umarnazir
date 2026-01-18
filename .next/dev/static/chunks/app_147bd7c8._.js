@@ -142,8 +142,8 @@ const darkColors = {
 // Light theme colors
 const lightColors = {
     bgPrimary: '#FFFFFF',
-    bgSecondary: '#F5F5F5',
-    bgTertiary: '#E5E5E5',
+    bgSecondary: '#EBEBEB',
+    bgTertiary: '#D5D5D5',
     textPrimary: '#000000',
     textSecondary: '#4A4A4A',
     textTertiary: '#6B6B6B',
@@ -158,7 +158,7 @@ const lightColors = {
 const sharedTheme = {
     typography: {
         fontFamilyHeading: 'var(--font-space-grotesk), "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-        fontFamilyBody: 'var(--font-inter), Inter, -apple-system, "system-ui", sans-serif',
+        fontFamilyBody: 'var(--font-lexend), "Lexend", -apple-system, "system-ui", sans-serif',
         fontFamilyMono: "'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace",
         fontSize: {
             xs: '0.75rem',
@@ -337,6 +337,20 @@ const GlobalStyles = __TURBOPACK__imported__module__$5b$project$5d2f$node_module
   textarea {
     font-family: inherit;
     color: inherit;
+  }
+
+  /* Apply Lexend to all paragraphs and plain text elements, excluding headings */
+  p {
+    font-family: ${({ theme })=>theme.typography.fontFamilyBody};
+  }
+
+  span {
+    font-family: inherit;
+  }
+
+  /* Ensure headings keep their heading font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${({ theme })=>theme.typography.fontFamilyHeading};
   }
 
   /* Scrollbar styling */

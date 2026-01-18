@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
 import { AOSInit } from "./components/AOSInit";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -11,10 +12,11 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+const lexend = localFont({
+  src: "./assets/Lexend-VariableFont_wght.ttf",
+  variable: "--font-lexend",
   display: "swap",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`} data-theme="dark" suppressHydrationWarning>
+    <html lang="en" className={`${spaceGrotesk.variable} ${lexend.variable}`} data-theme="dark" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

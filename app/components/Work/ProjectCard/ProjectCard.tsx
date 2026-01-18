@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Text, Tag } from '../../atoms';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Info } from 'lucide-react';
 import { Project } from '@/lib/data';
 import {
   ProjectCardWrapper,
@@ -17,7 +17,12 @@ import {
   ProjectTitle,
   ProjectDescription,
   ProjectTags,
+  ProjectLinksContainer,
   ProjectLink,
+  ProjectNoteWrapper,
+  ProjectNote,
+  ProjectNoteTooltip,
+  ProjectNoteContent,
   ProjectVisual,
 } from './ProjectCard.styles';
 
@@ -28,6 +33,7 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isNoteOpen, setIsNoteOpen] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -39,6 +45,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  const handleNoteClick = () => {
+    if (isMobile) {
+      setIsNoteOpen(!isNoteOpen);
+    }
+  };
 
   const aosProps = isMobile ? {} : {
     'data-aos': index % 2 === 0 ? "fade-right" : "fade-left",
@@ -77,16 +89,30 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <Tag key={tag}>{tag}</Tag>
           ))}
         </ProjectTags>
-        {project.link && !isMobile && (
-          <ProjectLink
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link-desktop"
-          >
-            Live Link
-            <ExternalLink size={16} />
-          </ProjectLink>
+        {((project.link || project.note) && !isMobile) && (
+          <ProjectLinksContainer className="project-links-desktop">
+            {project.link && (
+              <ProjectLink
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Link
+                <ExternalLink size={16} />
+              </ProjectLink>
+            )}
+            {project.note && (
+              <ProjectNoteWrapper>
+                <ProjectNote>
+                  Note
+                  <Info size={16} />
+                  <ProjectNoteTooltip className="project-note-tooltip">
+                    {project.note}
+                  </ProjectNoteTooltip>
+                </ProjectNote>
+              </ProjectNoteWrapper>
+            )}
+          </ProjectLinksContainer>
         )}
       </ProjectInfo>
       <ProjectVisual $isReverse={isReverse} className="project-visual">
@@ -97,16 +123,30 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           style={{ objectFit: 'cover', borderRadius: '0.5rem' }}
         />
       </ProjectVisual>
-      {project.link && isMobile && (
-        <ProjectLink
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-link-mobile"
-        >
-          Live Link
-          <ExternalLink size={16} />
-        </ProjectLink>
+      {((project.link || project.note) && isMobile) && (
+        <ProjectLinksContainer className="project-links-mobile">
+          {project.link && (
+            <ProjectLink
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Link
+              <ExternalLink size={16} />
+            </ProjectLink>
+          )}
+          {project.note && (
+            <ProjectNoteWrapper>
+              <ProjectNote onClick={handleNoteClick} $isOpen={isNoteOpen}>
+                Note
+                <Info size={16} />
+              </ProjectNote>
+              <ProjectNoteContent $isOpen={isNoteOpen} className="project-note-content">
+                {project.note}
+              </ProjectNoteContent>
+            </ProjectNoteWrapper>
+          )}
+        </ProjectLinksContainer>
       )}
     </ProjectCardWrapper>
   );

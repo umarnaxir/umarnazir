@@ -19,8 +19,8 @@ const darkColors = {
 // Light theme colors
 const lightColors = {
   bgPrimary: '#FFFFFF',
-  bgSecondary: '#F5F5F5',
-  bgTertiary: '#E5E5E5',
+  bgSecondary: '#EBEBEB',
+  bgTertiary: '#D5D5D5',
   textPrimary: '#000000',
   textSecondary: '#4A4A4A',
   textTertiary: '#6B6B6B',
@@ -36,7 +36,7 @@ const lightColors = {
 const sharedTheme = {
   typography: {
     fontFamilyHeading: 'var(--font-space-grotesk), "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    fontFamilyBody: 'var(--font-inter), Inter, -apple-system, "system-ui", sans-serif',
+    fontFamilyBody: 'var(--font-lexend), "Lexend", -apple-system, "system-ui", sans-serif',
     fontFamilyMono: "'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace",
     fontSize: {
       xs: '0.75rem',
