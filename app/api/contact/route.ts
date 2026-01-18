@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 const TEAM_EMAIL = "sd.umarnazir@gmail.com";
-const FROM_EMAIL = "No Reply <no-reply@ninemash.com>";
 
 type TContactFormData = {
   name: string;
@@ -22,17 +21,6 @@ function getContactFormHtmlForTeam(data: TContactFormData) {
 
 export async function POST(req: Request) {
   try {
-    // Check if RESEND_API_KEY is configured
-    const resendApiKey = process.env.RESEND_API_KEY;
-    if (!resendApiKey) {
-      console.error("RESEND_API_KEY is not configured");
-      return NextResponse.json(
-        { success: false, message: "Email service is not configured. Please contact the administrator." },
-        { status: 500 }
-      );
-    }
-
-    const resend = new Resend(resendApiKey);
     const data: TContactFormData = await req.json();
 
     // Validate required fields
@@ -59,22 +47,43 @@ export async function POST(req: Request) {
       message: data.message.trim().substring(0, 5000),
     };
 
-    const result = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: [TEAM_EMAIL],
+    // Configure SMTP settings
+    // Default to Gmail SMTP if not specified in env
+    const smtpConfig = {
+      host: process.env.SMTP_HOST || "smtp.gmail.com",
+      port: parseInt(process.env.SMTP_PORT || "587"),
+      secure: process.env.SMTP_SECURE === "true" || false, // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER || process.env.GMAIL_USER,
+        pass: process.env.SMTP_PASS || process.env.GMAIL_APP_PASSWORD,
+      },
+    };
+
+    // Check if SMTP credentials are configured
+    if (!smtpConfig.auth.user || !smtpConfig.auth.pass) {
+      console.error("SMTP credentials are not configured");
+      return NextResponse.json(
+        { success: false, message: "Email service is not configured. Please contact the administrator." },
+        { status: 500 }
+      );
+    }
+
+    // Create transporter
+    const transporter = nodemailer.createTransport(smtpConfig);
+
+    // Verify connection configuration
+    await transporter.verify();
+
+    // Send email
+    const info = await transporter.sendMail({
+      from: `"Portfolio Contact Form" <${smtpConfig.auth.user}>`,
+      to: TEAM_EMAIL,
       subject: "Contact Form Submission - Portfolio",
       html: getContactFormHtmlForTeam(sanitizedData),
       replyTo: sanitizedData.email,
     });
 
-    // Check if Resend returned an error
-    if (result.error) {
-      console.error("Resend API error:", result.error);
-      return NextResponse.json(
-        { success: false, message: "Failed to send message. Please try again later." },
-        { status: 500 }
-      );
-    }
+    console.log("Email sent successfully:", info.messageId);
 
     return NextResponse.json(
       { success: true, message: "Message sent successfully!" },
