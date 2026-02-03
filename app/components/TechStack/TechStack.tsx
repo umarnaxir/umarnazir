@@ -11,7 +11,6 @@ import {
   TechItem,
   TechIcon,
   TechName,
-  TechStackDivider,
 } from './TechStack.styles';
 import {
   TechIconJavaScript,
@@ -98,7 +97,6 @@ export const TechStack: React.FC = () => {
           </StyledTechStack>
         </Container>
       </Section>
-      <TechStackDivider />
     </>
   );
 };

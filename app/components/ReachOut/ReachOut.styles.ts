@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const StyledReachOut = styled.section`
   position: relative;
-  padding: ${({ theme }) => theme.spacing['4xl']} 0;
+  padding: ${({ theme }) => theme.spacing['2xl']} 0 ${({ theme }) => theme.spacing['4xl']} 0;
 
   @media (max-width: 768px) {
-    padding: ${({ theme }) => theme.spacing['3xl']} 0;
+    padding: ${({ theme }) => theme.spacing.xl} 0 ${({ theme }) => theme.spacing['3xl']} 0;
   }
 `;
 

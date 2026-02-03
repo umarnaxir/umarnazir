@@ -4,7 +4,7 @@ export const projectsData: Project[] = [
   {
     id: '1',
     number: '001',
-    year: '2024',
+    year: '2025',
     category: 'TOURISM / BOOKING',
     title: 'NineMash',
     description:
@@ -18,7 +18,7 @@ export const projectsData: Project[] = [
   {
     id: '2',
     number: '002',
-    year: '2024',
+    year: '2026',
     category: 'AI / CONSTRUCTION INTELLIGENCE',
     title: 'Sitesynai',
     description:
@@ -32,7 +32,7 @@ export const projectsData: Project[] = [
   {
     id: '3',
     number: '003',
-    year: '2024',
+    year: '2025',
     category: 'AI / ML PLATFORM',
     title: 'AI-Mployed',
     description:
@@ -46,7 +46,7 @@ export const projectsData: Project[] = [
   {
     id: '4',
     number: '004',
-    year: '2024',
+    year: '2026',
     category: 'ENTERPRISE / HR',
     title: 'Office Management System',
     description:
@@ -60,7 +60,7 @@ export const projectsData: Project[] = [
   {
     id: '5',
     number: '005',
-    year: '2024',
+    year: '2025',
     category: 'HEALTHCARE / PORTFOLIO',
     title: 'Dr. Jibran Bashir',
     description:
@@ -74,7 +74,7 @@ export const projectsData: Project[] = [
   {
     id: '6',
     number: '006',
-    year: '2024',
+    year: '2025',
     category: 'LOGISTICS / E-COMMERCE',
     title: 'EliteExpress Courier',
     description:
@@ -102,7 +102,7 @@ export const projectsData: Project[] = [
   {
     id: '8',
     number: '008',
-    year: '2024',
+    year: '2025',
     category: 'LOGISTICS / COURIER',
     title: 'Rush Expected Courier',
     description:
@@ -130,7 +130,7 @@ export const projectsData: Project[] = [
   {
     id: '10',
     number: '010',
-    year: '2024',
+    year: '2025',
     category: 'NGO / NON-PROFIT',
     title: 'Kindness Towards Humanity',
     description:

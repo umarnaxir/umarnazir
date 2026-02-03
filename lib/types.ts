@@ -42,6 +42,12 @@ export interface ContactInfo {
   description: string;
 }
 
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
 export interface PortfolioData {
   personal: PersonalInfo;
   projects: Project[];

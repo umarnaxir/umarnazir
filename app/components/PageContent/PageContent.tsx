@@ -7,6 +7,7 @@ import { Work } from '../Work/Work';
 import { Experience } from '../Experience/Experience';
 import { About } from '../About/About';
 import { TechStack } from '../TechStack/TechStack';
+import { FAQ } from '../FAQ/FAQ';
 import { Contact } from '../Contact/Contact';
 import { ReachOut } from '../ReachOut/ReachOut';
 import { Footer } from '../Footer/Footer';
@@ -28,8 +29,9 @@ export const PageContent: React.FC = () => {
       <Experience sectionNumber="02" experiences={experiences} />
       <TechStack />
       <About sectionNumber="03" content={about} />
+      <FAQ sectionNumber="04" />
       <Contact
-        sectionNumber="04"
+        sectionNumber="05"
         headline={contact.headline}
         description={contact.description}
       />

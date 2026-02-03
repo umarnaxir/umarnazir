@@ -5,7 +5,8 @@ module.exports=[18622,(a,b,c)=>{b.exports=a.x("next/dist/compiled/next-server/ap
     box-sizing: border-box;
   }
 
-  html {
+  html,
+  body {
     scroll-behavior: smooth;
   }
 
@@ -30,9 +31,9 @@ module.exports=[18622,(a,b,c)=>{b.exports=a.x("next/dist/compiled/next-server/ap
     width: 100%;
     height: 100%;
     background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 50px 50px;
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
     pointer-events: none;
     z-index: 0;
     opacity: ${({theme:a})=>+("dark"===a.mode)};
@@ -52,15 +53,15 @@ module.exports=[18622,(a,b,c)=>{b.exports=a.x("next/dist/compiled/next-server/ap
     opacity: ${({theme:a})=>+("light"===a.mode)};
     transition: opacity ${({theme:a})=>a.transitions.base};
     background-image: 
-      linear-gradient(rgba(13, 148, 136, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(13, 148, 136, 0.03) 1px, transparent 1px),
-      radial-gradient(circle at 20% 50%, rgba(13, 148, 136, 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(13, 148, 136, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 40% 20%, rgba(13, 148, 136, 0.03) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(13, 148, 136, 0.015) 0%, transparent 100%);
+      linear-gradient(rgba(13, 148, 136, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13, 148, 136, 0.1) 1px, transparent 1px),
+      radial-gradient(circle at 20% 50%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(13, 148, 136, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(13, 148, 136, 0.05) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(13, 148, 136, 0.04) 0%, transparent 100%);
     background-size: 
       50px 50px,
-      50px 50px,
+      40px 40px,
       100% 100%,
       100% 100%,
       100% 100%,

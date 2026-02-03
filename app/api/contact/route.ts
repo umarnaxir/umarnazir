@@ -59,8 +59,17 @@ export async function POST(req: Request) {
       },
     };
 
-    // Check if SMTP credentials are configured
+    const isDev = process.env.NODE_ENV === "development";
+
+    // When SMTP is not configured: in dev, accept the form and log; in prod, return error
     if (!smtpConfig.auth.user || !smtpConfig.auth.pass) {
+      if (isDev) {
+        console.log("[Contact form – dev] Submission received (email not configured):", sanitizedData);
+        return NextResponse.json(
+          { success: true, message: "Message sent successfully!" },
+          { status: 200 }
+        );
+      }
       console.error("SMTP credentials are not configured");
       return NextResponse.json(
         { success: false, message: "Email service is not configured. Please contact the administrator." },
@@ -90,12 +99,17 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error) {
-    // Log the full error for debugging (server-side only)
+    const isDev = process.env.NODE_ENV === "development";
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     console.error("Contact form error:", error);
-    
-    // Don't expose internal error details to client
+
     return NextResponse.json(
-      { success: false, message: "Failed to send message. Please try again later." },
+      {
+        success: false,
+        message: isDev
+          ? `Failed to send message: ${errorMessage}`
+          : "Failed to send message. Please try again later.",
+      },
       { status: 500 }
     );
   }

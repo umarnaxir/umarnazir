@@ -5,16 +5,22 @@ export const ContactFormWrapper = styled.form`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.lg};
   width: 100%;
-  max-width: 800px;
+`;
 
-  @media (max-width: 768px) {
-    max-width: 100%;
+/** Name + Email in one row; stacks on small screens */
+export const FormRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: ${({ theme }) => theme.spacing.lg};
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
   }
 `;
 
 export const FormActions = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   margin-top: ${({ theme }) => theme.spacing.sm};
 `;
 

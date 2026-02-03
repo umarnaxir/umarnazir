@@ -10,6 +10,10 @@ export const StyledTechStack = styled.div`
   transform-style: preserve-3d;
   perspective: 1200px;
 
+  [data-theme='dark'] & {
+    background-color: transparent;
+  }
+
   @media (max-width: 768px) {
     padding: ${({ theme }) => theme.spacing['3xl']} 0;
     min-height: 100vh;
@@ -184,9 +188,3 @@ export const TechName = styled.span`
   }
 `;
 
-export const TechStackDivider = styled.hr`
-  border: none;
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
-  margin: 0;
-  width: 100%;
-`;

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { boldPhrases } from '@/lib/utils/boldPhrases';
 import { HeroText, Subtitle, Title, Headline, Description } from './HeroContent.styles';
 
 interface HeroContentProps {
@@ -33,7 +34,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({
         ))}
       </Title>
       <Description data-aos="fade-up" data-aos-delay="400">
-        {description}
+        {boldPhrases(description)}
       </Description>
     </HeroText>
   );

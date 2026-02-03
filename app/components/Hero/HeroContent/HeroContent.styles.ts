@@ -54,20 +54,21 @@ export const Headline = styled.h2`
 
 export const Description = styled.p`
   font-family: ${({ theme }) => theme.typography.fontFamilyBody};
-  max-width: 600px;
+  max-width: 900px;
   color: ${({ theme }) => theme.colors.textSecondary};
   line-height: 1.8;
-  font-size: ${({ theme }) => theme.typography.fontSize.base};
+  font-size: ${({ theme }) => theme.typography.fontSize.xl};
   margin: 0;
   text-align: center;
 
   @media (max-width: 1024px) {
     max-width: 100%;
+    font-size: ${({ theme }) => theme.typography.fontSize.lg};
   }
 
   @media (max-width: 768px) {
     margin-top: ${({ theme }) => theme.spacing.sm};
-    font-size: ${({ theme }) => theme.typography.fontSize.sm};
+    font-size: ${({ theme }) => theme.typography.fontSize.base};
     line-height: 1.6;
   }
 `;
