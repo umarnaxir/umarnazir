@@ -18,12 +18,17 @@ import {
   TechIconReact,
   TechIconReactNative,
   TechIconNextJS,
+  TechIconNodeJS,
+  TechIconNestJS,
+  TechIconPython,
   TechIconTailwind,
   TechIconStyledComponents,
   TechIconGraphQL,
   TechIconMongoDB,
   TechIconMySQL,
   TechIconFirebase,
+  TechIconVercel,
+  TechIconNetlify,
   TechIconSEO,
   TechIconSEOTools,
   TechIconAPIs,
@@ -41,18 +46,25 @@ const techStack: Tech[] = [
   { name: 'JavaScript', icon: <TechIconJavaScript />, category: 'Programming Languages' },
   { name: 'TypeScript', icon: <TechIconTypeScript />, category: 'Programming Languages' },
   
+  // Programming Languages
+  { name: 'Python', icon: <TechIconPython />, category: 'Programming Languages' },
+
   // Frameworks & Libraries
   { name: 'React', icon: <TechIconReact />, category: 'Frameworks & Libraries' },
   { name: 'React Native', icon: <TechIconReactNative />, category: 'Frameworks & Libraries' },
   { name: 'Next.js', icon: <TechIconNextJS />, category: 'Frameworks & Libraries' },
+  { name: 'Node.js', icon: <TechIconNodeJS />, category: 'Frameworks & Libraries' },
+  { name: 'NestJS', icon: <TechIconNestJS />, category: 'Frameworks & Libraries' },
   { name: 'Tailwind CSS', icon: <TechIconTailwind />, category: 'Frameworks & Libraries' },
   { name: 'Styled Components', icon: <TechIconStyledComponents />, category: 'Frameworks & Libraries' },
   { name: 'GraphQL', icon: <TechIconGraphQL />, category: 'Frameworks & Libraries' },
-  
+
   // DB & Backend / Deployment
   { name: 'MongoDB', icon: <TechIconMongoDB />, category: 'DB & Backend / Deployment' },
   { name: 'MySQL', icon: <TechIconMySQL />, category: 'DB & Backend / Deployment' },
   { name: 'Firebase', icon: <TechIconFirebase />, category: 'DB & Backend / Deployment' },
+  { name: 'Vercel', icon: <TechIconVercel />, category: 'DB & Backend / Deployment' },
+  { name: 'Netlify', icon: <TechIconNetlify />, category: 'DB & Backend / Deployment' },
   
   // Digital and Creative Skills
   { name: 'SEO', icon: <TechIconSEO />, category: 'Digital and Creative Skills' },

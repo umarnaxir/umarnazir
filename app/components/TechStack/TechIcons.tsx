@@ -63,6 +63,23 @@ export const TechIconNodeJS: React.FC<{ className?: string }> = ({ className }) 
   </svg>
 );
 
+export const TechIconNestJS: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2l8.66 5v10L12 22l-8.66-5V7L12 2z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+    <path d="M8 8.5c.5 4 3.5 6.5 7 7.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <circle cx="8" cy="8.5" r="1.1" fill="currentColor"/>
+  </svg>
+);
+
+export const TechIconPython: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2c-2.5 0-4.5.8-4.5 2.8v2.2h4.5v.6H6C4 7.6 2.8 9 2.5 11c-.3 1.8-.3 3.2 0 5 .3 1.7 1.3 2.8 2.8 2.8H7v-2.4c0-1.9 1.5-3.4 3.4-3.4H14c1.6 0 2.8-1.3 2.8-2.9V4.8C16.8 3 15 2 12.5 2H12z" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
+    <path d="M12 22c2.5 0 4.5-.8 4.5-2.8v-2.2H12v-.6h6c2 0 3.2-1.4 3.5-3.4.3-1.8.3-3.2 0-5-.3-1.7-1.3-2.8-2.8-2.8H17v2.4c0 1.9-1.5 3.4-3.4 3.4H10c-1.6 0-2.8 1.3-2.8 2.9v4.3C7.2 21 9 22 11.5 22H12z" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
+    <circle cx="9.3" cy="4.7" r="0.8" fill="currentColor"/>
+    <circle cx="14.7" cy="19.3" r="0.8" fill="currentColor"/>
+  </svg>
+);
+
 export const TechIconTailwind: React.FC<{ className?: string }> = ({ className }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
     <path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.12 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C15.61 7.15 14.47 6 12 6zm-5 6.5c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.12 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35-1.39-1.39-2.53-2.15-5.59-2.15z"/>
