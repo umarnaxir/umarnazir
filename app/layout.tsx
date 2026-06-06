@@ -138,7 +138,7 @@ export default function RootLayout({
               "description": "Software Engineer & SEO Executive with 3+ years building high-performance websites & mobile apps, optimizing digital presence, and delivering scalable solutions.",
               "url": "https://umarnazir.vercel.app",
               "image": "https://umarnazir.vercel.app/images/me.JPG",
-              "email": "sd.umarnazir@gmail.com",
+              "email": "erumarnazir@gmail.com",
               "telephone": "+91-705-173-2616",
               "address": {
                 "@type": "PostalAddress",
@@ -263,7 +263,7 @@ export default function RootLayout({
                 "name": "Umar Nazir",
                 "jobTitle": "Software Engineer & SEO Executive",
                 "image": "https://umarnazir.vercel.app/images/me.JPG",
-                "email": "sd.umarnazir@gmail.com",
+                "email": "erumarnazir@gmail.com",
                 "telephone": "+91-705-173-2616",
                 "url": "https://umarnazir.vercel.app"
               }

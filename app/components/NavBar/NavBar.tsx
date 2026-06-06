@@ -49,7 +49,7 @@ export const NavBar: React.FC<NavBarProps> = ({
     { label: 'Contact', href: '#contact' },
   ],
   resumeUrl = '/resume/umarnazir.pdf',
-  email = 'sd.umarnazir@gmail.com',
+  email = 'erumarnazir@gmail.com',
   phone = '+91 705-173-2616',
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

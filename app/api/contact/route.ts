@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const TEAM_EMAIL = "sd.umarnazir@gmail.com";
+const TEAM_EMAIL = "erumarnazir@gmail.com";
 
 type TContactFormData = {
   name: string;

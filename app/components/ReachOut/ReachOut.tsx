@@ -29,7 +29,7 @@ export interface ReachOutProps {
 }
 
 export const ReachOut: React.FC<ReachOutProps> = ({
-  email = 'sd.umarnazir@gmail.com',
+  email = 'erumarnazir@gmail.com',
   phone = '+917051732616',
   github = 'https://github.com/umarnaxir',
   linkedin = 'https://www.linkedin.com/in/umar-nazir19/',

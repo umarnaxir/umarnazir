@@ -6,7 +6,7 @@ export const personalData: PersonalInfo = {
   headline: 'Developing\nFuture-Ready\nSoftware',
   description:
     'Software Engineer & SEO Executive with 3+ years of experience creating high-performance Websites and Mobile Applications, optimizing digital presence, and delivering scalable solutions that drive business growth.',
-  email: 'sd.umarnazir@gmail.com',
+  email: 'erumarnazir@gmail.com',
   phone: '+91 705-173-2616',
   location: 'Baramulla, J&K India',
   github: '@umarnazir',
