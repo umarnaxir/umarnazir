@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 export const StyledHero = styled.section`
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-top: 80px;
+  padding-top: 160px;
 
   @media (max-width: 768px) {
-    padding-top: 60px;
-    min-height: 85vh;
-    padding-bottom: ${({ theme }) => theme.spacing['2xl']};
+    padding-top: 120px;
+    min-height: 75vh;
+    padding-bottom: ${({ theme }) => theme.spacing.xl};
   }
 `;
 

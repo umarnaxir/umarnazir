@@ -1,7 +1,24 @@
 'use client';
 
 import React from 'react';
-import { Section, Container, Text } from '../atoms';
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiNestjs,
+  SiTailwindcss,
+  SiStyledcomponents,
+  SiGraphql,
+  SiMongodb,
+  SiMysql,
+  SiFirebase,
+  SiVercel,
+} from 'react-icons/si';
+import { Webhook } from 'lucide-react';
+import { Section, Container } from '../atoms';
 import {
   StyledTechStack,
   TechStackContainer,
@@ -10,105 +27,66 @@ import {
   TechStackGrid,
   TechItem,
   TechIcon,
-  TechName,
+  TechLabel,
 } from './TechStack.styles';
-import {
-  TechIconJavaScript,
-  TechIconTypeScript,
-  TechIconReact,
-  TechIconReactNative,
-  TechIconNextJS,
-  TechIconNodeJS,
-  TechIconNestJS,
-  TechIconPython,
-  TechIconTailwind,
-  TechIconStyledComponents,
-  TechIconGraphQL,
-  TechIconMongoDB,
-  TechIconMySQL,
-  TechIconFirebase,
-  TechIconVercel,
-  TechIconNetlify,
-  TechIconSEO,
-  TechIconSEOTools,
-  TechIconAPIs,
-  TechIconResponsive,
-} from './TechIcons';
 
 interface Tech {
   name: string;
   icon: React.ReactNode;
-  category: string;
+  color: string;
 }
 
+// Theme teal for the non-branded (skill) tiles
+const TEAL = '#0d9488';
+
 const techStack: Tech[] = [
-  // Programming Languages
-  { name: 'JavaScript', icon: <TechIconJavaScript />, category: 'Programming Languages' },
-  { name: 'TypeScript', icon: <TechIconTypeScript />, category: 'Programming Languages' },
-  
-  // Programming Languages
-  { name: 'Python', icon: <TechIconPython />, category: 'Programming Languages' },
-
-  // Frameworks & Libraries
-  { name: 'React', icon: <TechIconReact />, category: 'Frameworks & Libraries' },
-  { name: 'React Native', icon: <TechIconReactNative />, category: 'Frameworks & Libraries' },
-  { name: 'Next.js', icon: <TechIconNextJS />, category: 'Frameworks & Libraries' },
-  { name: 'Node.js', icon: <TechIconNodeJS />, category: 'Frameworks & Libraries' },
-  { name: 'NestJS', icon: <TechIconNestJS />, category: 'Frameworks & Libraries' },
-  { name: 'Tailwind CSS', icon: <TechIconTailwind />, category: 'Frameworks & Libraries' },
-  { name: 'Styled Components', icon: <TechIconStyledComponents />, category: 'Frameworks & Libraries' },
-  { name: 'GraphQL', icon: <TechIconGraphQL />, category: 'Frameworks & Libraries' },
-
-  // DB & Backend / Deployment
-  { name: 'MongoDB', icon: <TechIconMongoDB />, category: 'DB & Backend / Deployment' },
-  { name: 'MySQL', icon: <TechIconMySQL />, category: 'DB & Backend / Deployment' },
-  { name: 'Firebase', icon: <TechIconFirebase />, category: 'DB & Backend / Deployment' },
-  { name: 'Vercel', icon: <TechIconVercel />, category: 'DB & Backend / Deployment' },
-  { name: 'Netlify', icon: <TechIconNetlify />, category: 'DB & Backend / Deployment' },
-  
-  // Digital and Creative Skills
-  { name: 'SEO', icon: <TechIconSEO />, category: 'Digital and Creative Skills' },
-  { name: 'SEO Tools', icon: <TechIconSEOTools />, category: 'Digital and Creative Skills' },
-  
-  // General & Soft Skills
-  { name: 'APIs', icon: <TechIconAPIs />, category: 'General & Soft Skills' },
-  { name: 'Responsive Design', icon: <TechIconResponsive />, category: 'General & Soft Skills' },
+  { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
+  { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
+  { name: 'Python', icon: <SiPython />, color: '#3776AB' },
+  { name: 'React', icon: <SiReact />, color: '#61DAFB' },
+  { name: 'React Native', icon: <SiReact />, color: '#61DAFB' },
+  { name: 'Next.js', icon: <SiNextdotjs />, color: '#FFFFFF' },
+  { name: 'Node.js', icon: <SiNodedotjs />, color: '#5FA04E' },
+  { name: 'NestJS', icon: <SiNestjs />, color: '#E0234E' },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4' },
+  { name: 'Styled Components', icon: <SiStyledcomponents />, color: '#DB7093' },
+  { name: 'GraphQL', icon: <SiGraphql />, color: '#E10098' },
+  { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248' },
+  { name: 'MySQL', icon: <SiMysql />, color: '#4479A1' },
+  { name: 'Firebase', icon: <SiFirebase />, color: '#FFCA28' },
+  { name: 'Vercel', icon: <SiVercel />, color: '#FFFFFF' },
+  { name: 'APIs', icon: <Webhook />, color: TEAL },
 ];
 
 export const TechStack: React.FC = () => {
-  const categories = Array.from(new Set(techStack.map(tech => tech.category)));
-  
   return (
-    <>
-      <Section id="techstack">
-        <Container>
-          <StyledTechStack>
-            <TechStackContainer>
-              <TechStackWrapper>
-                <TechStackTitle data-aos="fade-up">
-                  TECHNOLOGIES I WORK WITH
-                </TechStackTitle>
-                <TechStackGrid>
-                  {techStack.map((tech, index) => (
-                    <TechItem
-                      key={index}
-                      data-aos="zoom-in"
-                      data-aos-delay={index * 50}
-                    >
-                      <TechIcon>
-                        {tech.icon}
-                      </TechIcon>
-                      <Text variant="bodySmall" as="span">
-                        <TechName>{tech.name}</TechName>
-                      </Text>
-                    </TechItem>
-                  ))}
-                </TechStackGrid>
-              </TechStackWrapper>
-            </TechStackContainer>
-          </StyledTechStack>
-        </Container>
-      </Section>
-    </>
+    <Section id="techstack">
+      <Container>
+        <StyledTechStack>
+          <TechStackContainer>
+            <TechStackWrapper>
+              <TechStackTitle data-aos="fade-up">
+                TECHNOLOGIES I WORK WITH
+              </TechStackTitle>
+              <TechStackGrid>
+                {techStack.map((tech, index) => (
+                  <TechItem
+                    key={index}
+                    aria-label={tech.name}
+                    data-aos="zoom-in"
+                    data-aos-delay={(index % 8) * 40}
+                  >
+                    <TechIcon style={{ color: tech.color }}>
+                      {tech.icon}
+                    </TechIcon>
+                    <TechLabel>{tech.name}</TechLabel>
+                  </TechItem>
+                ))}
+              </TechStackGrid>
+            </TechStackWrapper>
+          </TechStackContainer>
+        </StyledTechStack>
+      </Container>
+    </Section>
   );
 };

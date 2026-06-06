@@ -3,21 +3,16 @@ import styled from 'styled-components';
 export const StyledTechStack = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.colors.bgPrimary};
-  min-height: 100vh;
-  padding: ${({ theme }) => theme.spacing['4xl']} 0;
+  padding: ${({ theme }) => theme.spacing.xl} 0;
   display: flex;
   align-items: center;
-  transform-style: preserve-3d;
-  perspective: 1200px;
 
   [data-theme='dark'] & {
     background-color: transparent;
   }
 
   @media (max-width: 768px) {
-    padding: ${({ theme }) => theme.spacing['3xl']} 0;
-    min-height: 100vh;
-    perspective: 800px;
+    padding: ${({ theme }) => theme.spacing.lg} 0;
   }
 `;
 
@@ -29,11 +24,11 @@ export const TechStackWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing['4xl']};
+  gap: ${({ theme }) => theme.spacing['2xl']};
   width: 100%;
 
   @media (max-width: 768px) {
-    gap: ${({ theme }) => theme.spacing.xl};
+    gap: ${({ theme }) => theme.spacing.lg};
   }
 `;
 
@@ -59,132 +54,104 @@ export const TechStackTitle = styled.h2`
 
 export const TechStackGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: ${({ theme }) => theme.spacing.xl};
+  grid-template-columns: repeat(8, 1fr);
+  gap: ${({ theme }) => theme.spacing.lg};
   width: 100%;
   max-width: 1400px;
-  transform-style: preserve-3d;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
-    gap: ${({ theme }) => theme.spacing.lg};
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: ${({ theme }) => theme.spacing.lg};
-  }
-
-  @media (max-width: 480px) {
     grid-template-columns: repeat(2, 1fr);
     gap: ${({ theme }) => theme.spacing.md};
   }
 `;
 
 export const TechItem = styled.div`
+  position: relative;
+  aspect-ratio: 1 / 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.md};
-  transition: all ${({ theme }) => theme.transitions.base} ease-out;
   cursor: pointer;
-  padding: ${({ theme }) => theme.spacing.sm};
-  transform-style: preserve-3d;
-  position: relative;
-  border-radius: ${({ theme }) => theme.borderRadius.md};
-  background: ${({ theme }) => theme.colors.bgSecondary};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    background: ${({ theme }) =>
-      theme.mode === 'dark'
-        ? `linear-gradient(135deg, ${theme.colors.accent}15, transparent)`
-        : `linear-gradient(135deg, ${theme.colors.accent}20, transparent)`};
-    border-radius: ${({ theme }) => theme.borderRadius.md};
-    opacity: 0;
-    transition: opacity ${({ theme }) => theme.transitions.base} ease-out;
-    z-index: -1;
-  }
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  background: ${({ theme }) =>
+    theme.mode === 'dark' ? 'rgba(18, 18, 18, 0.85)' : theme.colors.bgSecondary};
+  border: 1px solid
+    ${({ theme }) =>
+      theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.06)' : theme.colors.border};
+  backdrop-filter: blur(2px);
+  transition: transform ${({ theme }) => theme.transitions.base} ease-out,
+    border-color ${({ theme }) => theme.transitions.base} ease-out,
+    box-shadow ${({ theme }) => theme.transitions.base} ease-out;
 
   &:hover {
-    transform: translateY(-12px) translateZ(30px) rotateX(8deg);
+    transform: translateY(-6px);
     border-color: ${({ theme }) => theme.colors.accent};
-    box-shadow: 0 16px 48px ${({ theme }) => theme.colors.accent}25;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
-
-  &:hover svg {
-    transform: scale(1.2) translateZ(15px);
+    box-shadow: 0 12px 32px ${({ theme }) => theme.colors.accent}25;
   }
 `;
 
 export const TechIcon = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 52%;
+  height: 52%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${({ theme }) => theme.spacing.sm};
-  color: ${({ theme }) => theme.colors.textPrimary};
-  transform-style: preserve-3d;
   transition: transform ${({ theme }) => theme.transitions.base} ease-out;
 
   svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    color: inherit;
-    transition: transform ${({ theme }) => theme.transitions.base} ease-out,
-                filter ${({ theme }) => theme.transitions.base} ease-out;
   }
 
   ${TechItem}:hover & {
-    transform: translateZ(15px);
+    transform: scale(1.12);
   }
 
   ${TechItem}:hover svg {
-    filter: drop-shadow(0 8px 16px ${({ theme }) => theme.colors.accent}30);
-  }
-
-  @media (max-width: 1024px) {
-    width: 90px;
-    height: 90px;
-  }
-
-  @media (max-width: 768px) {
-    width: 80px;
-    height: 80px;
-  }
-
-  @media (max-width: 480px) {
-    width: 70px;
-    height: 70px;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
   }
 `;
 
-export const TechName = styled.span`
+export const TechLabel = styled.span`
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  white-space: nowrap;
+  padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.sm};
   font-family: ${({ theme }) => theme.typography.fontFamilyBody};
-  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  font-size: ${({ theme }) => theme.typography.fontSize.xs};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   color: ${({ theme }) => theme.colors.textPrimary};
-  text-align: center;
-  margin: 0;
-  line-height: 1.4;
+  background: ${({ theme }) =>
+    theme.mode === 'dark' ? 'rgba(18, 18, 18, 0.95)' : theme.colors.bgSecondary};
+  border: 1px solid ${({ theme }) => theme.colors.accent};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity ${({ theme }) => theme.transitions.fast} ease-out,
+    transform ${({ theme }) => theme.transitions.fast} ease-out;
 
-  @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.typography.fontSize.xs};
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: ${({ theme }) => theme.colors.accent};
   }
 
-  @media (max-width: 480px) {
-    font-size: 0.75rem;
+  ${TechItem}:hover & {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 `;
 
