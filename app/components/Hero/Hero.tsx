@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { HeroContent } from './HeroContent/HeroContent';
-import { ScrollIndicator } from './ScrollIndicator/ScrollIndicator';
 import { StyledHero, HeroContentWrapper } from './Hero.styles';
 
 export interface HeroProps {
@@ -17,7 +16,6 @@ export const Hero: React.FC<HeroProps> = ({ title, headline, description }) => {
       <HeroContentWrapper>
         <HeroContent title={title} headline={headline} description={description} />
       </HeroContentWrapper>
-      <ScrollIndicator />
     </StyledHero>
   );
 };

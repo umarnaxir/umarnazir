@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
 import { AOSInit } from "./components/AOSInit";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { GalaxyBackground } from "./components/GalaxyBackground/GalaxyBackground";
 import StyledComponentsRegistry from "./components/StyledComponentsRegistry";
 
 const spaceGrotesk = Space_Grotesk({
@@ -273,6 +274,7 @@ export default function RootLayout({
       <body suppressHydrationWarning style={{ margin: 0, padding: 0, overflowX: 'hidden' }}>
         <StyledComponentsRegistry>
           <ThemeProvider>
+            <GalaxyBackground />
             <AOSInit />
             {children}
             <Toaster
