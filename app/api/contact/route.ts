@@ -5,6 +5,7 @@ const TEAM_EMAIL = "erumarnazir@gmail.com";
 
 type TContactFormData = {
   name: string;
+  phone: string;
   email: string;
   message: string;
 };
@@ -13,6 +14,7 @@ function getContactFormHtmlForTeam(data: TContactFormData) {
   return `
     <h2>New Contact Form Submission</h2>
     <p><strong>Name:</strong> ${data.name}</p>
+    <p><strong>Contact Number:</strong> ${data.phone}</p>
     <p><strong>Email:</strong> ${data.email}</p>
     <p><strong>Message:</strong></p>
     <p>${data.message.replace(/\n/g, "<br>")}</p>
@@ -24,7 +26,7 @@ export async function POST(req: Request) {
     const data: TContactFormData = await req.json();
 
     // Validate required fields
-    if (!data.name || !data.email || !data.message) {
+    if (!data.name || !data.phone || !data.email || !data.message) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
@@ -43,6 +45,7 @@ export async function POST(req: Request) {
     // Sanitize input to prevent XSS
     const sanitizedData = {
       name: data.name.trim().substring(0, 200),
+      phone: data.phone.trim().substring(0, 30),
       email: data.email.trim().substring(0, 200),
       message: data.message.trim().substring(0, 5000),
     };
@@ -51,12 +54,16 @@ export async function POST(req: Request) {
     // Default to Gmail SMTP if not specified in env
     const smtpConfig = {
       host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: process.env.SMTP_SECURE === "true" || false, // true for 465, false for other ports
+      port: parseInt(process.env.SMTP_PORT || "465"),
+      secure: process.env.SMTP_SECURE === "true" || true, // true for 465 (faster, direct TLS)
       auth: {
         user: process.env.SMTP_USER || process.env.GMAIL_USER,
         pass: process.env.SMTP_PASS || process.env.GMAIL_APP_PASSWORD,
       },
+      // Fail fast instead of hanging if Gmail is slow/unreachable
+      connectionTimeout: 8000,
+      greetingTimeout: 8000,
+      socketTimeout: 10000,
     };
 
     const isDev = process.env.NODE_ENV === "development";
@@ -80,10 +87,8 @@ export async function POST(req: Request) {
     // Create transporter
     const transporter = nodemailer.createTransport(smtpConfig);
 
-    // Verify connection configuration
-    await transporter.verify();
-
-    // Send email
+    // Send email (skip the separate verify() step — it adds a full extra
+    // round-trip to Gmail; sendMail already authenticates on connect)
     const info = await transporter.sendMail({
       from: `"Portfolio Contact Form" <${smtpConfig.auth.user}>`,
       to: TEAM_EMAIL,

@@ -2,12 +2,14 @@ import * as Yup from 'yup';
 
 export interface ContactFormValues {
   name: string;
+  phone: string;
   email: string;
   message: string;
 }
 
 export const contactFormInitialValues: ContactFormValues = {
   name: '',
+  phone: '',
   email: '',
   message: '',
 };
@@ -17,6 +19,10 @@ export const contactFormValidationSchema = Yup.object({
     .required('Name is required')
     .min(2, 'Name must be at least 2 characters')
     .max(200, 'Name must be less than 200 characters')
+    .trim(),
+  phone: Yup.string()
+    .required('Contact number is required')
+    .matches(/^[+]?[\d\s()-]{7,20}$/, 'Please provide a valid contact number')
     .trim(),
   email: Yup.string()
     .required('Email is required')

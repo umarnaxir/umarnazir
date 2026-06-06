@@ -41,6 +41,18 @@ export const StyledInput = styled.input<{ $error?: boolean }>`
   &::placeholder {
     color: ${({ theme }) => theme.colors.textTertiary};
   }
+
+  /* Override browser autofill (the white background on auto-select / saved values) */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.textPrimary};
+    -webkit-box-shadow: 0 0 0 1000px ${({ theme }) => theme.colors.inputBg} inset;
+    box-shadow: 0 0 0 1000px ${({ theme }) => theme.colors.inputBg} inset;
+    caret-color: ${({ theme }) => theme.colors.textPrimary};
+    transition: background-color 9999s ease-out 0s;
+  }
 `;
 
 export const StyledTextarea = styled.textarea<{ $error?: boolean }>`
@@ -69,6 +81,18 @@ export const StyledTextarea = styled.textarea<{ $error?: boolean }>`
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.textTertiary};
+  }
+
+  /* Override browser autofill (the white background on auto-select / saved values) */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.textPrimary};
+    -webkit-box-shadow: 0 0 0 1000px ${({ theme }) => theme.colors.inputBg} inset;
+    box-shadow: 0 0 0 1000px ${({ theme }) => theme.colors.inputBg} inset;
+    caret-color: ${({ theme }) => theme.colors.textPrimary};
+    transition: background-color 9999s ease-out 0s;
   }
 `;
 

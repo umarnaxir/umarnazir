@@ -23,16 +23,26 @@ export const ContactForm: React.FC = () => {
           placeholder=""
         />
         <Input
-          label="EMAIL"
-          name="email"
-          type="email"
-          value={values.email}
+          label="CONTACT NUMBER"
+          name="phone"
+          type="tel"
+          value={values.phone}
           onChange={handleChange}
           onBlur={handleBlur}
-          error={touched.email && errors.email ? errors.email : undefined}
+          error={touched.phone && errors.phone ? errors.phone : undefined}
           placeholder=""
         />
       </FormRow>
+      <Input
+        label="EMAIL"
+        name="email"
+        type="email"
+        value={values.email}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.email && errors.email ? errors.email : undefined}
+        placeholder=""
+      />
       <Textarea
         label="MESSAGE"
         name="message"

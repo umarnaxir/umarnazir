@@ -36,6 +36,12 @@ export const useContactForm = (): UseContactFormReturn => {
 
         // Reset form
         resetForm();
+
+        // Scroll to top, then refresh the page (short delay so the toast is visible)
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.location.reload();
+        }, 1500);
       } catch (error) {
         // Error handling
         const errorMessage =
