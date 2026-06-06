@@ -97,7 +97,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Live Link
+                {project.linkLabel || 'Live Link'}
                 <ExternalLink size={16} />
               </ProjectLink>
             )}
@@ -131,7 +131,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Live Link
+              {project.linkLabel || 'Live Link'}
               <ExternalLink size={16} />
             </ProjectLink>
           )}

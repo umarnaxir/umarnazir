@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Text, Tag } from '../../atoms';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { ExperienceItem } from '@/lib/data';
 import {
   TimelineItem,
@@ -13,6 +13,7 @@ import {
   CardHeader,
   CardHeaderLeft,
   CompanyName,
+  CompanyLink,
   Role,
   LocationType,
   DateLocation,
@@ -41,7 +42,18 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience, inde
         </CardHeader>
         <CardHeaderLeft>
           <Text variant="h4" as="span">
-            <CompanyName>{experience.company}</CompanyName>
+            {experience.companyUrl ? (
+              <CompanyLink
+                href={experience.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {experience.company}
+                <ArrowUpRight size={18} />
+              </CompanyLink>
+            ) : (
+              <CompanyName>{experience.company}</CompanyName>
+            )}
           </Text>
           <Text variant="h5" as="span">
             <Role>{experience.role}</Role>

@@ -152,6 +152,42 @@ export const CompanyName = styled.span`
   }
 `;
 
+export const CompanyLink = styled.a`
+  font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  line-height: 1.2;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xs};
+  text-decoration: none;
+  width: fit-content;
+
+  svg {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+
+    svg {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  ${StyledExperienceCard}:hover & {
+    color: ${({ theme }) =>
+      theme.mode === 'dark' ? '#e0e7ff' : theme.colors.textSecondary};
+  }
+
+  ${StyledExperienceCard}:hover &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
 export const Role = styled.span`
   font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
   color: ${({ theme }) => theme.colors.accent};

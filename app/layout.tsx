@@ -21,7 +21,7 @@ const lexend = localFont({
 
 const siteUrl = "https://umarnazir.vercel.app";
 const siteName = "Umar Nazir - Software Engineer & SEO Executive";
-const siteDescription = "Software Engineer & SEO Executive with 2+ years building high-performance websites and mobile applications, delivering scalable solutions.";
+const siteDescription = "Software Engineer & SEO Executive with 3+ years building high-performance websites and mobile applications, delivering scalable solutions.";
 const siteImage = `${siteUrl}/images/me.JPG`;
 const keywords = [
   "Umar Nazir",
@@ -32,7 +32,7 @@ const keywords = [
   "React Native Developer",
   "Web Developer",
   "Mobile App Developer",
-  "SEO Optimization",
+  "SEO Executive",
   "JavaScript Developer",
   "UI/UX Designer",
   "Portfolio Website",
@@ -134,7 +134,7 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Umar Nazir",
               "jobTitle": "Software Engineer & SEO Executive",
-              "description": "Software Engineer & SEO Executive with 2+ years building high-performance websites & mobile apps, optimizing digital presence, and delivering scalable solutions.",
+              "description": "Software Engineer & SEO Executive with 3+ years building high-performance websites & mobile apps, optimizing digital presence, and delivering scalable solutions.",
               "url": "https://umarnazir.vercel.app",
               "image": "https://umarnazir.vercel.app/images/me.JPG",
               "email": "sd.umarnazir@gmail.com",
@@ -153,7 +153,7 @@ export default function RootLayout({
                 "Software Engineering",
                 "Web Development",
                 "Mobile App Development",
-                "SEO Optimization",
+                "SEO Executive",
                 "React.js",
                 "Next.js",
                 "React Native",
@@ -228,7 +228,7 @@ export default function RootLayout({
               "@type": "WebSite",
               "name": "Umar Nazir - Software Engineer & SEO Executive",
               "url": "https://umarnazir.vercel.app",
-              "description": "Software Engineer & SEO Executive with 2+ years building high-performance websites & mobile apps, optimizing digital presence, and delivering scalable solutions.",
+              "description": "Software Engineer & SEO Executive with 3+ years building high-performance websites & mobile apps, optimizing digital presence, and delivering scalable solutions.",
               "author": {
                 "@type": "Person",
                 "name": "Umar Nazir"

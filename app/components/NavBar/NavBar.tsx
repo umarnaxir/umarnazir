@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun } from 'lucide-react';
-import { useTheme } from '../../hooks/useTheme';
 import {
   StyledNavbar,
   NavbarContent,
@@ -11,8 +9,6 @@ import {
   NavLinks,
   NavLink,
   MobileNavRight,
-  MobileNavThemeToggleButton,
-  MobileNavThemeToggleThumb,
   MobileMenuButton,
   HamburgerLine,
   MobileMenu,
@@ -26,19 +22,9 @@ import {
   MobileNavLinkItem,
   MobileNavLink,
   MobileResumeLink,
-  ThemeToggleButton,
-  ThemeToggleThumb,
-  MobileThemeToggleButton,
-  MobileThemeToggleThumb,
   ResumeButton,
-  ResumeModalOverlay,
-  ResumeModal,
-  ResumeModalTitle,
-  ResumeModalText,
-  ResumeModalButtons,
-  ResumeModalButton,
-  ResumeModalClose,
 } from './NavBar.styles';
+import { LetsTalkModal } from './LetsTalkModal/LetsTalkModal';
 
 interface NavItem {
   label: string;
@@ -49,6 +35,8 @@ interface NavBarProps {
   name: string;
   navItems?: NavItem[];
   resumeUrl?: string;
+  email?: string;
+  phone?: string;
 }
 
 export const NavBar: React.FC<NavBarProps> = ({
@@ -60,13 +48,15 @@ export const NavBar: React.FC<NavBarProps> = ({
     { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' },
   ],
+  resumeUrl = '/resume/umarnazir.pdf',
+  email = 'sd.umarnazir@gmail.com',
+  phone = '+91 705-173-2616',
 }) => {
-  const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [resumeModalOpen, setResumeModalOpen] = useState(false);
+  const [letsTalkOpen, setLetsTalkOpen] = useState(false);
 
   useEffect(() => {
-    if (mobileMenuOpen || resumeModalOpen) {
+    if (mobileMenuOpen || letsTalkOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -74,7 +64,7 @@ export const NavBar: React.FC<NavBarProps> = ({
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [mobileMenuOpen, resumeModalOpen]);
+  }, [mobileMenuOpen, letsTalkOpen]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -84,28 +74,13 @@ export const NavBar: React.FC<NavBarProps> = ({
     setMobileMenuOpen(false);
   };
 
-  const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const openLetsTalk = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    setResumeModalOpen(true);
+    setLetsTalkOpen(true);
   };
 
-  const handleViewResume = () => {
-    window.open('/resume/umarnazir.pdf', '_blank');
-    setResumeModalOpen(false);
-  };
-
-  const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/resume/umarnazir.pdf';
-    link.download = 'umarnazir.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setResumeModalOpen(false);
-  };
-
-  const closeResumeModal = () => {
-    setResumeModalOpen(false);
+  const closeLetsTalk = () => {
+    setLetsTalkOpen(false);
   };
 
   return (
@@ -122,33 +97,12 @@ export const NavBar: React.FC<NavBarProps> = ({
             ))}
           </NavLinks>
 
-          <ResumeButton href="#" onClick={handleResumeClick}>
-            Resume
+          <ResumeButton href="#" onClick={openLetsTalk}>
+            Let&rsquo;s Talk
           </ResumeButton>
-
-          <ThemeToggleButton
-            onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            $isLight={theme === 'light'}
-          >
-            <ThemeToggleThumb $isLight={theme === 'light'}>
-              {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
-            </ThemeToggleThumb>
-          </ThemeToggleButton>
         </NavRight>
 
         <MobileNavRight>
-          <MobileNavThemeToggleButton
-            onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            $isLight={theme === 'light'}
-          >
-            <MobileNavThemeToggleThumb $isLight={theme === 'light'}>
-              {theme === 'light' ? <Sun size={14} /> : <Moon size={14} />}
-            </MobileNavThemeToggleThumb>
-          </MobileNavThemeToggleButton>
           <MobileMenuButton $isOpen={mobileMenuOpen} onClick={toggleMobileMenu} aria-label="Toggle menu">
             <HamburgerLine $index={0} $isOpen={mobileMenuOpen} />
             <HamburgerLine $index={1} $isOpen={mobileMenuOpen} />
@@ -171,18 +125,6 @@ export const NavBar: React.FC<NavBarProps> = ({
               {name}
             </MobileMenuLogo>
             <MobileMenuHeaderRight>
-              <MobileThemeToggleButton
-                onClick={() => {
-                  toggleTheme();
-                }}
-                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-                $isInHeader
-                $isLight={theme === 'light'}
-              >
-                <MobileThemeToggleThumb $isLight={theme === 'light'} $isInHeader>
-                  {theme === 'light' ? <Sun size={14} /> : <Moon size={14} />}
-                </MobileThemeToggleThumb>
-              </MobileThemeToggleButton>
               <MobileMenuCloseButton onClick={closeMobileMenu} aria-label="Close menu">
                 ×
               </MobileMenuCloseButton>
@@ -203,30 +145,23 @@ export const NavBar: React.FC<NavBarProps> = ({
                 onClick={(e) => {
                   e.preventDefault();
                   closeMobileMenu();
-                  handleResumeClick(e as any);
+                  setLetsTalkOpen(true);
                 }}
               >
-                Resume
+                Let&rsquo;s Talk
               </MobileResumeLink>
             </MobileNavLinkItem>
           </MobileNavLinks>
         </MobileMenuContent>
       </MobileMenu>
 
-      {resumeModalOpen && (
-        <ResumeModalOverlay onClick={closeResumeModal}>
-          <ResumeModal onClick={(e) => e.stopPropagation()}>
-            <ResumeModalTitle>Resume Options</ResumeModalTitle>
-            <ResumeModalText>Choose an option:</ResumeModalText>
-            <ResumeModalButtons>
-              <ResumeModalButton onClick={handleViewResume}>View Resume</ResumeModalButton>
-              <ResumeModalButton onClick={handleDownloadResume}>Download Resume</ResumeModalButton>
-            </ResumeModalButtons>
-            <ResumeModalClose onClick={closeResumeModal} aria-label="Close modal">
-              ×
-            </ResumeModalClose>
-          </ResumeModal>
-        </ResumeModalOverlay>
+      {letsTalkOpen && (
+        <LetsTalkModal
+          onClose={closeLetsTalk}
+          email={email}
+          phone={phone}
+          resumeUrl={resumeUrl}
+        />
       )}
     </StyledNavbar>
   );

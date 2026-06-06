@@ -30,3 +30,35 @@ export const FooterTagline = styled.span`
   color: ${({ theme }) => theme.colors.textTertiary};
   font-size: ${({ theme }) => theme.typography.fontSize.xs};
 `;
+
+export const BackToTopPill = styled.button`
+  display: inline-flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.lg};
+  font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
+  color: ${({ theme }) => theme.colors.textPrimary};
+  background-color: ${({ theme }) =>
+    theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.03)'};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: border-color ${({ theme }) => theme.transitions.base},
+    background-color ${({ theme }) => theme.transitions.base};
+
+  svg {
+    color: ${({ theme }) => theme.colors.accent};
+    transition: transform ${({ theme }) => theme.transitions.base};
+  }
+
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.accent};
+    background-color: ${({ theme }) => theme.colors.bgTertiary};
+
+    svg {
+      transform: translateY(-3px);
+    }
+  }
+`;

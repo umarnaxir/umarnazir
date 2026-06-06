@@ -11,7 +11,7 @@ import { FAQ } from '../FAQ/FAQ';
 import { Contact } from '../Contact/Contact';
 import { ReachOut } from '../ReachOut/ReachOut';
 import { Footer } from '../Footer/Footer';
-import { BackToTop } from '../BackToTop/BackToTop';
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import { portfolioData } from '@/lib/data';
 
 export const PageContent: React.FC = () => {
@@ -19,7 +19,7 @@ export const PageContent: React.FC = () => {
 
   return (
     <main>
-      <NavBar name={personal.name} />
+      <NavBar name={personal.name} email={personal.email} phone={personal.phone} />
       <Hero
         title={personal.title}
         headline={personal.headline}
@@ -42,7 +42,7 @@ export const PageContent: React.FC = () => {
         linkedin="https://www.linkedin.com/in/umar-nazir19/"
       />
       <Footer name={personal.name} />
-      <BackToTop />
+      <ThemeToggle />
     </main>
   );
 };

@@ -5,7 +5,7 @@ export const faqData: FaqItem[] = [
     id: '1',
     question: 'What kind of projects do you take on?',
     answer:
-      'I work on web and app development, full-stack projects, SEO optimization, and consulting. I’m especially interested in healthcare AI, research tools, and open-source work. If it involves clean code and real impact, I’m in.',
+      'I work on web and app development, full-stack projects, SEO Executive, and consulting. I’m especially interested in healthcare AI, research tools, and open-source work. If it involves clean code and real impact, I’m in.',
   },
   {
     id: '2',
