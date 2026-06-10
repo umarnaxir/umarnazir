@@ -123,7 +123,7 @@ export const Logo = styled.a`
 export const NavRight = styled.div`
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: ${({ theme }) => theme.spacing.md};
 
   @media (max-width: 768px) {
     display: none;
@@ -133,7 +133,7 @@ export const NavRight = styled.div`
 export const MobileNavRight = styled.div`
   display: none;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.md};
+  gap: ${({ theme }) => theme.spacing.xs};
 
   @media (max-width: 768px) {
     display: flex;

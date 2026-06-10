@@ -11,6 +11,7 @@ import { FAQ } from '../FAQ/FAQ';
 import { Contact } from '../Contact/Contact';
 import { ReachOut } from '../ReachOut/ReachOut';
 import { Footer } from '../Footer/Footer';
+import { WhatsAppButton } from '../WhatsApp/WhatsApp';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import { portfolioData } from '@/lib/data';
 
@@ -43,6 +44,7 @@ export const PageContent: React.FC = () => {
       />
       <Footer name={personal.name} />
       <ThemeToggle />
+      <WhatsAppButton />
     </main>
   );
 };
