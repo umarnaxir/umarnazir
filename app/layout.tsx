@@ -23,7 +23,7 @@ const lexend = localFont({
 const siteUrl = "https://umarnazir.vercel.app";
 const siteName = "Umar Nazir - Software Engineer & SEO Executive";
 const siteDescription = "Software Engineer & SEO Executive with 3+ years building high-performance websites and mobile applications, delivering scalable solutions.";
-const siteImage = `${siteUrl}/images/me.JPG`;
+const siteImage = `${siteUrl}/images/umar-nazir.jpg`;
 const keywords = [
   "Umar Nazir",
   "Software Engineer",
@@ -137,7 +137,7 @@ export default function RootLayout({
               "jobTitle": "Software Engineer & SEO Executive",
               "description": "Software Engineer & SEO Executive with 3+ years building high-performance websites & mobile apps, optimizing digital presence, and delivering scalable solutions.",
               "url": "https://umarnazir.vercel.app",
-              "image": "https://umarnazir.vercel.app/images/me.JPG",
+              "image": "https://umarnazir.vercel.app/images/umar-nazir.jpg",
               "email": "erumarnazir@gmail.com",
               "telephone": "+91-705-173-2616",
               "address": {
@@ -262,7 +262,7 @@ export default function RootLayout({
                 "@type": "Person",
                 "name": "Umar Nazir",
                 "jobTitle": "Software Engineer & SEO Executive",
-                "image": "https://umarnazir.vercel.app/images/me.JPG",
+                "image": "https://umarnazir.vercel.app/images/umar-nazir.jpg",
                 "email": "erumarnazir@gmail.com",
                 "telephone": "+91-705-173-2616",
                 "url": "https://umarnazir.vercel.app"

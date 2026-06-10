@@ -43,7 +43,7 @@ export const About: React.FC<AboutProps> = ({
             <AboutVisual {...aosProps}>
               <AboutImage>
                 <Image
-                  src="/images/me.JPG"
+                  src="/images/umar-nazir.jpg"
                   alt="Profile photo"
                   fill
                   style={{ objectFit: 'cover', borderRadius: '1rem' }}

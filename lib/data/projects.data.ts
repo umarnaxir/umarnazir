@@ -40,7 +40,7 @@ export const projectsData: Project[] = [
       'Digital solutions agency website built to drive growth through web development, branding, and online marketing. Delivers a polished, conversion-focused experience with SEO-optimized, responsive design.',
     tags: ['NEXT.JS', 'TYPESCRIPT', 'SEO', 'DIGITAL MARKETING', 'RESPONSIVE'],
     link: 'https://vipthra.com/',
-    imageLink: '/images/vipthra.png',
+    imageLink: '/images/vipthra-mockup.png',
     visualVariant: 'default',
     note: 'This project was completed under the supervision of NexGen Developers.',
   },

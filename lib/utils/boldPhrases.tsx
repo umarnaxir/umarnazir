@@ -1,11 +1,20 @@
 import React from 'react';
 
+/** Company names mapped to their websites. These render as bold links. */
+export const COMPANY_LINKS: Record<string, string> = {
+  'Vipthra Technologies': 'https://www.vipthra.com/',
+  'NexGen Developers': 'https://www.nexgendevelopers.in/',
+  'Harmukh Technologies': 'https://harmukhtechnologies.in/',
+  Saibbyweb: 'https://www.saibbyweb.com/',
+};
+
 /** Phrases to bold in hero description and about content (longer first to avoid partial matches). */
 export const BOLD_PHRASES = [
   'Software Engineer & SEO Executive',
   'React.js, Next.js, TypeScript, React Native',
   'Software Development, SEO Executive',
   'Computer Science Engineering',
+  ...Object.keys(COMPANY_LINKS),
   'full-stack development',
   'Software Engineer',
   'SEO Executive',
@@ -20,6 +29,10 @@ export const BOLD_PHRASES = [
   'Next.js',
   'TypeScript',
   'Firebase',
+  'MongoDB',
+  'MySQL',
+  'Node.js',
+  'NestJS',
   'APIs',
 ] as const;
 
@@ -47,10 +60,17 @@ export function boldPhrases(
   if (earliest === null) return text;
 
   const { phrase, index } = earliest;
+  const href = COMPANY_LINKS[phrase];
   return (
     <>
       {boldPhrases(text.slice(0, index), phrases)}
-      <strong>{phrase}</strong>
+      {href ? (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          <strong>{phrase}</strong>
+        </a>
+      ) : (
+        <strong>{phrase}</strong>
+      )}
       {boldPhrases(text.slice(index + phrase.length), phrases)}
     </>
   );
