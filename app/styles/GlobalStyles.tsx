@@ -26,24 +26,6 @@ export const GlobalStyles = createGlobalStyle`
     transition: background-color ${({ theme }) => theme.transitions.base}, color ${({ theme }) => theme.transitions.base};
   }
 
-  /* Subtle teal galaxy glow behind the animated dots (theme accent) */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -2;
-    background-image:
-      radial-gradient(circle at 18% 28%, rgba(13, 148, 136, 0.14) 0%, transparent 45%),
-      radial-gradient(circle at 82% 72%, rgba(13, 148, 136, 0.10) 0%, transparent 45%),
-      radial-gradient(circle at 55% 95%, rgba(13, 148, 136, 0.08) 0%, transparent 50%);
-    opacity: ${({ theme }) => (theme.mode === 'dark' ? 1 : 0.55)};
-    transition: opacity ${({ theme }) => theme.transitions.base};
-  }
-
   #__next {
     position: relative;
     z-index: 1;
@@ -56,7 +38,16 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
+  }
+
+  a:focus-visible {
+    outline: 2px solid
+      ${({ theme }) =>
+        theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   button {
@@ -65,6 +56,13 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
     background: none;
     color: inherit;
+  }
+
+  button:focus-visible {
+    outline: 2px solid
+      ${({ theme }) =>
+        theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+    outline-offset: 3px;
   }
 
   input,
@@ -87,21 +85,12 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
   }
 
-  /* Scrollbar styling */
+  /* Hide scrollbar while keeping scroll */
+  html {
+    scrollbar-width: none;
+  }
+
   ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.bgPrimary};
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.border};
-    border-radius: ${({ theme }) => theme.borderRadius.sm};
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.colors.textTertiary};
+    display: none;
   }
 `;

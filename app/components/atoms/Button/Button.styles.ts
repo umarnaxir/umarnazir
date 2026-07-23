@@ -1,5 +1,16 @@
 import styled, { css } from 'styled-components';
 
+const lightButtonExtras = css`
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  transition: all ${({ theme }) => theme.transitions.smooth};
+  box-shadow: ${({ theme }) => theme.shadows.sm};
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: ${({ theme }) => theme.shadows.glow};
+  }
+`;
+
 export const StyledButton = styled.button<{
   $variant?: 'primary' | 'secondary' | 'accent';
   $size?: 'small' | 'medium' | 'large';
@@ -23,6 +34,8 @@ export const StyledButton = styled.button<{
     cursor: not-allowed;
   }
 
+  ${({ theme }) => theme.mode === 'light' && lightButtonExtras}
+
   ${({ $variant = 'primary' }) => {
     switch ($variant) {
       case 'primary':
@@ -33,7 +46,15 @@ export const StyledButton = styled.button<{
 
           &:hover:not(:disabled) {
             background-color: ${({ theme }) => theme.colors.bgTertiary};
-            border-color: ${({ theme }) => theme.colors.textSecondary};
+            border-color: ${({ theme }) =>
+              theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
+            ${({ theme }) =>
+              theme.mode === 'light' &&
+              css`
+                color: ${theme.colors.accent};
+                transform: translateY(-2px);
+                box-shadow: ${theme.shadows.md};
+              `}
           }
         `;
       case 'secondary':
@@ -43,17 +64,41 @@ export const StyledButton = styled.button<{
           color: ${({ theme }) => theme.colors.textPrimary};
 
           &:hover:not(:disabled) {
-            border-color: ${({ theme }) => theme.colors.accent};
-            color: ${({ theme }) => theme.colors.accent};
+            border-color: ${({ theme }) =>
+              theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+            color: ${({ theme }) =>
+              theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+            ${({ theme }) =>
+              theme.mode === 'light' &&
+              css`
+                background-color: ${theme.colors.bgTertiary};
+                transform: translateY(-2px);
+                box-shadow: ${theme.shadows.sm};
+              `}
           }
         `;
       case 'accent':
         return css`
-          background-color: ${({ theme }) => theme.colors.accent};
-          color: ${({ theme }) => theme.colors.textPrimary};
+          background-color: ${({ theme }) =>
+            theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+          color: ${({ theme }) =>
+            theme.mode === 'light' ? '#ffffff' : theme.colors.bgPrimary};
+          border-color: ${({ theme }) =>
+            theme.mode === 'light' ? theme.colors.accent : 'transparent'};
 
           &:hover:not(:disabled) {
-            background-color: ${({ theme }) => theme.colors.accentHover};
+            ${({ theme }) =>
+              theme.mode === 'light'
+                ? css`
+                    background-color: ${theme.colors.accentHover};
+                    border-color: ${theme.colors.accentHover};
+                    opacity: 1;
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
+                  `
+                : css`
+                    opacity: 0.85;
+                  `}
           }
         `;
     }
@@ -105,6 +150,8 @@ export const StyledButtonLink = styled.a<{
   border: 1px solid transparent;
   text-decoration: none;
 
+  ${({ theme }) => theme.mode === 'light' && lightButtonExtras}
+
   ${({ $variant = 'primary' }) => {
     switch ($variant) {
       case 'primary':
@@ -115,7 +162,15 @@ export const StyledButtonLink = styled.a<{
 
           &:hover {
             background-color: ${({ theme }) => theme.colors.bgTertiary};
-            border-color: ${({ theme }) => theme.colors.textSecondary};
+            border-color: ${({ theme }) =>
+              theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
+            ${({ theme }) =>
+              theme.mode === 'light' &&
+              css`
+                color: ${theme.colors.accent};
+                transform: translateY(-2px);
+                box-shadow: ${theme.shadows.md};
+              `}
           }
         `;
       case 'secondary':
@@ -125,17 +180,41 @@ export const StyledButtonLink = styled.a<{
           color: ${({ theme }) => theme.colors.textPrimary};
 
           &:hover {
-            border-color: ${({ theme }) => theme.colors.accent};
-            color: ${({ theme }) => theme.colors.accent};
+            border-color: ${({ theme }) =>
+              theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+            color: ${({ theme }) =>
+              theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+            ${({ theme }) =>
+              theme.mode === 'light' &&
+              css`
+                background-color: ${theme.colors.bgTertiary};
+                transform: translateY(-2px);
+                box-shadow: ${theme.shadows.sm};
+              `}
           }
         `;
       case 'accent':
         return css`
-          background-color: ${({ theme }) => theme.colors.accent};
-          color: ${({ theme }) => theme.colors.textPrimary};
+          background-color: ${({ theme }) =>
+            theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+          color: ${({ theme }) =>
+            theme.mode === 'light' ? '#ffffff' : theme.colors.bgPrimary};
+          border-color: ${({ theme }) =>
+            theme.mode === 'light' ? theme.colors.accent : 'transparent'};
 
           &:hover {
-            background-color: ${({ theme }) => theme.colors.accentHover};
+            ${({ theme }) =>
+              theme.mode === 'light'
+                ? css`
+                    background-color: ${theme.colors.accentHover};
+                    border-color: ${theme.colors.accentHover};
+                    opacity: 1;
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
+                  `
+                : css`
+                    opacity: 0.85;
+                  `}
           }
         `;
     }

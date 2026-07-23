@@ -33,8 +33,10 @@ export const WorkTitleLine = styled.h2<{ $centered?: boolean }>`
   .section-num {
     font-family: ${({ theme }) => theme.typography.fontFamilyMono};
     font-size: 0.85em;
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textTertiary};
     font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+    opacity: ${({ theme }) => (theme.mode === 'light' ? 0.85 : 1)};
   }
 
   .separator {

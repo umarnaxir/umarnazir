@@ -19,6 +19,7 @@ import {
 } from 'react-icons/si';
 import { Webhook } from 'lucide-react';
 import { Section, Container } from '../atoms';
+import { useTheme } from '../../hooks/useTheme';
 import {
   StyledTechStack,
   TechStackContainer,
@@ -36,8 +37,10 @@ interface Tech {
   color: string;
 }
 
-// Theme teal for the non-branded (skill) tiles
-const TEAL = '#0d9488';
+// Neutral icon color for non-branded skill tiles (dark theme)
+const NEUTRAL = '#FFFFFF';
+// High-contrast icon color for light theme cards
+const LIGHT_ICON = '#0F172A';
 
 const techStack: Tech[] = [
   { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
@@ -55,10 +58,25 @@ const techStack: Tech[] = [
   { name: 'MySQL', icon: <SiMysql />, color: '#4479A1' },
   { name: 'Firebase', icon: <SiFirebase />, color: '#FFCA28' },
   { name: 'Vercel', icon: <SiVercel />, color: '#FFFFFF' },
-  { name: 'APIs', icon: <Webhook />, color: TEAL },
+  { name: 'APIs', icon: <Webhook />, color: NEUTRAL },
 ];
 
+/** Colors that disappear on white cards — force black in light theme */
+const LIGHT_THEME_BLACK_COLORS = new Set(
+  ['#FFFFFF', '#FFF', NEUTRAL, '#F7DF1E', '#FFCA28', '#61DAFB'].map((c) =>
+    c.toUpperCase()
+  )
+);
+
+const resolveIconColor = (color: string, isLight: boolean) => {
+  if (!isLight) return color;
+  return LIGHT_THEME_BLACK_COLORS.has(color.toUpperCase()) ? LIGHT_ICON : color;
+};
+
 export const TechStack: React.FC = () => {
+  const { theme } = useTheme();
+  const isLight = theme === 'light';
+
   return (
     <Section id="techstack">
       <Container>
@@ -76,7 +94,7 @@ export const TechStack: React.FC = () => {
                     data-aos="zoom-in"
                     data-aos-delay={(index % 8) * 40}
                   >
-                    <TechIcon style={{ color: tech.color }}>
+                    <TechIcon style={{ color: resolveIconColor(tech.color, isLight) }}>
                       {tech.icon}
                     </TechIcon>
                     <TechLabel>{tech.name}</TechLabel>

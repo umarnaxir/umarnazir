@@ -38,7 +38,8 @@ export const ScrollIndicatorWrapper = styled.div`
 export const ScrollLine = styled.div`
   width: 1px;
   height: 40px;
-  background-color: ${({ theme }) => theme.colors.textSecondary};
+  background-color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
   animation: ${scrollLineAnimation} 2s ease-in-out infinite;
 
   @media (max-width: 768px) {

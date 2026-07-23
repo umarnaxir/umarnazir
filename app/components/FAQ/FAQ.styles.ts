@@ -38,9 +38,11 @@ export const FaqSectionNumber = styled.span`
   font-family: ${({ theme }) => theme.typography.fontFamilyMono};
   font-size: ${({ theme }) => theme.typography.fontSize['4xl']};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.accent : theme.colors.textTertiary};
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  opacity: ${({ theme }) => (theme.mode === 'light' ? 0.85 : 1)};
 `;
 
 export const FaqHeadline = styled.h2`
@@ -71,32 +73,47 @@ export const AccordionList = styled.div`
 
 export const AccordionItem = styled.div<{ $isOpen: boolean }>`
   width: 100%;
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border-radius: ${({ theme }) =>
+    theme.mode === 'light' ? theme.borderRadius.xl : theme.borderRadius.lg};
   border: 1px solid ${({ theme }) => theme.colors.border};
   background: ${({ theme }) => theme.colors.bgSecondary};
   overflow: hidden;
+  box-shadow: ${({ theme }) =>
+    theme.mode === 'light' ? theme.shadows.sm : 'none'};
   transition:
-    border-color ${({ theme }) => theme.transitions.base},
-    box-shadow ${({ theme }) => theme.transitions.base},
-    background ${({ theme }) => theme.transitions.base};
+    border-color ${({ theme }) =>
+      theme.mode === 'light' ? theme.transitions.smooth : theme.transitions.base},
+    box-shadow ${({ theme }) =>
+      theme.mode === 'light' ? theme.transitions.smooth : theme.transitions.base},
+    background ${({ theme }) => theme.transitions.base},
+    transform ${({ theme }) => theme.transitions.smooth};
 
   ${({ $isOpen, theme }) =>
     $isOpen &&
     css`
-      border-color: ${theme.colors.accent};
-      box-shadow: 0 0 0 1px ${theme.colors.accent};
+      border-color: ${theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+      box-shadow: ${theme.mode === 'light'
+        ? theme.shadows.md
+        : `0 0 0 1px ${theme.colors.border}`};
       background: ${theme.colors.bgSecondary};
     `}
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.textTertiary};
+    border-color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textTertiary};
+    ${({ theme }) =>
+      theme.mode === 'light' &&
+      `
+      transform: translateY(-2px);
+      box-shadow: ${theme.shadows.md};
+    `}
   }
 
   ${({ $isOpen, theme }) =>
     $isOpen &&
     css`
       &:hover {
-        border-color: ${theme.colors.accent};
+        border-color: ${theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
       }
     `}
 `;
@@ -120,11 +137,14 @@ export const AccordionTrigger = styled.button`
   -webkit-tap-highlight-color: transparent;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
   }
 
   &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline: 2px solid
+      ${({ theme }) =>
+        theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
     outline-offset: 2px;
   }
 `;
@@ -136,8 +156,12 @@ export const AccordionIcon = styled.span<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ theme }) => theme.colors.accent};
-  transition: transform ${({ theme }) => theme.transitions.base};
+  color: ${({ theme, $isOpen }) =>
+    theme.mode === 'light' && $isOpen
+      ? theme.colors.accent
+      : theme.colors.textSecondary};
+  transition: transform ${({ theme }) => theme.transitions.base},
+    color ${({ theme }) => theme.transitions.fast};
   transform: rotate(${({ $isOpen }) => ($isOpen ? '180deg' : '0deg')});
 `;
 

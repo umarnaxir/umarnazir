@@ -8,6 +8,8 @@ import {
   FooterContent,
   FooterCopyright,
   FooterTagline,
+  FooterLinks,
+  FooterLink,
   BackToTopPill,
 } from './Footer.styles';
 
@@ -23,15 +25,24 @@ export const Footer: React.FC<FooterProps> = ({ name }) => {
   };
 
   return (
-    <StyledFooter data-aos="fade-up">
+    <StyledFooter>
       <Container>
         <FooterContent>
           <Text variant="caption" color="tertiary" as="span">
-            <FooterCopyright>© {currentYear} {name}</FooterCopyright>
+            <FooterCopyright>
+              © {currentYear} {name}
+            </FooterCopyright>
           </Text>
+
+          <FooterLinks>
+            <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
+            <FooterLink href="/terms-and-conditions">Terms & Conditions</FooterLink>
+          </FooterLinks>
+
           <Text variant="caption" color="tertiary" as="span">
             <FooterTagline>Designed & Built with purpose</FooterTagline>
           </Text>
+
           <BackToTopPill onClick={scrollToTop} aria-label="Back to top">
             Back to Top
             <ArrowUp size={16} />

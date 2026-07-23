@@ -39,17 +39,20 @@ export const TimelineDotOuter = styled.div`
   height: 32px;
   border-radius: 50%;
   background-color: transparent;
-  border: 2px solid ${({ theme }) => theme.colors.accent};
+  border: 2px solid
+    ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
   z-index: 1;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   ${TimelineItem}:hover & {
-    border-color: ${({ theme }) => theme.colors.accentHover};
+    border-color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
     transform: scale(1.1);
     box-shadow: ${({ theme }) =>
       theme.mode === 'dark'
-        ? `0 0 0 4px ${theme.colors.accent}33`
-        : `0 0 0 4px ${theme.colors.accent}33`};
+        ? '0 0 0 4px rgba(255, 255, 255, 0.12)'
+        : '0 0 0 4px rgba(13, 148, 136, 0.15)'};
   }
 
   @media (max-width: 768px) {
@@ -64,13 +67,17 @@ export const TimelineDot = styled.div`
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.textPrimary};
+  background-color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
   z-index: 2;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   ${TimelineItem}:hover & {
     transform: scale(1.15);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    box-shadow: ${({ theme }) =>
+      theme.mode === 'light'
+        ? '0 0 12px rgba(13, 148, 136, 0.45)'
+        : '0 0 8px rgba(255, 255, 255, 0.5)'};
   }
 
   @media (max-width: 768px) {
@@ -82,33 +89,38 @@ export const TimelineDot = styled.div`
 export const StyledExperienceCard = styled.div`
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) =>
+    theme.mode === 'light' ? theme.borderRadius.xl : theme.borderRadius.md};
   padding: ${({ theme }) => theme.spacing.xl};
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   width: 100%;
   max-width: 100%;
   cursor: pointer;
+  box-shadow: ${({ theme }) =>
+    theme.mode === 'light' ? theme.shadows.sm : 'none'};
 
   ${TimelineItem}:hover & {
-    border-color: ${({ theme }) => theme.colors.accent};
+    border-color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textTertiary};
     transform: translateX(8px);
     box-shadow: ${({ theme }) =>
       theme.mode === 'dark'
-        ? `0 4px 24px ${theme.colors.accent}26`
-        : `0 4px 24px ${theme.colors.accent}20`};
+        ? '0 4px 24px rgba(0, 0, 0, 0.45)'
+        : theme.shadows.hover};
   }
 
   @media (max-width: 768px) {
     padding: ${({ theme }) => theme.spacing.md};
-    border-radius: ${({ theme }) => theme.borderRadius.sm};
+    border-radius: ${({ theme }) =>
+      theme.mode === 'light' ? theme.borderRadius.lg : theme.borderRadius.sm};
 
     ${TimelineItem}:hover & {
       transform: translateX(4px);
       box-shadow: ${({ theme }) =>
         theme.mode === 'dark'
-          ? `0 2px 12px ${theme.colors.accent}20`
-          : `0 2px 12px ${theme.colors.accent}15`};
+          ? '0 2px 12px rgba(0, 0, 0, 0.4)'
+          : theme.shadows.md};
     }
   }
 `;
@@ -148,7 +160,7 @@ export const CompanyName = styled.span`
 
   ${StyledExperienceCard}:hover & {
     color: ${({ theme }) =>
-      theme.mode === 'dark' ? '#e0e7ff' : theme.colors.textSecondary};
+      theme.mode === 'dark' ? '#e0e7ff' : theme.colors.accent};
   }
 `;
 
@@ -170,7 +182,8 @@ export const CompanyLink = styled.a`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
 
     svg {
       opacity: 1;
@@ -180,24 +193,24 @@ export const CompanyLink = styled.a`
 
   ${StyledExperienceCard}:hover & {
     color: ${({ theme }) =>
-      theme.mode === 'dark' ? '#e0e7ff' : theme.colors.textSecondary};
+      theme.mode === 'dark' ? '#ffffff' : theme.colors.accent};
   }
 
   ${StyledExperienceCard}:hover &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accentHover : theme.colors.textPrimary};
   }
 `;
 
 export const Role = styled.span`
   font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
-  color: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.colors.textPrimary};
   line-height: 1.3;
   transition: color 0.3s ease;
   display: block;
 
   ${StyledExperienceCard}:hover & {
-    color: ${({ theme }) =>
-      theme.mode === 'dark' ? theme.colors.accentHover : theme.colors.accent};
+    color: ${({ theme }) => theme.colors.textPrimary};
   }
 `;
 
@@ -286,7 +299,8 @@ export const ExperienceListItem = styled.li`
 `;
 
 export const ExperienceListArrow = styled.span`
-  color: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.accent : theme.colors.textTertiary};
   margin-top: 6px;
   flex-shrink: 0;
   transition: color 0.3s ease;

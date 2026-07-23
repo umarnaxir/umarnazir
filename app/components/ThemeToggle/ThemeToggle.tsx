@@ -3,18 +3,21 @@
 import React from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
-import { ThemeToggleFab } from './ThemeToggle.styles';
+import { ThemeToggleButton } from './ThemeToggle.styles';
 
 export const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
 
   return (
-    <ThemeToggleFab
+    <ThemeToggleButton
+      type="button"
       onClick={toggleTheme}
-      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-pressed={isDark}
     >
-      {theme === 'light' ? <Sun /> : <Moon />}
-    </ThemeToggleFab>
+      {isDark ? <Sun strokeWidth={1.75} /> : <Moon strokeWidth={1.75} />}
+    </ThemeToggleButton>
   );
 };

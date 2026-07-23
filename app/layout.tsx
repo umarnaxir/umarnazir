@@ -1,11 +1,13 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
 import { AOSInit } from "./components/AOSInit";
 import { ThemeProvider } from "./components/ThemeProvider";
-import { GalaxyBackground } from "./components/GalaxyBackground/GalaxyBackground";
 import StyledComponentsRegistry from "./components/StyledComponentsRegistry";
+import { NavBar } from "./components/NavBar/NavBar";
+import { portfolioData } from "@/lib/data";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -274,8 +276,12 @@ export default function RootLayout({
       <body suppressHydrationWarning style={{ margin: 0, padding: 0, overflowX: 'hidden' }}>
         <StyledComponentsRegistry>
           <ThemeProvider>
-            <GalaxyBackground />
             <AOSInit />
+            <NavBar
+              name={portfolioData.personal.name}
+              email={portfolioData.personal.email}
+              phone={portfolioData.personal.phone}
+            />
             {children}
             <Toaster
               position="top-right"

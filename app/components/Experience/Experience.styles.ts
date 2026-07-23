@@ -19,7 +19,15 @@ export const TimelineLine = styled.div`
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: ${({ theme }) => theme.colors.accent};
+  background: ${({ theme }) =>
+    theme.mode === 'light'
+      ? `linear-gradient(
+          180deg,
+          ${theme.colors.accent} 0%,
+          ${theme.colors.border} 40%,
+          ${theme.colors.border} 100%
+        )`
+      : theme.colors.border};
 `;
 
 export const TimelineItems = styled.div`

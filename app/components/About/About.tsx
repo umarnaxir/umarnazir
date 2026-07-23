@@ -46,7 +46,7 @@ export const About: React.FC<AboutProps> = ({
                   src="/images/umar-nazir.jpg"
                   alt="Profile photo"
                   fill
-                  style={{ objectFit: 'cover', borderRadius: '1rem' }}
+                  style={{ objectFit: 'cover' }}
                   sizes="(max-width: 1024px) 100vw, 480px"
                 />
               </AboutImage>

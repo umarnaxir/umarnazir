@@ -3,44 +3,49 @@
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from '../../hooks/useTheme';
 
-/**
- * Interactive animated background: teal "galaxy" dots drifting across the
- * screen in three sizes — large soft glowing orbs, medium dots, and tiny
- * twinkling star dots. Reacts subtly to the cursor (parallax). No grid/lines.
- *
- * Theme accent teal is #0d9488 (kept consistent with the app theme).
- */
-
-type Layer = 1 | 2 | 3;
-
-interface Particle {
+type Star = {
   x: number;
   y: number;
-  r: number;
-  baseAlpha: number;
-  vx: number;
-  vy: number;
-  layer: Layer; // 1 = far/small, 2 = medium, 3 = near/large glow
+  z: number;
+  size: number;
+  twinkle: number;
   twinkleSpeed: number;
-  twinklePhase: number;
-  color: RGB;
-  glowColor: RGB;
-}
+  brightness: number;
+};
 
-interface RGB {
-  r: number;
-  g: number;
-  b: number;
-}
+type ShootingStar = {
+  x: number;
+  y: number;
+  len: number;
+  speed: number;
+  angle: number;
+  life: number;
+  maxLife: number;
+};
 
-// Theme colours broken into channels so we can vary alpha freely.
-const TEAL = { r: 13, g: 148, b: 136 };
-const TEAL_LIGHT = { r: 45, g: 212, b: 191 }; // brighter teal for highlights
-const YELLOW = { r: 253, g: 224, b: 110 }; // warm amber/yellow (theme accent)
-const YELLOW_LIGHT = { r: 253, g: 230, b: 138 };
+const DEPTH = 1000;
+const STAR_COUNT_DESKTOP = 220;
+const STAR_COUNT_MOBILE = 120;
+
+function createStars(count: number, w: number, h: number): Star[] {
+  return Array.from({ length: count }, () => ({
+    x: (Math.random() - 0.5) * w * 2.2,
+    y: (Math.random() - 0.5) * h * 2.2,
+    z: Math.random() * DEPTH,
+    size: 0.4 + Math.random() * 1.8,
+    twinkle: Math.random() * Math.PI * 2,
+    twinkleSpeed: 0.008 + Math.random() * 0.025,
+    brightness: 0.35 + Math.random() * 0.65,
+  }));
+}
 
 export const GalaxyBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
+  const starsRef = useRef<Star[]>([]);
+  const shootingRef = useRef<ShootingStar[]>([]);
+  const rafRef = useRef(0);
+  const reducedRef = useRef(false);
   const { theme } = useTheme();
   const themeRef = useRef(theme);
   themeRef.current = theme;
@@ -48,172 +53,205 @@ export const GalaxyBackground: React.FC = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    const prefersReduced =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    let width = 0;
-    let height = 0;
+    reducedRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let w = 0;
+    let h = 0;
     let dpr = 1;
-    let particles: Particle[] = [];
 
-    // Pointer parallax target / eased value
-    const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
-
-    const rand = (min: number, max: number) => Math.random() * (max - min) + min;
-
-    const buildParticles = () => {
-      // Scale particle count to viewport area, capped for performance.
-      const area = width * height;
-      const count = Math.min(420, Math.max(140, Math.round(area / 4500)));
-      particles = [];
-      for (let i = 0; i < count; i++) {
-        // Distribute layers: mostly tiny stars, some medium, few big orbs.
-        const roll = Math.random();
-        let layer: Layer = 1;
-        if (roll > 0.95) layer = 3;
-        else if (roll > 0.78) layer = 2;
-
-        // Smaller dots overall, with a tiny far layer.
-        const r =
-          layer === 3 ? rand(1.6, 2.8) : layer === 2 ? rand(0.8, 1.4) : rand(0.3, 0.8);
-
-        // Mix teal and yellow dots (teal-dominant to keep the theme).
-        const isYellow = Math.random() > 0.62;
-        const baseC = isYellow ? YELLOW : TEAL;
-        const glowC = isYellow ? YELLOW_LIGHT : TEAL_LIGHT;
-        // Larger/nearer dots drift a touch faster (parallax depth).
-        const speed = layer === 3 ? rand(0.10, 0.22) : layer === 2 ? rand(0.05, 0.13) : rand(0.02, 0.07);
-        const angle = rand(0, Math.PI * 2);
-
-        particles.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          r,
-          baseAlpha:
-            layer === 3 ? rand(0.45, 0.8) : layer === 2 ? rand(0.3, 0.6) : rand(0.15, 0.5),
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed,
-          layer,
-          twinkleSpeed: rand(0.4, 1.6),
-          twinklePhase: rand(0, Math.PI * 2),
-          color: baseC,
-          glowColor: glowC,
-        });
-      }
-    };
+    const starRgb = () => (themeRef.current === 'light' ? '0,0,0' : '255,255,255');
+    const alphaScale = () => (themeRef.current === 'light' ? 0.72 : 1);
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      if (w <= 0 || h <= 0) return;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      buildParticles();
+
+      const count = w < 768 ? STAR_COUNT_MOBILE : STAR_COUNT_DESKTOP;
+      if (starsRef.current.length !== count) {
+        starsRef.current = createStars(count, w, h);
+      }
     };
 
-    const onPointerMove = (e: MouseEvent) => {
-      // Normalised offset from center, -1..1
-      pointer.tx = (e.clientX / width - 0.5) * 2;
-      pointer.ty = (e.clientY / height - 0.5) * 2;
+    const onMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current.tx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      mouseRef.current.ty = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
     };
 
-    let last = 0;
-    let raf = 0;
+    const onLeave = () => {
+      mouseRef.current.tx = 0;
+      mouseRef.current.ty = 0;
+    };
 
-    const draw = (time: number) => {
-      const dt = last ? Math.min((time - last) / 16.67, 3) : 1; // frames elapsed (~60fps base)
-      last = time;
+    const spawnShootingStar = () => {
+      if (shootingRef.current.length > 2) return;
+      shootingRef.current.push({
+        x: Math.random() * w * 0.7,
+        y: Math.random() * h * 0.4,
+        len: 60 + Math.random() * 100,
+        speed: 6 + Math.random() * 8,
+        angle: Math.PI / 5 + Math.random() * 0.35,
+        life: 0,
+        maxLife: 40 + Math.random() * 30,
+      });
+    };
 
-      // Ease pointer toward target for smooth parallax.
-      pointer.x += (pointer.tx - pointer.x) * 0.05;
-      pointer.y += (pointer.ty - pointer.y) * 0.05;
+    let spawnTimer = 0;
 
-      const isLight = themeRef.current === 'light';
-      ctx.clearRect(0, 0, width, height);
-      ctx.globalCompositeOperation = isLight ? 'source-over' : 'lighter';
+    const drawStatic = () => {
+      ctx.clearRect(0, 0, w, h);
+      const rgb = starRgb();
+      const scale = alphaScale();
+      const cx = w / 2;
+      const cy = h / 2;
+      for (const star of starsRef.current) {
+        const k = DEPTH / (DEPTH + star.z);
+        const sx = cx + star.x * k;
+        const sy = cy + star.y * k;
+        const r = star.size * k;
+        const alpha = star.brightness * (0.35 + k * 0.65) * scale;
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(${rgb},${alpha})`;
+        ctx.arc(sx, sy, Math.max(0.4, r), 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
 
-      const t = time / 1000;
+    const tick = () => {
+      if (reducedRef.current) {
+        drawStatic();
+        return;
+      }
 
-      for (const p of particles) {
-        if (!prefersReduced) {
-          p.x += p.vx * dt;
-          p.y += p.vy * dt;
+      const m = mouseRef.current;
+      m.x += (m.tx - m.x) * 0.06;
+      m.y += (m.ty - m.y) * 0.06;
 
-          // Wrap around edges for an endless galaxy field.
-          if (p.x < -5) p.x = width + 5;
-          else if (p.x > width + 5) p.x = -5;
-          if (p.y < -5) p.y = height + 5;
-          else if (p.y > height + 5) p.y = -5;
+      ctx.clearRect(0, 0, w, h);
+
+      const rgb = starRgb();
+      const scale = alphaScale();
+      const cx = w / 2 + m.x * 28;
+      const cy = h / 2 + m.y * 18;
+      const tiltX = m.y * 0.15;
+      const tiltY = m.x * 0.2;
+
+      const haze = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(w, h) * 0.55);
+      haze.addColorStop(0, `rgba(${rgb},${0.035 * scale})`);
+      haze.addColorStop(0.55, `rgba(${rgb},${0.01 * scale})`);
+      haze.addColorStop(1, `rgba(${rgb},0)`);
+      ctx.fillStyle = haze;
+      ctx.fillRect(0, 0, w, h);
+
+      for (const star of starsRef.current) {
+        star.z -= 0.35 + (1 - star.z / DEPTH) * 0.55;
+        if (star.z <= 1) {
+          star.z = DEPTH;
+          star.x = (Math.random() - 0.5) * w * 2.2;
+          star.y = (Math.random() - 0.5) * h * 2.2;
         }
 
-        // Twinkle
-        const twinkle = prefersReduced
-          ? 1
-          : 0.65 + 0.35 * Math.sin(t * p.twinkleSpeed + p.twinklePhase);
+        star.twinkle += star.twinkleSpeed;
+        const k = DEPTH / (DEPTH + star.z);
+        let sx = star.x * k;
+        let sy = star.y * k;
+        const rx = sx;
+        const ry = sy * Math.cos(tiltX) - star.z * 0.02 * Math.sin(tiltX);
+        const rz = sy * Math.sin(tiltX) + star.z * Math.cos(tiltX);
+        sx = rx * Math.cos(tiltY) + rz * 0.02 * Math.sin(tiltY);
+        sy = ry;
 
-        // Parallax: nearer (larger) layers shift more with the pointer.
-        const depth = p.layer === 3 ? 26 : p.layer === 2 ? 14 : 6;
-        const px = p.x - pointer.x * depth;
-        const py = p.y - pointer.y * depth;
+        const px = cx + sx;
+        const py = cy + sy;
+        const twinkle = 0.55 + 0.45 * Math.sin(star.twinkle);
+        const alpha = star.brightness * twinkle * (0.25 + k * 0.75) * scale;
+        const r = Math.max(0.35, star.size * k * (0.85 + twinkle * 0.25));
 
-        const alpha = Math.min(1, p.baseAlpha * twinkle * (isLight ? 0.7 : 1));
-        const c = p.layer === 3 ? p.glowColor : p.color;
-
-        if (p.layer === 3) {
-          // Soft glowing orb (galaxy feel) via radial gradient.
-          const g = p.color;
-          const glow = ctx.createRadialGradient(px, py, 0, px, py, p.r * 5);
-          glow.addColorStop(0, `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`);
-          glow.addColorStop(0.4, `rgba(${g.r}, ${g.g}, ${g.b}, ${alpha * 0.35})`);
-          glow.addColorStop(1, `rgba(${g.r}, ${g.g}, ${g.b}, 0)`);
+        if (k > 0.7 && star.brightness > 0.7) {
+          const glow = ctx.createRadialGradient(px, py, 0, px, py, r * 6);
+          glow.addColorStop(0, `rgba(${rgb},${alpha * 0.35})`);
+          glow.addColorStop(1, `rgba(${rgb},0)`);
           ctx.fillStyle = glow;
           ctx.beginPath();
-          ctx.arc(px, py, p.r * 5, 0, Math.PI * 2);
+          ctx.arc(px, py, r * 6, 0, Math.PI * 2);
           ctx.fill();
         }
 
-        // Solid dot core.
-        ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, ${alpha})`;
         ctx.beginPath();
-        ctx.arc(px, py, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${rgb},${Math.min(1, alpha)})`;
+        ctx.arc(px, py, r, 0, Math.PI * 2);
         ctx.fill();
       }
 
-      ctx.globalCompositeOperation = 'source-over';
-      raf = requestAnimationFrame(draw);
+      spawnTimer++;
+      if (spawnTimer > 180 + Math.random() * 220) {
+        spawnShootingStar();
+        spawnTimer = 0;
+      }
+
+      for (let i = shootingRef.current.length - 1; i >= 0; i--) {
+        const s = shootingRef.current[i];
+        s.life++;
+        s.x += Math.cos(s.angle) * s.speed;
+        s.y += Math.sin(s.angle) * s.speed;
+        const progress = s.life / s.maxLife;
+        const fade = progress < 0.2 ? progress / 0.2 : 1 - (progress - 0.2) / 0.8;
+
+        const tailX = s.x - Math.cos(s.angle) * s.len;
+        const tailY = s.y - Math.sin(s.angle) * s.len;
+        const grad = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
+        grad.addColorStop(0, `rgba(${rgb},0)`);
+        grad.addColorStop(1, `rgba(${rgb},${0.7 * fade * scale})`);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.moveTo(tailX, tailY);
+        ctx.lineTo(s.x, s.y);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(${rgb},${0.9 * fade * scale})`;
+        ctx.arc(s.x, s.y, 1.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (s.life >= s.maxLife) shootingRef.current.splice(i, 1);
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
     };
 
     resize();
     window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', onPointerMove);
-    raf = requestAnimationFrame(draw);
+    window.addEventListener('mousemove', onMove, { passive: true });
+    canvas.addEventListener('mouseleave', onLeave);
+
+    if (reducedRef.current) {
+      drawStatic();
+    } else {
+      rafRef.current = requestAnimationFrame(tick);
+    }
 
     return () => {
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(rafRef.current);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', onPointerMove);
+      window.removeEventListener('mousemove', onMove);
+      canvas.removeEventListener('mouseleave', onLeave);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      aria-hidden="true"
-      style={{
-        position: 'fixed',
-        inset: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
-        zIndex: -1,
-      }}
+      aria-hidden
+      className="pointer-events-none absolute inset-0 h-full w-full"
     />
   );
 };

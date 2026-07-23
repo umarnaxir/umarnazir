@@ -37,33 +37,44 @@ const spinIn = keyframes`
   }
 `;
 
-export const StyledNavbar = styled.nav<{ $mobileMenuActive?: boolean }>`
+export const StyledNavbar = styled.nav<{
+  $mobileMenuActive?: boolean;
+  $scrolled?: boolean;
+}>`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: ${({ theme }) => theme.zIndex.sticky};
-  background-color: ${({ theme }) =>
-    theme.mode === 'dark'
-      ? 'rgba(10, 10, 10, 0.8)'
-      : 'rgba(255, 255, 255, 0.8)'};
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  padding: ${({ theme }) => theme.spacing.lg} 0;
+  padding: 0.75rem 0;
+  background-color: ${({ $scrolled, $mobileMenuActive, theme }) => {
+    if ($mobileMenuActive) return theme.colors.bgPrimary;
+    if ($scrolled) {
+      return theme.mode === 'dark'
+        ? 'rgba(10, 10, 10, 0.85)'
+        : 'rgba(247, 250, 250, 0.82)';
+    }
+    return 'transparent';
+  }};
+  backdrop-filter: ${({ $scrolled, $mobileMenuActive }) =>
+    $scrolled && !$mobileMenuActive ? 'blur(16px)' : 'none'};
+  -webkit-backdrop-filter: ${({ $scrolled, $mobileMenuActive }) =>
+    $scrolled && !$mobileMenuActive ? 'blur(16px)' : 'none'};
+  border-bottom: 1px solid
+    ${({ $scrolled, $mobileMenuActive, theme }) =>
+      $scrolled || $mobileMenuActive ? theme.colors.border : 'transparent'};
+  transition:
+    background-color ${({ theme }) => theme.transitions.base},
+    border-color ${({ theme }) => theme.transitions.base},
+    backdrop-filter ${({ theme }) => theme.transitions.base};
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: ${({ theme }) =>
-      theme.mode === 'dark'
-        ? 'linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%)'
-        : 'linear-gradient(180deg, rgba(255, 107, 53, 0.05) 0%, transparent 100%)'};
-    pointer-events: none;
-    z-index: -1;
-  }
+  ${({ theme, $scrolled }) =>
+    theme.mode === 'light' &&
+    $scrolled &&
+    `
+    box-shadow: 0 1px 0 rgba(229, 231, 235, 0.8), 0 8px 24px rgba(15, 23, 42, 0.04);
+  `}
 
   &::after {
     content: '';
@@ -78,10 +89,7 @@ export const StyledNavbar = styled.nav<{ $mobileMenuActive?: boolean }>`
   }
 
   @media (max-width: 768px) {
-    position: fixed;
-    padding: ${({ theme }) => theme.spacing.md} 0;
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    padding: 0.6rem 0;
   }
 `;
 
@@ -96,34 +104,36 @@ export const NavbarContent = styled.div`
   position: relative;
 
   @media (max-width: 768px) {
-    padding: 0 ${({ theme }) => theme.spacing.xl};
+    padding: 0 0.75rem;
   }
 `;
 
 export const Logo = styled.a`
   font-family: ${({ theme }) => theme.typography.fontFamilyHeading};
-  font-size: ${({ theme }) => theme.typography.fontSize.xl};
+  font-size: ${({ theme }) => theme.typography.fontSize.lg};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   color: ${({ theme }) => theme.colors.textPrimary};
   transition: color ${({ theme }) => theme.transitions.fast};
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 32px;
+  line-height: 1;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
   }
 
   @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.typography.fontSize.lg};
-    height: 36px;
+    font-size: ${({ theme }) => theme.typography.fontSize.base};
+    height: 28px;
   }
 `;
 
 export const NavRight = styled.div`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.md};
+  gap: ${({ theme }) => theme.spacing.lg};
 
   @media (max-width: 768px) {
     display: none;
@@ -143,7 +153,7 @@ export const MobileNavRight = styled.div`
 export const NavLinks = styled.ul`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.xl};
+  gap: ${({ theme }) => theme.spacing.lg};
   list-style: none;
   margin: 0;
   padding: 0;
@@ -157,24 +167,50 @@ export const NavLink = styled.a`
   letter-spacing: 0.05em;
   color: ${({ theme }) => theme.colors.textPrimary};
   transition: color ${({ theme }) => theme.transitions.fast};
+  position: relative;
+
+  ${({ theme }) =>
+    theme.mode === 'light' &&
+    `
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: ${theme.colors.accent};
+      border-radius: 1px;
+      transition: width ${theme.transitions.smooth};
+    }
+  `}
 
   &:hover {
-    color: ${({ theme }) => theme.colors.textSecondary};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
+
+    ${({ theme }) =>
+      theme.mode === 'light' &&
+      `
+      &::after {
+        width: 100%;
+      }
+    `}
   }
 `;
 
 export const MobileMenuButton = styled.button<{ $isOpen?: boolean }>`
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   background: none;
   border: none;
   cursor: pointer;
   padding: ${({ theme }) => theme.spacing.xs};
   justify-content: center;
   align-items: flex-end;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   position: relative;
   z-index: 1001;
   align-self: center;
@@ -194,8 +230,8 @@ export const MobileMenuButton = styled.button<{ $isOpen?: boolean }>`
     transform: scale(1.1);
     
     span {
-      background-color: ${({ theme }) => theme.colors.accent};
-      box-shadow: 0 0 8px ${({ theme }) => theme.colors.accent};
+      background-color: ${({ theme }) => theme.colors.textPrimary};
+      box-shadow: none;
     }
   }
   
@@ -334,7 +370,7 @@ export const MobileMenuCloseButton = styled.button`
   animation: ${spinIn} 0.6s ease-out 0.1s forwards;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.textSecondary};
   }
 `;
 
@@ -374,7 +410,7 @@ export const MobileNavLink = styled.a`
   text-decoration: none;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.textSecondary};
     padding-left: ${({ theme }) => theme.spacing.sm};
   }
 `;
@@ -429,7 +465,7 @@ export const ResumeButton = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: ${({ theme }) => theme.spacing.xl};
+  margin-left: 0;
   position: relative;
 
   &::after {
@@ -439,15 +475,18 @@ export const ResumeButton = styled.a`
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: ${({ theme }) => theme.colors.textPrimary};
+    background-color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
     transition: all ${({ theme }) => theme.transitions.base};
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.textSecondary};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
     
     &::after {
-      background-color: ${({ theme }) => theme.colors.textSecondary};
+      background-color: ${({ theme }) =>
+        theme.mode === 'light' ? theme.colors.accentHover : theme.colors.textSecondary};
     }
   }
 `;

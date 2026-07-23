@@ -89,7 +89,7 @@ export const Decoration = styled.div`
   overflow: hidden;
   z-index: 0;
 
-  /* soft accent glow, top-right */
+  /* soft monochrome glow, top-right */
   &::before {
     content: '';
     position: absolute;
@@ -100,13 +100,14 @@ export const Decoration = styled.div`
     border-radius: 50%;
     background: radial-gradient(
       circle,
-      ${({ theme }) => `${theme.colors.accent}33`} 0%,
+      ${({ theme }) =>
+        theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.04)'} 0%,
       transparent 70%
     );
     filter: blur(6px);
   }
 
-  /* subtle accent glow, bottom-left */
+  /* subtle monochrome glow, bottom-left */
   &::after {
     content: '';
     position: absolute;
@@ -117,7 +118,8 @@ export const Decoration = styled.div`
     border-radius: 50%;
     background: radial-gradient(
       circle,
-      ${({ theme }) => `${theme.colors.accent}22`} 0%,
+      ${({ theme }) =>
+        theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.03)'} 0%,
       transparent 70%
     );
   }
@@ -169,8 +171,10 @@ export const Badge = styled.span`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.accent};
-    box-shadow: 0 0 0 4px ${({ theme }) => `${theme.colors.accent}33`};
+    background-color: ${({ theme }) => theme.colors.textPrimary};
+    box-shadow: 0 0 0 4px
+      ${({ theme }) =>
+        theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.12)' : 'rgba(0, 0, 0, 0.08)'};
   }
 `;
 
@@ -211,7 +215,7 @@ export const ContactCard = styled.a`
   }
 
   &:hover {
-    border-color: ${({ theme }) => `${theme.colors.accent}80`};
+    border-color: ${({ theme }) => theme.colors.textTertiary};
     background-color: ${({ theme }) =>
       theme.mode === 'dark' ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)'};
   }
@@ -225,8 +229,8 @@ export const ContactIcon = styled.span`
   height: 46px;
   flex-shrink: 0;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  background-color: ${({ theme }) => theme.colors.accent};
-  color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.bgPrimary};
 
   svg {
     width: 20px;
@@ -295,11 +299,11 @@ export const ResumeButton = styled.button`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.accent};
-    color: #ffffff;
-    border-color: ${({ theme }) => theme.colors.accent};
+    background-color: ${({ theme }) => theme.colors.textPrimary};
+    color: ${({ theme }) => theme.colors.bgPrimary};
+    border-color: ${({ theme }) => theme.colors.textPrimary};
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px ${({ theme }) => `${theme.colors.accent}40`};
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 
     svg {
       transform: scale(1.15) translateY(-1px);
@@ -358,11 +362,11 @@ export const SocialLink = styled.a`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.accent};
-    color: #ffffff;
-    border-color: ${({ theme }) => theme.colors.accent};
+    background-color: ${({ theme }) => theme.colors.textPrimary};
+    color: ${({ theme }) => theme.colors.bgPrimary};
+    border-color: ${({ theme }) => theme.colors.textPrimary};
     transform: translateY(-3px) scale(1.08);
-    box-shadow: 0 8px 18px ${({ theme }) => `${theme.colors.accent}45`};
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -390,9 +394,9 @@ export const CloseButton = styled.button`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.accent};
-    color: #ffffff;
-    border-color: ${({ theme }) => theme.colors.accent};
+    background-color: ${({ theme }) => theme.colors.textPrimary};
+    color: ${({ theme }) => theme.colors.bgPrimary};
+    border-color: ${({ theme }) => theme.colors.textPrimary};
     transform: rotate(90deg) scale(1.05);
   }
 `;

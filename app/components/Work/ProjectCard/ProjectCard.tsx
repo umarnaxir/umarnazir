@@ -117,7 +117,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       </ProjectInfo>
       <ProjectVisual $isReverse={isReverse} className="project-visual">
         <Image
-          src={project.imageLink || '/images/ml-jobs.png'}
+          src={project.imageLink || '/images/work/mljobs.png'}
           alt={project.title}
           fill
           style={{ objectFit: 'cover', borderRadius: '0.5rem' }}

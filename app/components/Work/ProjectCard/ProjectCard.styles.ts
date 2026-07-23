@@ -10,7 +10,7 @@ export const ProjectCardWrapper = styled.div<{ $isReverse?: boolean }>`
   transition: transform ${({ theme }) => theme.transitions.base};
 
   &:hover .project-title {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) => theme.colors.textSecondary};
   }
 
   &:hover .project-visual {
@@ -153,15 +153,22 @@ export const ProjectLink = styled.a`
   display: inline-flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.xs};
-  color: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.colors.textPrimary};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: gap ${({ theme }) => theme.transitions.base};
+  transition: gap ${({ theme }) => theme.transitions.base},
+    color ${({ theme }) => theme.transitions.base};
 
   &:hover {
     gap: ${({ theme }) => theme.spacing.sm};
+    color: ${({ theme }) => theme.colors.accent};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.accent};
+    outline-offset: 3px;
   }
 `;
 
@@ -170,7 +177,7 @@ export const ProjectNote = styled.button<{ $isOpen?: boolean }>`
   display: inline-flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.xs};
-  color: ${({ theme }) => theme.colors.accent};
+  color: ${({ theme }) => theme.colors.textSecondary};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   text-transform: uppercase;
@@ -185,6 +192,7 @@ export const ProjectNote = styled.button<{ $isOpen?: boolean }>`
 
   &:hover {
     gap: ${({ theme }) => theme.spacing.sm};
+    color: ${({ theme }) => theme.colors.textPrimary};
   }
 
   @media (min-width: 1025px) {
@@ -263,16 +271,33 @@ export const ProjectNoteContent = styled.div<{ $isOpen: boolean }>`
 export const ProjectVisual = styled.div<{ $isReverse?: boolean }>`
   width: 100%;
   height: 400px;
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) =>
+    theme.mode === 'light' ? theme.borderRadius.xl : theme.borderRadius.md};
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
   order: ${({ $isReverse }) => ($isReverse ? 1 : 2)};
-  transition: transform ${({ theme }) => theme.transitions.base}, opacity ${({ theme }) => theme.transitions.base};
+  transition: transform ${({ theme }) => theme.transitions.base},
+    opacity ${({ theme }) => theme.transitions.base},
+    box-shadow ${({ theme }) => theme.transitions.smooth},
+    border-color ${({ theme }) => theme.transitions.smooth};
+  border: ${({ theme }) =>
+    theme.mode === 'light' ? `1px solid ${theme.colors.border}` : 'none'};
+  box-shadow: ${({ theme }) =>
+    theme.mode === 'light' ? theme.shadows.md : 'none'};
 
   img {
     transition: transform ${({ theme }) => theme.transitions.base};
   }
+
+  ${({ theme }) =>
+    theme.mode === 'light' &&
+    `
+    &:hover {
+      border-color: ${theme.colors.accent};
+      box-shadow: ${theme.shadows.hover};
+    }
+  `}
 
   @media (max-width: 1024px) {
     height: 350px;

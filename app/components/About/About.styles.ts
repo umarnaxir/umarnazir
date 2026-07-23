@@ -4,44 +4,54 @@ export const StyledAbout = styled.div`
   position: relative;
 `;
 
-/** Single bg div: content + image inside, ~80% viewport height (20% less) */
+/** Single card: content + image share equal height */
 export const AboutInner = styled.div`
   display: grid;
   grid-template-columns: 60% 40%;
   gap: 0;
   align-items: stretch;
-  min-height: 80vh;
-  min-height: 80dvh;
   background: ${({ theme }) => theme.colors.bgSecondary};
   border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  border-radius: ${({ theme }) =>
+    theme.mode === 'light' ? theme.borderRadius['2xl'] : theme.borderRadius.lg};
   overflow: hidden;
   transform-style: preserve-3d;
-  transition: border-color ${({ theme }) => theme.transitions.base},
-    box-shadow ${({ theme }) => theme.transitions.base};
+  box-shadow: ${({ theme }) =>
+    theme.mode === 'light' ? theme.shadows.md : 'none'};
+  transition: border-color ${({ theme }) =>
+      theme.mode === 'light' ? theme.transitions.smooth : theme.transitions.base},
+    box-shadow ${({ theme }) =>
+      theme.mode === 'light' ? theme.transitions.smooth : theme.transitions.base},
+    transform ${({ theme }) =>
+      theme.mode === 'light' ? theme.transitions.smooth : theme.transitions.base};
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.accent};
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2),
-      0 0 0 1px ${({ theme }) => theme.colors.accent}40;
+    border-color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textTertiary};
+    box-shadow: ${({ theme }) =>
+      theme.mode === 'light' ? theme.shadows.hover : '0 12px 40px rgba(0, 0, 0, 0.2)'};
+    ${({ theme }) =>
+      theme.mode === 'light' &&
+      `
+      transform: translateY(-4px);
+    `}
   }
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
     gap: 0;
-    min-height: auto;
     padding: ${({ theme }) => theme.spacing.md};
   }
 `;
 
-/** Left div: content (same bg as parent) */
+/** Left: content — card height follows this column on desktop */
 export const AboutText = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.xl};
-  padding: ${({ theme }) => theme.spacing['2xl']} ${({ theme }) => theme.spacing['3xl']};
+  gap: ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.xl} ${({ theme }) => theme.spacing['2xl']};
   min-height: 0;
-  justify-content: center;
+  justify-content: flex-start;
 
   @media (max-width: 1024px) {
     order: 2;
@@ -61,17 +71,18 @@ export const AboutText = styled.div`
   }
 `;
 
-/** Right div: image (same bg div as content) */
+/** Right: image stretches to match content height */
 export const AboutVisual = styled.div`
   display: flex;
   align-items: stretch;
   justify-content: stretch;
   position: relative;
   min-height: 0;
+  align-self: stretch;
 
   @media (max-width: 1024px) {
     order: 1;
-    min-height: 520px;
+    min-height: 360px;
     animation: fadeInUp 0.6s ease-out both;
   }
 
@@ -87,18 +98,15 @@ export const AboutVisual = styled.div`
   }
 `;
 
-/** Image fills its column, no extra radius (parent has overflow hidden) */
 export const AboutImage = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 320px;
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
 
   @media (max-width: 1024px) {
     border-radius: ${({ theme }) => theme.borderRadius.md};
-    min-height: 520px;
+    min-height: 360px;
   }
 `;
-

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { NavBar } from '../NavBar/NavBar';
 import { Hero } from '../Hero/Hero';
 import { Work } from '../Work/Work';
 import { Experience } from '../Experience/Experience';
@@ -12,15 +11,18 @@ import { Contact } from '../Contact/Contact';
 import { ReachOut } from '../ReachOut/ReachOut';
 import { Footer } from '../Footer/Footer';
 import { WhatsAppButton } from '../WhatsApp/WhatsApp';
-import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
+import { GalaxyBackground } from '../GalaxyBackground/GalaxyBackground';
 import { portfolioData } from '@/lib/data';
 
 export const PageContent: React.FC = () => {
   const { personal, projects, experiences, about, contact } = portfolioData;
 
   return (
-    <main>
-      <NavBar name={personal.name} email={personal.email} phone={personal.phone} />
+    <main className="relative">
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <GalaxyBackground />
+      </div>
+      <div className="relative z-[1]">
       <Hero
         title={personal.title}
         headline={personal.headline}
@@ -43,8 +45,8 @@ export const PageContent: React.FC = () => {
         linkedin="https://www.linkedin.com/in/umar-nazir19/"
       />
       <Footer name={personal.name} />
-      <ThemeToggle />
       <WhatsAppButton />
+      </div>
     </main>
   );
 };

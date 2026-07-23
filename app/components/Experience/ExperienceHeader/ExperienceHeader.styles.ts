@@ -16,6 +16,8 @@ export const SectionHeader = styled.div`
 export const SectionNumber = styled.span`
   font-size: ${({ theme }) => theme.typography.fontSize['2xl']};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.textTertiary};
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.accent : theme.colors.textTertiary};
   font-family: ${({ theme }) => theme.typography.fontFamilyMono};
+  opacity: ${({ theme }) => (theme.mode === 'light' ? 0.85 : 1)};
 `;

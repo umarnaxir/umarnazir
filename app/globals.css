@@ -1,0 +1,41 @@
+/* Utilities only — avoid Tailwind preflight so styled-components keep control */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+@import "tw-animate-css";
+
+:root,
+[data-theme="dark"] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-tertiary: #1f1f1f;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --text-tertiary: #808080;
+  --border: #2a2a2a;
+  --accent: #0f766e;
+  --accent-soft: #134e4a;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f7fafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0fdfa;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --border: #e5e7eb;
+  --accent: #0d9488;
+  --accent-soft: #ccfbf1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

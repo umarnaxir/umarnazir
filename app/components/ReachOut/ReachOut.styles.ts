@@ -64,21 +64,31 @@ export const ContactCards = styled.div`
 export const ContactCard = styled.div`
   background-color: ${({ theme }) => theme.colors.bgSecondary};
   border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) =>
+    theme.mode === 'light' ? theme.borderRadius.xl : theme.borderRadius.md};
   padding: ${({ theme }) => theme.spacing.xl};
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.sm};
-  transition: all ${({ theme }) => theme.transitions.base} ease-out;
+  transition: all
+    ${({ theme }) =>
+      theme.mode === 'light'
+        ? theme.transitions.smooth
+        : `${theme.transitions.base} ease-out`};
   transform-style: preserve-3d;
   transform: translateZ(0);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: ${({ theme }) => theme.shadows.sm};
   will-change: transform;
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.textSecondary};
-    transform: translateY(-6px) translateZ(15px) rotateX(2deg);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
+    transform: ${({ theme }) =>
+      theme.mode === 'light'
+        ? 'translateY(-6px) translateZ(15px)'
+        : 'translateY(-6px) translateZ(15px) rotateX(2deg)'};
+    box-shadow: ${({ theme }) =>
+      theme.mode === 'light' ? theme.shadows.hover : '0 12px 32px rgba(0, 0, 0, 0.12)'};
   }
 `;
 
@@ -88,7 +98,8 @@ export const CardLabel = styled.span`
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
 `;
 
 export const CardValue = styled.span`
@@ -104,6 +115,14 @@ export const CardLink = styled.a`
   transition: color ${({ theme }) => theme.transitions.fast};
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent};
+    color: ${({ theme }) =>
+      theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
+  }
+
+  &:focus-visible {
+    outline: 2px solid
+      ${({ theme }) =>
+        theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
+    outline-offset: 3px;
   }
 `;

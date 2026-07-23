@@ -28,4 +28,3 @@ export const AboutContent: React.FC<AboutContentProps> = ({ content }) => {
     </AboutDescription>
   );
 };
-

@@ -18,8 +18,22 @@ export const Subtitle = styled.p`
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: ${({ theme }) => theme.colors.textSecondary};
+  color: ${({ theme }) =>
+    theme.mode === 'light' ? theme.colors.accent : theme.colors.textSecondary};
   margin: 0;
+
+  ${({ theme }) =>
+    theme.mode === 'light' &&
+    `
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 9999px;
+    background: ${theme.colors.accentSoft};
+    border: 1px solid rgba(13, 148, 136, 0.2);
+    letter-spacing: 0.12em;
+  `}
 `;
 
 export const Title = styled.div`
@@ -41,6 +55,20 @@ export const Headline = styled.h2`
   display: block;
   width: 100%;
   text-align: center;
+
+  ${({ theme }) =>
+    theme.mode === 'light' &&
+    `
+    background: linear-gradient(
+      135deg,
+      ${theme.colors.textPrimary} 0%,
+      ${theme.colors.textPrimary} 55%,
+      ${theme.colors.accent} 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  `}
 
   @media (max-width: 1024px) {
     font-size: ${({ theme }) => theme.typography.fontSize['4xl']};
