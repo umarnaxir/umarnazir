@@ -7,6 +7,7 @@ import { AOSInit } from "./components/AOSInit";
 import { ThemeProvider } from "./components/ThemeProvider";
 import StyledComponentsRegistry from "./components/StyledComponentsRegistry";
 import { NavBar } from "./components/NavBar/NavBar";
+import { TopScroller } from "./components/TopScroller/TopScroller";
 import { portfolioData } from "@/lib/data";
 
 const spaceGrotesk = Space_Grotesk({
@@ -277,6 +278,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ThemeProvider>
             <AOSInit />
+            <TopScroller />
             <NavBar
               name={portfolioData.personal.name}
               email={portfolioData.personal.email}

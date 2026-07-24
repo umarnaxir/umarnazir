@@ -30,19 +30,6 @@ export const LegalContent = styled.div`
   z-index: 1;
 `;
 
-export const ReadingProgress = styled.div<{ $progress: number }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  width: ${({ $progress }) => `${$progress}%`};
-  z-index: ${({ theme }) => theme.zIndex.sticky + 1};
-  background: ${({ theme }) =>
-    theme.mode === 'light' ? theme.colors.accent : theme.colors.textPrimary};
-  transition: width 80ms linear;
-  pointer-events: none;
-`;
-
 export const LegalInner = styled.div`
   width: 100%;
   max-width: 1280px;

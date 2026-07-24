@@ -12,7 +12,6 @@ import {
   LegalShell,
   LegalBackground,
   LegalContent,
-  ReadingProgress,
   LegalInner,
   LegalHero,
   LegalEyebrow,
@@ -54,7 +53,6 @@ interface LegalPageProps {
 export const LegalPage: React.FC<LegalPageProps> = ({ content }) => {
   const { personal } = portfolioData;
   const [activeId, setActiveId] = useState(content.sections[0]?.id ?? '');
-  const [progress, setProgress] = useState(0);
   const [copied, setCopied] = useState(false);
 
   const readingMinutes = useMemo(() => {
@@ -69,19 +67,6 @@ export const LegalPage: React.FC<LegalPageProps> = ({ content }) => {
     const words = text.trim().split(/\s+/).length;
     return Math.max(3, Math.ceil(words / 200));
   }, [content]);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        window.document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0);
-    };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     const sections = content.sections
@@ -138,7 +123,6 @@ export const LegalPage: React.FC<LegalPageProps> = ({ content }) => {
       <LegalBackground>
         <GalaxyBackground />
       </LegalBackground>
-      <ReadingProgress $progress={progress} aria-hidden="true" />
 
       <LegalContent>
       <LegalInner>
